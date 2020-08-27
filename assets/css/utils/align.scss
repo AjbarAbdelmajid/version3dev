@@ -1,0 +1,16 @@
+.u-alignCenter {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.u-alignVerticalCenter {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.u-flexWrap {
+  flex: wrap;
+}

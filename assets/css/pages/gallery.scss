@@ -1,0 +1,18 @@
+.Gallery-sliders {
+  position: relative;
+  padding-bottom: calc(560 / 960 * 100%);
+  margin-bottom: 120px;
+}
+
+.Gallery-slider {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+
+  &.active {
+    opacity: 1;
+  }
+}

@@ -1,0 +1,15 @@
+{# {# 
+	component: base_slider_nav_button 
+
+	sens {String}: "prev" ou "next"
+#}
+
+{% set props = {
+  sens: "next"
+}|merge(props|default({}))  %}
+
+{% set jsComponentId = "slider_card" %}
+
+<div class="BaseSliderNavButton BaseSliderNavButton--{{ props.sens }} u-alignCenter">
+	<div class="BaseSliderNavButton-icon"></div>
+</div>

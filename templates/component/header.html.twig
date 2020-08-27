@@ -1,0 +1,295 @@
+{# 
+	component: header
+
+	subnav_size {string}: taille de la subnav 
+#}
+
+{% set jsComponentId = "header" %}
+
+{% set props = {
+	subnav_size: "small"
+}|merge(props|default({}))  %}
+
+
+{% set data = {
+  nav: [
+		{
+			label: "Hotel & restaurants",
+			link: "/page-lvl1",
+			id: "about",
+			subnav: {
+				title: "Découvrez <strong>nos lieux</strong>",
+				image: {
+					src: 'build/images/header/bg-about.jpg',
+					alt: 'Restaurant Pornic'
+				},
+				items: [
+					{
+						label: 'Notre <strong>hôtel</strong>',
+						link: "/page-lvl2",
+						icon: ""
+					},
+					{
+						label: 'Notre <strong>restaurant & bar</strong>',
+						link: "/page-lvl2",
+						icon: ""
+					}
+				]
+			}
+		},
+		{
+			label: "Séjour & Thalasso",
+			link: "/page-lvl1",
+			id: "cures",
+			subnav: {
+				title: "Découvrez <strong>nos cures</strong>",
+				image: {
+					src: 'build/images/header/bg-cures.jpg',
+					alt: 'Massage'
+				},
+				items: [
+					{
+						label: 'Les cures <strong>remise en forme</strong>',
+						link: "/page-lvl2",
+						icon: ""
+					},
+					{
+						label: 'Les cures <strong>thalasso & SPA</strong>',
+						link: "/page-lvl2",
+						icon: ""
+					},
+					{
+						label: 'Les cures <strong>santé</strong>',
+						link: "/page-lvl2",
+						icon: ""
+					},
+					{
+						label: 'Les cures <strong>beauté</strong>',
+						link: "/page-lvl2",
+						icon: ""
+					},{
+						label: 'Les cures <strong>sport</strong>',
+						link: "/page-lvl2",
+						icon: ""
+					},
+					{
+						label: '<strong>Les ateliers</strong>',
+						link: "/page-lvl2",
+						icon: ""
+					}
+				]
+			}
+		},
+		{
+			label: "Week-ends court séjour",
+			link: "/page-lvl2",
+			id: "week-end",
+		},
+		{
+			label: "Journées soins Thalasso SPA",
+			link: "Soin thalasspo",
+			id: "spa-days",
+			subnav: {
+				title: "Découvrez <strong>nos journées soins</strong>",
+				image: {
+					src: 'build/images/header/bg-spa-days.jpg',
+					alt: ''
+				},
+				items: [
+					{
+						label: 'Journées <strong>Thalasso & SPA</strong>',
+						link: "/page-lvl2",
+						icon: ""
+					},
+					{
+						label: '<strong>Soins</strong>',
+						link: "/page-lvl2",
+						icon: ""
+					},
+					{
+						label: 'Soins <strong>capital santé</strong>',
+						link: "/page-lvl2",
+						icon: ""
+					},
+					{
+						label: 'Soins <strong>thalasso</strong>',
+						link: "/page-lvl2",
+						icon: ""
+					},{
+						label: '<strong>Abonnements</strong>',
+						link: "/page-simple",
+						icon: ""
+					}
+				]
+			}
+		},
+		{
+			label: "Journées soins Thalasso SPA",
+			link: "/page-lvl1",
+			id: "wellness",
+			subnav: {
+				title: "Découvrez <strong>notre espace forme</strong>",
+				image: {
+					src: 'build/images/header/bg-wellness.jpg',
+					alt: 'Fitness'
+				},
+				items: [
+					{
+						label: 'Espace <strong>aquatique</strong>',
+						link: "/page-lvl2",
+						icon: ""
+					},
+					{
+						label: 'Espace <strong>fitness</strong>',
+						link: "/page-lvl2",
+						icon: ""
+					},
+					{
+						label: '<strong>Tarifs</strong>',
+						link: "/page-lvl2",
+						icon: ""
+					}
+				]
+			}
+		}
+	],
+	shopNav: [
+		{
+			label: "Boutique",
+			icon: "shop",
+			link: "#"
+		},
+		{
+			label: "Bons plans",
+			icon: "voucher",
+			link: "/page-good-deal"
+		},
+		{
+			label: "Idées cadeaux",
+			icon: "gift",
+			link: "/page-simple"
+		}
+	],
+	topNav: [
+		{
+			label: "Blog",
+			icon: "blog",
+			link: "#"
+		},
+		{
+			label: "Etre rappelé",
+			icon: "call-back",
+			link: "#"
+		},
+		{
+			label: "Contactez-nous",
+			icon: "message",
+			link: "#"
+		}
+	],
+
+} %}
+
+<header class="Header" data-component="{{ jsComponentId }}">
+	<div class="Header-wrapper">
+		<a href="./" class="Header-logo u-alignVerticalCenter" ref="hideSubnavEl">
+			{% include 'component/base_image.html.twig' with {
+				props: {
+					src: asset('build/images/header/logo.png'),
+					alt: 'Logo Pornic'
+				}
+			} %}
+		</a>
+
+		<div
+			class="Header-content">
+
+			{# Top #}
+			<div class="Header-contentTop" ref="hideSubnavEl">
+				<form action="#" class="Header-search">
+					<button class="Header-searchButton u-alignCenter">
+						{% include 'component/base_icon.html.twig' with {
+							props: {
+								name: 'search'
+							}
+						} %}
+					</button>
+					<input type="text" name="search" placeholder="Tapez votre recherche ici"/>
+				</form>
+				<nav class="Header-topNav">
+					{% for item in data.topNav %}
+						<a class="Header-topNavItem u-alignCenter" href="{{ item.link }}">
+							{% include 'component/base_icon.html.twig' with {
+								props: {
+									name: item.icon
+								}
+							} %}
+							{{ item.label }}
+						</a>
+
+					{% endfor %}
+				</nav>
+				<div class="Header-phone">
+					{% include 'component/base_icon.html.twig' with {
+								props: {
+									name: 'phone'
+								}
+							} %}
+					02 57 23 00 50
+				</div>
+				<div class="Header-lang u-alignVerticalCenter">FR
+					<div class="Header-langDropdown">
+						<div class="Header-langDropdownInner u-alignVerticalCenter">
+							<a class="Header-langDropdownItem" href="#">EN</a>
+						</div>
+					</div>
+				</div>
+			</div>
+
+
+			<div
+				class="Header-contentBottom">
+
+				{# Nav #}
+				<nav class="Header-nav" ref="nav">
+					{% for item in data.nav %}
+						<div class="Header-navItem" ref="navItem" data-id="{{item.id}}">
+							<a class="Header-navItemLink" href="{{ item.link }}">{{ item.label }}</a>
+						</div>
+					{% endfor %}
+				</nav>
+
+				{# Shop Nav #}
+				<nav class="Header-shopNav" ref="hideSubnavEl">
+					{% for item in data.shopNav %}
+						<a href="{{ item.link }}" class="Header-shopNavItem">
+							{% include 'component/base_icon.html.twig' with {
+								props: {
+									name: item.icon
+								}
+							} %}
+							{{ item.label }}
+						</a>
+					{% endfor %}
+				</nav>
+			</div>
+		</div>
+	</div>
+
+	<div class="Header-wrapSubnav {{ props.subnav_size }}" ref="wrapSubnav">
+		<div class="Header-wrapSubnavInner u-posFit">
+			{% for item in data.nav %}
+				{% if item.subnav is defined %}
+					{% include 'component/header_subnav.html.twig' with {
+					props: {
+						id: item.id,
+						title: item.subnav.title,
+						image: item.subnav.image,
+						items: item.subnav.items
+					}
+				} %}
+				{% endif %}
+			{% endfor %}
+		</div>
+	</div>
+</header>

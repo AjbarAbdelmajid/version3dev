@@ -1,0 +1,32 @@
+.BaseSliderNavButton {
+  width: 80px;
+  height: 80px;
+  position: relative;
+  cursor: pointer;
+
+  &--prev {
+    .BaseSliderNavButton-icon {
+      width: 0;
+      height: 0;
+      border-style: solid;
+      border-width: 4px 7px 4px 0;
+      border-color: transparent $darkBlue transparent transparent;
+    }
+  }
+
+  &::after {
+    @include pseudo();
+    @include posFit();
+    border: 1px solid #dcdcdc;
+    border-radius: 100%;
+  }
+}
+
+.BaseSliderNavButton-icon {
+  display: block;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 4px 0 4px 7px;
+  border-color: transparent transparent transparent $darkBlue;
+}

@@ -1,0 +1,26 @@
+.JobSpeculative {
+  padding: 40px 0;
+}
+
+.JobSpeculative-wrapper {
+  padding: 80px;
+  background: $greyBg;
+}
+
+.JobSpeculative-content {
+  background: $white;
+  padding: 80px 40px 100px 40px;
+  position: relative;
+}
+
+.JobSpeculative-icon {
+  margin-bottom: 40px;
+}
+
+.JobSpeculative-button {
+  position: absolute;
+  bottom: 0;
+  width: 480px;
+  max-width: calc(100% - 40px);
+  bottom: -40px;
+}

@@ -1,0 +1,161 @@
+{# 
+	page: page_simple
+#}
+
+{% extends "layouts/base.html.twig" %}
+
+{% set jsPageId = 'page' %}
+{% set pageClass = 'PageSimple' %}
+{% set heroSize = 'small' %}
+
+{% block content %}
+
+	{# Hero #}
+	{% include 'component/page_hero.html.twig' with {
+    props: {
+      size: heroSize,
+      content_over: false,
+      title: "Abonnements",
+      image: {
+       	src: asset('build/images/page/hero-subscriptions.jpg'),
+        alt: '',
+        size: {
+          width: "1440",
+          height: "800"
+        }
+      }
+    }
+  } %}
+
+
+	{# Filter bar #}
+	{% include 'component/filter_bar.html.twig' %}
+
+	{# Breadcrumb #}
+	{% include 'component/breadcrumb.html.twig' with {
+    props: {
+      items: [
+        {
+          label: "Accueil",
+          link: "./",
+          active: false
+        },
+        {  
+          label: " Salle de remise en forme à Pornic ",
+          link: "/page-lvl1",
+          active: false
+        },
+        {
+          label: "Abonnement au centre de thalassothérapie   ",
+          link: "/page-lvl2",
+          active: true
+        }
+      ]
+    }
+  } %}
+
+	{# detail_card #}
+	{% include 'component/page_simple_list.html.twig' with {
+      props: {
+        first_title: null,
+        second_title: "Vous aimez venir à Alliance Pornic pour profiter des soins lors de votre temps libre ?",
+        third_title: "Profitez de cartes vous donnant accès à l’Espace Forme<br> le jour de votre soin.",
+        text: "Toutes les cartes sont valables un an.",
+        list: [
+          {
+            image: {
+              src: asset('build/images/page/carte-thalasso.jpg'),
+              alt: '',
+              size: {
+                width: "400",
+                height: "480"
+              }
+            },
+            title: "Carte <strong>Thalasso</strong>",
+            content: 
+              "<p class='text-highlight'>Comprenant <strong>10 soins au choix</strong> parmi :</p>
+              <ul>
+                <li>Bain hydromassant aux algues ou aux huiles essentielles</li>
+                <li>Douche au jet</li>
+                <li>Douche apaisante à affusion</li>
+                <li>Enveloppement d’algues</li>
+                <li>Application de boue auto chauffante ou d’argile des Moutiers</li>
+                <li>Lit hydromassant ou lit andumédic</li>
+              </ul>",
+            actions: {
+              price: {
+                start: null,
+                value: 1440,
+                quantity: "Par personne"
+              },
+              button: {
+                title: "acheter OU OFFRIR",
+                url: "#",
+                external: true
+              }
+            }
+          },
+          {
+            image: {
+              src: asset('build/images/page/carte-secret-du-monde.jpg'),
+              alt: '',
+              size: {
+                width: "400",
+                height: "480"
+              }
+            },
+            title: "Carte <strong>Secret du monde</strong>",
+            content: 
+              "<p class='text-highlight'>Comprenant <strong>9 séances</strong> de 50mn au choix :</p>
+              <p>Massages Californien, Maya, Polynésien, Maori, Massaï, massage Signature, Shiatsu, réflexologie chinoise, massage au joya.</p>",
+            actions: {
+              price: {
+                start: null,
+                value: 729,
+                quantity: "Par personne"
+              },
+              button: {
+                title: "acheter OU OFFRIR",
+                url: "#",
+                external: true
+              }
+            }
+          },
+          {
+            image: {
+              src: asset('build/images/page/carte-cellu-m6.jpg'),
+              alt: '',
+              size: {
+                width: "400",
+                height: "480"
+              }
+            },
+            title: "Carte <strong>Cellu M6</strong>",
+            content: 
+              "<p class='text-highlight'>Comprenant :</p>
+              <ul>
+                <li>Carte 6 séances de 20mn: <strong class='u-cGold'>270 €</strong></li>
+                <li>Carte 5 séances de 50mn: <strong class='u-cGold'>385 €</strong></li>
+              </ul>
+              <p class='text-highlight'>2 séances par semaines sont conseillées.</p>
+              <p>Le + : <strong>collant Cellu M6 offert</strong> (valeur : 19€), consultation avec une diététicienne, & accès aux ateliers diététiques.</p>",
+            actions: {
+              price: {
+                start: null,
+                value: 655,
+                quantity: "Par personne"
+              },
+              button: {
+                title: "acheter OU OFFRIR",
+                url: "#",
+                external: true
+              }
+            }
+          }
+        ]
+      }
+    }
+  %}
+
+
+{% endblock %}

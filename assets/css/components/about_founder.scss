@@ -1,0 +1,91 @@
+.AboutFounder {
+  padding: 120px 0;
+}
+
+.AboutFounder-image {
+  width: 480px;
+  position: relative;
+  margin: 0 auto;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+
+  &::before {
+    @include pseudo();
+    width: 100%;
+    height: 0;
+    padding-bottom: calc(712 / 480 * 100%);
+  }
+  .BaseImage {
+    @include posFit();
+    opacity: 0.6;
+  }
+}
+
+.AboutFounder-text {
+  font-size: 36px;
+  line-height: 50px;
+  font-family: $title-font;
+  text-align: center;
+  position: relative;
+  z-index: 20;
+  overflow: hidden;
+}
+
+.AboutFounder-text--blue {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+.AboutFounder-wrapText {
+  position: relative;
+
+  &::after {
+    @include pseudo();
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 200px;
+    background: $white;
+    z-index: 40;
+    background: linear-gradient(
+      to top,
+      rgba(255, 255, 255, 1),
+      rgba(255, 255, 255, 0)
+    );
+  }
+}
+
+.AboutFounder-textMask {
+  width: 480px;
+  overflow: hidden;
+  position: relative;
+  margin: 0 auto;
+
+  &::before {
+    @include pseudo();
+    width: 100%;
+    height: 0;
+    padding-bottom: calc(712 / 480 * 100%);
+  }
+
+  .AboutFounder-textInner {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+.AboutFounder-textInner {
+  position: relative;
+  max-width: 1120px;
+  width: calc(100vw - 300px);
+  top: 290px;
+
+  p {
+    margin-bottom: 75px;
+  }
+}

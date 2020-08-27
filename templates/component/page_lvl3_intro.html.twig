@@ -1,0 +1,30 @@
+{# 
+	component: page_lvl3_intro
+
+	title {string}: titre
+  introduction {string}: introduction
+  text {base_cms_text}: Texte
+#}
+
+{% set props = {
+  title: null,
+  introduction: null,
+  text: null,
+}|merge(props|default({}))  %}
+
+<section class="PageLvl3Intro">
+	<div class="PageLvl3Intro-wrapper u-wrapperMedium">
+
+		<h2 class="PageLvl3Intro-title u-titleMedium">{{ props.title|raw }}</h2>
+		<div class="PageLvl3Intro-content">
+			<div class="PageLvl3Intro-intro u-titleXSmall u-cGold">{{ props.introduction|raw }}</div>
+			<div class="PageLvl3Intro-text">
+				{% include 'component/base_cms_text.html.twig' with {
+          props: {
+            content: props.text
+          }
+        } %}
+			</div>
+		</div>
+	</div>
+</section>

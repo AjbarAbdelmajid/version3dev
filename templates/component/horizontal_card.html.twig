@@ -1,0 +1,104 @@
+{# 
+	component: horizontal_card
+
+	theme {string}: theme (default|good-deal)
+  image {base_image}: image
+  title {string}: titre
+	intro {string} (optional): intro
+	details {array} (optional): liste de détails
+		- icon {string}: icon
+		- title {string}: texte
+		- text {string}: texte
+	offers {array} (optional): liste d'offres
+		- value {string}: valeur
+		- for {string}: pour
+		- duration {string}: durée
+  content {base_cms_text}: contenu
+  actions {horizontal_card_actions} : actions
+      
+
+#}
+
+{% set props = {
+	theme: "default",
+  image: null,
+  title: null,
+	intro: null,
+	details: null,
+	offers: null,
+  content: null,
+  actions: null,
+}|merge(props|default({}))  %}
+
+<section class="HorizontalCard {{ props.theme }}">
+	<div class="HorizontalCard-inner">
+		<div class="HorizontalCard-image">
+			{% include 'component/base_image.html.twig' with {
+				props: props.image
+			} %}
+		</div>
+		<div class="HorizontalCard-content">
+			<div
+				class="HorizontalCard-contentInner">
+
+				{# title #}
+				<h2 class="HorizontalCard-title u-titleMedium">{{ props.title|raw }}</h2>
+
+				{# intro #}
+				{% if props.intro is not null %}
+					<div class="HorizontalCard-intro">{{ props.intro|raw }}</div>
+				{% endif %}
+
+				{# details #}
+				{% if props.offers is not null %}
+					<div class="HorizontalCard-offers">
+						{% for item in props.offers %}
+							<div class="HorizontalCard-offersItem u-alignVerticalCenter">
+								<div class="value">{{ item.value }}</div>
+								<div class="for">{{ item.for }}</div>
+								<div class="duration">{{ item.duration|raw }}</div>
+							</div>
+						{% endfor %}
+					</div>
+				{% endif %}
+
+				{# details #}
+				{% if props.details is not null %}
+					<div class="HorizontalCard-details">
+						{% for item in props.details %}
+							<div class="HorizontalCard-detailsItem u-flex">
+								{% include 'component/base_icon_circle.html.twig' with {
+									props: {
+										icon: item.icon,
+										size: 'small'
+										}
+									} %}
+								<div class="HorizontalCard-detailsItemContent">
+									<div class="u-textHighlight">{{ item.title|raw }}</div>
+									{% if item.text is defined and item.text is not null %}
+										<span>{{ item.text|raw }}</span>
+									{% endif %}
+								</div>
+							</div>
+						{% endfor %}
+					</div>
+				{% endif %}
+
+				{# Content #}
+				{% if props.content is not null %}
+					{% include 'component/base_cms_text.html.twig' with {
+          props: {
+            content: props.content
+          }
+        } %}
+				{% endif %}
+			</div>
+
+			{# actions #}
+			{% include 'component/horizontal_card_actions.html.twig' with {
+          props: props.actions
+        } %}
+		</div>
+
+	</div>
+</section>

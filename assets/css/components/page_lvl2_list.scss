@@ -1,0 +1,111 @@
+.PageLvl2List {
+  padding: 0px 0 120px 0;
+  padding-bottom: 35px;
+  position: relative;
+
+  &::before {
+    @include pseudo();
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    background: $white;
+    height: 458px;
+  }
+}
+
+.PageLvl2List-top {
+  position: relative;
+  z-index: 2;
+}
+
+.PageLvl2List-icon {
+  margin: 0 auto;
+  display: inline-block;
+
+  .BaseIconHalfCircle-circle {
+    &--hover svg {
+      stroke-dasharray: 156 315;
+      transform: rotate(0deg);
+    }
+  }
+}
+
+.PageLvl2List-intro {
+  font-family: $title-font;
+  color: $darkBlue;
+  font-size: 20px;
+  line-height: 24px;
+  max-width: 640px;
+  margin: 10px auto 20px auto;
+}
+
+.PageLvl2List-items {
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content: flex-start;
+  margin-bottom: 40px;
+  margin-top: 50px;
+}
+
+.PageLvl2List-item {
+  flex: none;
+  width: calc(100% / 3 - 54px);
+  position: relative;
+  margin: 20px 0;
+
+  &:nth-child(3n) {
+    margin-left: 80px;
+  }
+
+  &:nth-child(3n - 2) {
+    margin-right: 80px;
+  }
+}
+
+.PageLvl2List-topNav {
+  margin: 0 auto;
+  max-width: 240px;
+  margin-bottom: 30px;
+}
+
+.PageLvl2List-topNavItem {
+  width: 40px;
+  height: 40px;
+  display: flex;
+
+  .BaseIcon {
+    width: 13px;
+    height: 13px;
+    fill: $goldDark;
+    display: flex;
+    align-items: center;
+    justify-self: center;
+  }
+}
+
+.PageLvl2List-sideNav {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  height: 0;
+  top: 110px;
+  position: relative;
+}
+
+.PageLvl2List-sideNavItem {
+  font-weight: 600;
+  color: $greyLight;
+  display: block;
+  height: 75px;
+  padding: 20px 0;
+  position: relative;
+  z-index: 40;
+
+  &.prev {
+    transform: translateX(-20%);
+  }
+  &.next {
+    transform: translateX(20%);
+  }
+}

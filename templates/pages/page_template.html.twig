@@ -1,0 +1,78 @@
+{# 
+	page: list_lvl1
+#}
+
+{% extends "layouts/base.html.twig" %}
+
+{% set jsPageId = 'page_template' %}
+{% set pageClass = 'PageTemplate' %}
+{% set heroSize = 'small' %}
+
+{% block content %}
+
+	{# Hero #}
+	{% include 'component/page_hero.html.twig' with {
+    props: {
+      title: "<span class='small'>Page </span> template",
+      size: heroSize,
+      content_over: true,
+      image: {
+       	src: asset('build/images/job/hero-kine.jpg'),
+        alt: '',
+        size: {
+          width: "1440",
+          height: "800"
+        }
+      }
+    }
+  } %}
+
+	<div class="PageTemplate-mainCont u-bgGrey">
+		<div class="PageTemplate-wrapper u-wrapperMedium u-cDarkBlue u-bgWhite">
+
+			<div class="PageTemplate-contentSection u-textCenter">
+				{% include 'component/base_cms_text.html.twig' with {
+          props: {
+           content: "
+              <span class='h2'>Un titre</span>
+              <p>Lorem ipsum dolor sit amet, <strong>consectetur adipiscing</strong> elit. <a href='#'>Nunc quis mattis</a> felis. Sed <i>tristique</i> luctus arcu id pulvinar. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Proin sit amet ipsum iaculis, posuere elit ut, euismod ligula. Vestibulum justo sem, malesuada in eros at, maximus ultricies ante. Cras luctus nulla risus, vitae dictum velit dapibus at. Etiam eget est in quam fermentum porttitor. Proin non dui sit amet tortor congue bibendum eget sit amet ante. Duis ut justo eget dui varius viverra sed eget justo. Aliquam vel ex ante. Phasellus viverra eleifend felis sed pulvinar. Phasellus tellus magna, vehicula nec bibendum lacinia, pulvinar in est. Morbi at consectetur ex, gravida feugiat est. Donec lacus purus, tristique non erat placerat, malesuada tempus tellus. Praesent sit amet aliquet mauris.</p>
+              <ul>
+                <li>item 1</li>
+                <li>item 2</li>
+                <li>item 3</li>
+              </ul>
+              <span class='h2'>Un autre titre</span>
+              <p>Lorem ipsum dolor sit amet, <strong>consectetur adipiscing</strong> elit. <a href='#'>Nunc quis mattis</a> felis. Sed <i>tristique</i> luctus arcu id pulvinar. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Proin sit amet ipsum iaculis, posuere elit ut, euismod ligula. Vestibulum justo sem, malesuada in eros at, maximus ultricies ante. Cras luctus nulla risus, vitae dictum velit dapibus at. Etiam eget est in quam fermentum porttitor. Proin non dui sit amet tortor congue bibendum eget sit amet ante. Duis ut justo eget dui varius viverra sed eget justo. Aliquam vel ex ante. Phasellus viverra eleifend felis sed pulvinar. Phasellus tellus magna, vehicula nec bibendum lacinia, pulvinar in est. Morbi at consectetur ex, gravida feugiat est. Donec lacus purus, tristique non erat placerat, malesuada tempus tellus. Praesent sit amet aliquet mauris.</p>
+              <p>Lorem ipsum dolor sit amet, <strong>consectetur adipiscing</strong> elit. <a href='#'>Nunc quis mattis</a> felis. Sed <i>tristique</i> luctus arcu id pulvinar. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Proin sit amet ipsum iaculis, posuere elit ut, euismod ligula. Vestibulum justo sem, malesuada in eros at, maximus ultricies ante. Cras luctus nulla risus, vitae dictum velit dapibus at. Etiam eget est in quam fermentum porttitor. Proin non dui sit amet tortor congue bibendum eget sit amet ante. Duis ut justo eget dui varius viverra sed eget justo. Aliquam vel ex ante. Phasellus viverra eleifend felis sed pulvinar. Phasellus tellus magna, vehicula nec bibendum lacinia, pulvinar in est. Morbi at consectetur ex, gravida feugiat est. Donec lacus purus, tristique non erat placerat, malesuada tempus tellus. Praesent sit amet aliquet mauris.</p>
+            "
+            }
+        } %}
+			</div>
+
+			{# Separator #}
+			{% include 'component/base_separator.html.twig' %}
+
+
+			<div class="PageTemplate-contentSection u-textCenter">
+				{% include 'component/base_cms_text.html.twig' with {
+          props: {
+           content: "
+              <span class='h2'>Un titre</span>
+              <p>Lorem ipsum dolor sit amet, <strong>consectetur adipiscing</strong> elit. <a href='#'>Nunc quis mattis</a> felis. Sed <i>tristique</i> luctus arcu id pulvinar. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Proin sit amet ipsum iaculis, posuere elit ut, euismod ligula. Vestibulum justo sem, malesuada in eros at, maximus ultricies ante. Cras luctus nulla risus, vitae dictum velit dapibus at. Etiam eget est in quam fermentum porttitor. Proin non dui sit amet tortor congue bibendum eget sit amet ante. Duis ut justo eget dui varius viverra sed eget justo. Aliquam vel ex ante. Phasellus viverra eleifend felis sed pulvinar. Phasellus tellus magna, vehicula nec bibendum lacinia, pulvinar in est. Morbi at consectetur ex, gravida feugiat est. Donec lacus purus, tristique non erat placerat, malesuada tempus tellus. Praesent sit amet aliquet mauris.</p>
+              <ul>
+                <li>item 1</li>
+                <li>item 2</li>
+                <li>item 3</li>
+              </ul>
+              <span class='h2'>Un autre titre</span>
+              <p>Lorem ipsum dolor sit amet, <strong>consectetur adipiscing</strong> elit. <a href='#'>Nunc quis mattis</a> felis. Sed <i>tristique</i> luctus arcu id pulvinar. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Proin sit amet ipsum iaculis, posuere elit ut, euismod ligula. Vestibulum justo sem, malesuada in eros at, maximus ultricies ante. Cras luctus nulla risus, vitae dictum velit dapibus at. Etiam eget est in quam fermentum porttitor. Proin non dui sit amet tortor congue bibendum eget sit amet ante. Duis ut justo eget dui varius viverra sed eget justo. Aliquam vel ex ante. Phasellus viverra eleifend felis sed pulvinar. Phasellus tellus magna, vehicula nec bibendum lacinia, pulvinar in est. Morbi at consectetur ex, gravida feugiat est. Donec lacus purus, tristique non erat placerat, malesuada tempus tellus. Praesent sit amet aliquet mauris.</p>
+              <p>Lorem ipsum dolor sit amet, <strong>consectetur adipiscing</strong> elit. <a href='#'>Nunc quis mattis</a> felis. Sed <i>tristique</i> luctus arcu id pulvinar. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Proin sit amet ipsum iaculis, posuere elit ut, euismod ligula. Vestibulum justo sem, malesuada in eros at, maximus ultricies ante. Cras luctus nulla risus, vitae dictum velit dapibus at. Etiam eget est in quam fermentum porttitor. Proin non dui sit amet tortor congue bibendum eget sit amet ante. Duis ut justo eget dui varius viverra sed eget justo. Aliquam vel ex ante. Phasellus viverra eleifend felis sed pulvinar. Phasellus tellus magna, vehicula nec bibendum lacinia, pulvinar in est. Morbi at consectetur ex, gravida feugiat est. Donec lacus purus, tristique non erat placerat, malesuada tempus tellus. Praesent sit amet aliquet mauris.</p>
+            "
+            }
+        } %}
+			</div>
+		</div>
+
+	</div>
+
+{% endblock %}

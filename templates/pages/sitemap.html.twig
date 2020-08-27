@@ -1,0 +1,63 @@
+{# 
+	page: sitemap
+#}
+
+{% extends "layouts/base.html.twig" %}
+
+{% set jsPageId = 'page_template' %}
+{% set pageClass = 'PageTemplate' %}
+{% set heroSize = 'small' %}
+
+{% block content %}
+
+	{# Hero #}
+	{% include 'component/page_hero.html.twig' with {
+    props: {
+      title: "Sitemap",
+      size: heroSize,
+      content_over: true,
+      image: {
+       	src: asset('build/images/job/hero-kine.jpg'),
+        alt: '',
+        size: {
+          width: "1440",
+          height: "800"
+        }
+      }
+    }
+  } %}
+
+	<div class="PageTemplate-mainCont u-bgGrey">
+		<div class="PageTemplate-wrapper u-wrapperMedium u-cDarkBlue u-bgWhite">
+
+			<div class="PageTemplate-contentSection u-textCenter">
+				{% include 'component/base_cms_text.html.twig' with {
+          props: {
+           content: '
+              <span class="h1 u-cDarkBlue" class=>Liste des pages</span>
+							<ul>
+								<li><a href="/">accueil</a></li>
+								<li><a href="/page-lvl1">page-lvl1</a></li>
+								<li><a href="/page-lvl2">page-lvl2</a></li>
+								<li><a href="/page-lvl3">page-lvl3</a></li>
+								<li><a href="/page-good-deal">page-good-deal</a></li>
+								<li><a href="/page-simple">page-simple</a></li>
+								<li><a href="/page-form">page-form</a></li>
+								<li><a href="/page-template">page-template</a></li>
+								<li><a href="/about">about</a></li>
+								<li><a href="/gallery">gallery</a></li>
+								<li><a href="/brochure">brochure</a></li>
+								<li><a href="/contact">contact</a></li>
+								<li><a href="/job">job</a></li>
+								<li><a href="/job-detail">job-detail</a></li>
+								<li><a href="/icon-lib">icon-lib</a></li>
+							</ul>
+            '
+            }
+        } %}
+			</div>
+
+		</div>
+	</div>
+
+</div>{% endblock %}

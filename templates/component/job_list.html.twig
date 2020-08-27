@@ -1,0 +1,54 @@
+{#
+  component: job_list
+
+	labels {object}: labels
+	list {array}: liste d'items
+		- contrat {string}: type de contrat
+		- contrat {string}: Durée de travail
+		- title {string}: Titre
+		- url {string}: Url
+		- image {base_image}: Image
+#}
+
+{% set props = {
+	labels: {
+		contract: "Contrat :",
+    work_time: "Temps de travail :"
+	},
+	list: []
+}|merge(props|default({}))  %}
+
+<section class="JobList">
+
+	<div class="JobList-wrapper u-wrapperMedium">
+		<div class="JobList-items">
+			{% for item in props.list %}
+				<a href="{{ item.url }}" class="JobList-item u-alignCenter">
+					<div class="JobList-itemImage">
+						{% include 'component/base_image.html.twig' with {
+							props: item.image
+						} %}
+					</div>
+					<div class="JobList-itemContent">
+						<div class="JobList-itemContentTop">
+							<div class="JobList-itemContentTopItem">
+								{{ props.labels.contract }}
+								<span class='u-cGold'>{{ item.contract|raw }}</span>
+							</div>
+							<div class="JobList-itemContentTopItem">
+								{{ props.labels.work_time }}
+								<span class='u-cGold'>{{ item.work_time|raw }}</span>
+							</div>
+						</div>
+						<div class="JobList-title u-titleXSmall">{{ item.title }}</div>
+					</div>
+
+					<div class="JobList-itemButton u-alignVerticalCenter">
+						<div class="JobList-itemButtonIcon"></div>
+					</div>
+				</a>
+			{% endfor %}
+		</div>
+	</div>
+
+</section>

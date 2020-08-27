@@ -1,0 +1,39 @@
+.PageLvl3Intro {
+  position: relative;
+  z-index: 2;
+}
+
+.PageLvl3Intro-wrapper {
+  position: relative;
+  background: $white;
+  padding: 80px 80px 40px 80px;
+}
+
+.PageLvl3Intro-intro,
+.PageLvl3Intro-title,
+.PageLvl3Intro-text {
+  max-width: 400px;
+}
+
+.PageLvl3Intro-title {
+  margin-bottom: 70px;
+}
+
+.PageLvl3Intro-intro {
+  margin-right: 100px;
+}
+
+.PageLvl3Intro-text {
+  .BaseCMSText {
+    &,
+    p {
+      line-height: 28px;
+    }
+  }
+}
+
+.PageLvl3Intro-content {
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+}

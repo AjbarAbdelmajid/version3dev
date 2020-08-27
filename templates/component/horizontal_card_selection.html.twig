@@ -1,0 +1,32 @@
+{# 
+	component: horizontal_card_selection
+
+    - name {string}: radio name
+    - inputs {array}: tableau de selection
+        - value {string}: value de l'input (radio)
+        - label {stirng}: label 
+        - description {stirng} (optionnel): description
+        - price {number}: prix en euros
+#}
+
+{% set props = {
+  name: null,
+  inputs: null
+}|merge(props|default({}))  %}
+
+<div class="HorizontalCardSelection">
+	{% for item in props.inputs %}
+		<div class="HorizontalCardSelection-item">
+			<input type="radio" class="HorizontalCardSelection-itemInput" name="{{ props.name }}" value="{{item.value}}" id="{{ item.value }}" data-price="{{ item.price.value }}" data-url="{{ item.url }}">
+			<label for="{{ item.value }}" class="HorizontalCardSelection-itemLabel">
+				<div>
+					<span class="HorizontalCardSelection-itemTitle u-titleXSmall">{{ item.label }}</span><br>
+					{% if item.description is defined and item.description is not null %}
+						<span class="HorizontalCardSelection-itemDescription">{{ item.description }}</span>
+					{% endif %}
+				</div>
+				<span class="HorizontalCardSelection-itemPrice u-cGold">{{ item.price.value }}€</span>
+			</label>
+		</div>
+	{% endfor %}
+</div>

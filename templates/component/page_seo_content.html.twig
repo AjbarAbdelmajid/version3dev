@@ -1,0 +1,47 @@
+{# 
+	component: page_seo_content 
+
+  illu {base_image}: illu
+  introduction {string}: introduction
+  content {base_cms_text}: contenu texte
+  image {base_image}: image
+#}
+
+{% set props = {
+  illu: null,
+  introduction: null,
+  content: null,
+  image: null
+}|merge(props|default({}))  %}
+
+
+<section class="PageSeoContent">
+
+	<div class="PageSeoContent-wrapper u-wrapperMedium u-textCenter">
+		<div class="PageSeoContent-top u-textCenter">
+			<div class="PageSeoContent-illu">
+				{% include 'component/base_image.html.twig' with {
+					props: props.illu
+      } %}
+			</div>
+			<div class="PageSeoContent-intro">{{ props.introduction }}</div>
+		</div>
+		<div class="PageSeoContent-content u-alignCenter">
+			<div class="PageSeoContent-contentText">
+				{% include 'component/base_cms_text.html.twig' with {
+					props: {
+            content:props.content
+          }
+      	} %}
+			</div>
+
+			<div class="PageSeoContent-contentImage">
+
+				{% include 'component/base_image.html.twig' with {
+					props: props.image
+      } %}
+			</div>
+
+		</div>
+	</div>
+</section>

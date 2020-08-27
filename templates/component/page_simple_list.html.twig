@@ -1,0 +1,57 @@
+{# 
+	component: page_lvl2_list 
+
+  icon {string}: icon
+	first_title {string}: titre
+	second_title {string}: titre
+	third_title {string}: titre
+  text {string}: texte
+  list {array}: Tableau de cartes verticales {vertical_card}
+  nav {object}: navigation
+    - prev/next {object}: element precedent/suivant
+      - link {string}: url
+      - title {string}: titre
+#}
+
+{% set props = {
+  icon: null,
+  first_title: null,
+  second_title: null,
+	third_title: null,
+	text: null,
+  list: null,
+}|merge(props|default({}))  %}
+
+<section class="PageSimpleList">
+
+	<div class="u-wrapperMedium">
+		<div class="PageSimpleList-intro">
+			{% if props.first_title is not null %}
+				<h2 class="PageSimpleList-firstTitle u-titleMedium">{{ props.first_title|raw }}
+				</h2>
+			{% endif %}
+			{% if props.second_title is not null %}
+				<h2 class="PageSimpleList-secondTitle u-titleXSmall u-cGold">{{ props.second_title|raw }}
+				</h2>
+			{% endif %}
+			{% if props.third_title is not null %}
+				<div class="PageSimpleList-thirdTitle">{{ props.third_title|raw }}</div>
+			{% endif %}
+			{% if props.text is not null %}
+				<div class="PageSimpleList-text">{{ props.text }}</div>
+			{% endif %}
+		</div>
+
+		{# items #}
+		<div class="PageSimpleList-items">
+			{% for item in props.list %}
+				<article class="PageSimpleList-item">
+					{% include 'component/horizontal_card.html.twig' with {
+          props: item
+        } %}
+				</article>
+			{% endfor %}
+		</div>
+
+	</div>
+</section>

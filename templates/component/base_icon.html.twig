@@ -1,0 +1,15 @@
+{# 
+	component: base_icon
+
+	name {string}: nom du fichier svg 
+	title {string}: titre du svg 
+#}
+
+{% set props = {
+  name: null,
+	title: 'Pornic'
+}|merge(props|default({}))  %}
+
+<div class="BaseIcon BaseIcon--{{ props.name }}">
+	{{ source('@public_path'~asset('build/svg/'~props.name~'.svg')) }}
+</div>

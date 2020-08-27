@@ -1,0 +1,54 @@
+html {
+  position: relative;
+  min-height: 100%;
+  box-sizing: border-box;
+  font: 14px/1.5 $text-font;
+  color: $greyDark;
+  -ms-text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  -webkit-tap-highlight-color: transparent;
+
+  *,
+  *:before,
+  *:after {
+    box-sizing: border-box;
+    transform-origin: 50% 50%;
+  }
+}
+
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+
+h1,
+.h1-like,
+h2,
+.h2-like {
+  font-family: $title-font;
+  font-weight: 600;
+}
+
+ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 0;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+button {
+  cursor: pointer;
+  appearance: none;
+  outline: 0;
+  border: 0;
+  padding: 0;
+  background: none;
+}

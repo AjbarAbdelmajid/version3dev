@@ -1,0 +1,22 @@
+.IconsLib {
+  padding-top: 200px;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.IconsLib-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+
+  .BaseIcon {
+    width: 30px;
+    height: 30px;
+    margin-right: 20px;
+  }
+}
+
+.IconsLib-section {
+  width: 50%;
+  margin-bottom: 40px;
+}

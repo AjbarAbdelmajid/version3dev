@@ -1,0 +1,280 @@
+{# 
+	page: page_forms
+#}
+
+{% extends "layouts/base.html.twig" %}
+
+{% set jsPageId = 'contact' %}
+{% set pageClass = 'Contact' %}
+{% set heroSize = 'small' %}
+
+{% block content %}
+
+{# Hero #}
+{% include 'component/page_hero.html.twig' with {
+    props: {
+      size: heroSize,
+      content_over: true,
+      title: "Contactez-nous",
+      image: {
+       	src: asset('build/images/contact/hero-contact.jpg'),
+        alt: '',
+        size: {
+          width: "1440",
+          height: "800"
+        }
+      }
+    }
+  } %}
+
+
+<div
+	class="u-bgGrey">
+
+	{# Form #}
+	{% include 'component/form.html.twig' with {
+      props: {
+        action: "#",
+        intro: "Notre équipe s'engage à vous répondre dans les plus brefs délais.",
+        inputs: [
+            {
+              group: true,
+              inputs: [
+                {
+                  type: 'radio',
+                  label: 'Mme',
+                  name: 'gender',
+                  value: 'woman',
+                  checked: true,
+                  id: 'woman',
+                },
+                {
+                  type: 'radio',
+                  label: 'Mr',
+                  name: 'gender',
+                  value: 'man',
+                  checked: false,
+                  id: 'man'
+                }
+              ],
+              class: 'u-sizeFull u-flex'
+            },
+            {
+              type: 'text',
+              label: 'Prénom',
+              required: true,
+              name: 'firstname',
+              id: 'firstname',
+              class:'u-size1of2'
+            },
+            {
+              type: 'text',
+              label: 'Nom',
+              required: true,
+              name: 'lastname',
+              id: 'lastname',
+              class:'u-size1of2'
+            },
+            {
+              type: 'email',
+              label: 'Email',
+              required: true,
+              name: 'email',
+              id: 'email',
+              class:'u-size1of2'
+            },
+              {
+              type: 'tel',
+              label: 'Téléphone',
+              required: true,
+              name: 'tel',
+              id: 'tel',
+              class:'u-size1of2'
+            },
+            {
+              type: 'text',
+              label: 'Adresse',
+              required: true,
+              name: 'address',
+              id: 'address',
+              class:'u-size1of2'
+            },
+            {
+              type: 'text',
+              label: 'Adresse (suite)',
+              required: false,
+              name: 'address_next',
+              id: 'address_next',
+              class:'u-size1of2'
+            },
+            {
+              type: 'text',
+              label: 'Code postale',
+              required: true,
+              name: 'zip',
+              id: 'zip',
+              class:'u-size1of2'
+            },
+            {
+              type: 'text',
+              label: 'Ville',
+              required: true,
+              name: 'city',
+              id: 'city',
+              class:'u-size1of2'
+            },
+            {
+              type: 'select',
+              label: 'Pays',
+              required: true,
+              name: 'country',
+              id: 'country',
+              options: [
+                {
+                label: 'France',
+                value: 'france'
+                }, {
+                  label: 'Italie',
+                  value: 'italie'
+                },
+                {
+                  label: 'Espagne',
+                  value: 'espagne'
+                }
+              ],
+              class:'u-sizeFull'
+            },
+            {
+              type: 'select',
+              label: 'Sujet',
+              required: true,
+              name: 'object',
+              id: 'object',
+              options: [
+                {
+                  label: 'Obtenir un devis',
+                  value: 'devis'
+                }, {
+                  label: 'Question',
+                  value: 'question'
+                }
+              ],
+              class:'u-sizeFull'
+            },
+            {
+              type: 'textarea',
+              label: 'Message',
+              required: true,
+              name: 'message',
+              id: 'message',
+              max_chars: 500,
+              class:'u-sizeFull'
+            },
+            {
+              type: 'checkbox',
+              label: '<strong>J\'autorise Alliance Pornic à traiter mes coordonnées personnelles et mes habitudes (historique, préférences...). </strong>Consulter la <a href=\'#\'>politique de confidentialité.</a>',
+              required: true,
+              name: 'confidentiality',
+              id: 'confidentiality',
+              class:'u-sizeFull'
+            },
+            {
+              type: 'checkbox',
+              label: '<strong>Je souhaite m\'inscrire aux newsletters d\'Alliance Pornic</strong> afin de découvrir son actualité et ses offres commerciales',
+              required: false,
+              name: 'newsletter',
+              id: 'newsletter',
+              class:'u-sizeFull'
+            }
+        ],
+        button_label: "Envoyer"
+      }
+    } %}
+	</div>
+
+	{# Map #}
+	{% include 'component/map.html.twig' with {
+      props: {
+        coord: ["47.1074104", "-2.0992754"],
+        zoom: 11
+      }
+    } %}
+
+
+	{# Transports #}
+	{% include 'component/contact_transports.html.twig' with {
+      props: {
+        title: "Comment venir à Pornic ?",
+        first_part: [
+          {
+            title: "En voiture",
+            icon: "car",
+            text: "
+              <p><span class='u-cDarkBlue'>De Paris</span><br><br>
+              Autoroute A11 Paris-Nantes, puis direction Noirmoutier par la D751 jusqu’à Pornic. Dans Pornic, suivre le fléchage « Thalassothérapie ».</p>
+              <p><span class='u-cDarkBlue'>De Bordeaux</span><br><br>
+              Autoroute A83 – A10 – Bordeaux – Niort – Nantes. Puis direction Noirmoutier par la D751 jusqu’à Pornic. Dans Pornic, suivre le fléchage « Thalassothérapie »</p>"
+          },
+          {
+            title: "En train",
+            icon: "train",
+            text: "
+              <ul>
+                <li><span class='u-cDarkBlue'>Paris – Nantes : </span> 2h en TGV </li>
+                <li><span class='u-cDarkBlue'>Lille Lyon – Nantes : </span> 4h20 en TGV </li>
+                <li><span class='u-cDarkBlue'>Bordeaux – Nantes : </span> 4h08 en TGV </li>
+                <li><span class='u-cDarkBlue'>Strasbourg – Nantes : </span> 5h en TGV </li>
+                <li><span class='u-cDarkBlue'>Toulouse – Nantes : </span> 1h15 </li>
+              </ul>"
+          },
+          {
+            title: "En avion",
+            icon: "plane",
+            text: "
+              <ul>
+                <li><span class='u-cDarkBlue'>Paris – Nantes </span>: 1h05  </li>
+                <li><span class='u-cDarkBlue'>Lyon – Nantes </span>: 1h09  </li>
+                <li><span class='u-cDarkBlue'>Bordeaux – Nantes </span>: 51mn  </li>
+                <li><span class='u-cDarkBlue'>Strasbourg – Nantes </span>: 1h23  </li>
+                <li><span class='u-cDarkBlue'>Toulouse – Nantes </span>: 1h05 </li>
+              </ul>"
+          }
+        ],
+        second_part:{
+          title: "Service de navette",
+          icon: "bus",
+          intro: "Nous pouvons venir vous chercher en gare SNCF de Pornic, ou en gare SNCF de Nantes Sortie sud “Cité des congrès”, ou à l’aéroport de Nantes Atlantique à l’accueil du hall 1.",
+          text: "
+            <p><span class='u-cDarkBlue'>Option Confort</span><br><br>
+            Pour les clients ayant réservé une formule semaine ou week-end, navettes à 11h15 et 16h15 (horaires correspondant à l’arrivée des TGV en provenance de Paris) en GARE de NANTES ou à l’aéroport de Nantes Atlantique à 11h45 et 16h45. Ce service navette vous sera facturé 24 € par personne (48 € l’aller / retour) et 12 € pour les enfants de moins de 12 ans. En dehors de ces horaires, taxi sur demande, à régler directement au chauffeur (à partir de 70 € la course).</p>
+            <p><span class='u-cDarkBlue'>Option Confort Plus</span><br><br>
+            À l’heure de votre choix, une navette viendra vous chercher en GARE de PORNIC, à l’arrivée du TER en provenance de Nantes. Le service navette vous sera offert. La réservation d’une navette ou d’un taxi doit se faire au minimum 48h à l’avance  au 02 57 23 00 50</p>"
+        }
+        
+      }
+    } %}
+
+	{# Transports #}
+	{% include 'component/contact_infos.html.twig' with {
+    props: {
+      image: {
+        src: asset('build/images/contact/contact-bg-infos.jpg'),
+        alt: 'Paysage soirée',
+        size: {
+          width: "1280",
+          height: "480"
+        }
+      },
+      title: "Notre équipe à votre service",
+      intro: "Toute l’équipe Alliance Pornic se tient à votre disposition pour répondre à vos questions. Contactez-nous par téléphone ou via le formulaire de contact ci-dessus, nous vous répondrons dans les plus brefs délais.",
+      contact: {
+        title: "Alliance Pornic <span>Resort Hôtel Thalasso & Spa</span>",
+        address: "Plage de la Source<br> 44210 Pornic",
+        tel: "<strong>Tel:</strong> 02 57 23 00 50",
+        email: "<strong>Email:</strong> <a href='mailto:info.resa@thalassopornic.com' target='_blank'>info.resa@thalassopornic.com</a>",
+      }
+    }
+  } %}
+
+
+{% endblock %}

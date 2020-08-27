@@ -1,0 +1,40 @@
+.Form {
+  padding-bottom: 80px;
+}
+
+.Form-wrapper {
+  background: $white;
+  // margin-top: -160px;
+  position: relative;
+}
+
+.Form-form {
+  padding-top: 40px;
+}
+
+.Form-intro {
+  text-align: center;
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 52px 0 35px 0;
+}
+
+.Form-inputs {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 40px 40px 0 40px;
+}
+
+.Form-content {
+}
+
+.Form-input {
+  padding: 0 40px;
+  margin-bottom: 42px;
+}
+
+.Form-mandatoryFieldsInfo {
+  position: absolute;
+  bottom: -30px;
+  right: 0;
+}

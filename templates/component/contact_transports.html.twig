@@ -1,0 +1,67 @@
+{#
+  component: contact_transports
+
+  title {string}: titre
+  first_part {array}: première partie
+    - title {string}: titre
+    - icon {string}: icon
+    - text {base_cms_text}: text
+  second_part {array}: seconde partie
+    - title {string}: titre
+    - icon {string}: icon
+    - text {base_cms_text}: text
+#}
+
+{% set props = {
+  title: null,
+  first_part: null,
+  second_part: null
+}|merge(props|default({}))  %}
+
+<section data-component="contact-transports" class="ContactTransports">
+
+	<div class="ContactTransports-wrapper u-wrapperMedium">
+		<h2 class="ContactTransports-title u-titleXSmall u-cGold u-alignCenter">{{ props.title}}</h2>
+
+		{# First part #}
+		<div class="ContactTransports-firstPart">
+			{% for item in props.first_part %}
+				<div class="ContactTransports-firstPartItem">
+					{% include 'component/block_icon_title_text.html.twig' with {
+              props: item
+            } %}
+
+				</div>
+			{% endfor %}
+		</div>
+
+		{% include 'component/base_separator.html.twig' %}
+
+		{# Second part #}
+		<div class="ContactTransports-secondPart">
+			<div class="ContactTransports-secondPartLeft">
+				<div class="ContactTransports-secondPartTitle u-textHighlight">
+					{% include 'component/base_icon.html.twig' with {
+            props: {
+              name: props.second_part.icon
+            }
+          } %}
+					{{ props.second_part.title}}
+				</div>
+				<div class="ContactTransports-secondPartIntro u-cGold">
+					{{ props.second_part.intro }}
+				</div>
+
+			</div>
+			<div class="ContactTransports-secondPartRight">
+				{% include 'component/base_cms_text.html.twig' with {
+        props: {
+          content: props.second_part.text
+        }
+      } %}
+
+			</div>
+		</div>
+	</div>
+
+</section>

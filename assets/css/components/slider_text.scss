@@ -1,0 +1,73 @@
+.SliderText {
+  padding: 120px 0 200px 0;
+  margin: relative;
+}
+
+.SliderText-inner {
+  position: relative;
+}
+
+// Text
+.SliderText-wrapText {
+  background: $white;
+  z-index: 20;
+  width: calc(100% - 160px);
+  max-width: 800px;
+  margin: 0 auto;
+  height: 240px;
+  bottom: -80px;
+  position: absolute;
+}
+
+.SliderText-text {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.SliderText-textButton {
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: 80px;
+  height: 100%;
+  background: $gold;
+}
+
+.SliderText-textContent {
+  max-width: calc(100% - 100px);
+  padding: 50px 80px 0 80px;
+}
+
+.SliderText-textDetail {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  margin-top: 13px;
+}
+
+.SliderText-textButtonArrow {
+  width: 35px;
+  height: 2px;
+  position: absolute;
+  right: 26px;
+  top: 50%;
+
+  &::before {
+    @include pseudo();
+    width: calc(100% - 5px);
+    height: 1px;
+    background: $white;
+  }
+  &::after {
+    @include pseudo();
+    position: absolute;
+    right: 0;
+    top: 50%;
+    margin-top: -5px;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 4.5px 0 4.5px 7px;
+    border-color: transparent transparent transparent $white;
+  }
+}

@@ -1,0 +1,54 @@
+.JobDetail {
+  .Footer-firstSeparator {
+    display: none;
+  }
+}
+
+.JobDetail-wrapper {
+  position: relative;
+  z-index: 40;
+  padding-top: 40px;
+}
+
+.JobDetail-contentInner {
+  padding: 40px 0 20px 0;
+}
+
+.JobDetail-contentSection {
+  padding: 40px 0;
+}
+
+.JobDetail-headTitle {
+  font-size: 50px;
+  line-height: 60px;
+  margin-bottom: 15px;
+}
+
+.JobDetail-headInfo {
+  margin-bottom: 30px;
+}
+
+.JobDetail-headInfoItem {
+  font-weight: 500;
+  font-size: 10px;
+  line-height: 12px;
+  text-transform: uppercase;
+  margin: 0 20px;
+  margin-bottom: 10px;
+}
+
+.JobDetail-mainCont {
+  padding-bottom: 80px;
+}
+
+.JobDetail-formBack {
+  padding: 20px 40px 0 40px;
+}
+
+.JobDetail-form,
+.JobDetail-content,
+.JobDetail-formBack {
+  &.hidden {
+    display: none;
+  }
+}

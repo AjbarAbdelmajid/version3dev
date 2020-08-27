@@ -1,0 +1,430 @@
+{# 
+	page: home
+#}
+
+{% extends "layouts/base.html.twig" %}
+
+{% set jsPageId = 'home' %}
+{% set pageClass = 'Home' %}
+{% set heroSize = 'large' %}
+
+{% set data = {
+  slides: [
+		{
+			theme: "thalasso / santé",
+      title: "Vente trés privée, trés Pornic",
+      details: [
+        {
+          icon: "bed",
+          label: "de 1 à 6 nuits"
+        },
+        {
+          icon: "treatment",
+          label: "soins, massage, spa, kinésitherapie"
+        }
+      ],
+      description: "Ventes très Privées, Ventes très Pornic. Réservez votre séjour Thalasso avant le 16 septembre 2019.",
+      previousPrice: "240€",
+      price: "180€",
+      link: {
+				title: "Découvrir l'offre",
+				url: "/page-lvl3"
+			}
+		},
+		{
+			theme: "thalasso / santé",
+      title: "Vente trés privée, trés Pornic",
+      details: [
+        {
+          icon: "bed",
+          label: "de 1 à 6 nuits"
+        },
+        {
+          icon: "treatment",
+          label: "soins, massage, spa, kinésitherapie"
+        }
+      ],
+      description: "Ventes très Privées, Ventes très Pornic. Réservez votre séjour Thalasso avant le 16 septembre 2019.",
+      previousPrice: "240€",
+      price: "180€",
+      link: {
+				title: "Découvrir l'offre",
+				url: "/page-lvl3"
+			}
+		},
+		{
+			theme: "thalasso / santé",
+      title: "Vente trés privée, trés Pornic",
+      details: [
+        {
+          icon: "bed",
+          label: "de 1 à 6 nuits"
+        },
+        {
+          icon: "treatment",
+          label: "soins, massage, spa, kinésitherapie"
+        }
+      ],
+      description: "Ventes très Privées, Ventes très Pornic. Réservez votre séjour Thalasso avant le 16 septembre 2019.",
+      previousPrice: "240€",
+      price: "180€",
+      link: {
+				title: "Découvrir l'offre",
+				url: "/page-lvl3"
+			}
+		}
+  ]
+} %}
+
+
+{% block content %}
+
+	{# Hero #}
+	<section class="HomeHero">
+		<div class="HomeHero-bg u-posFit">
+			{% include 'component/base_image.html.twig' with {
+				props: {
+					src: asset('build/images/home/hero-bg.jpg'),
+					alt: '',
+					size: {
+						width: "1440",
+						height: "800"
+					}
+				}
+			} %}
+		</div>
+		<div class="HomeHero-content u-alignVerticalCenter">
+			<div class="HomeHero-meteo u-alignCenter">
+				<div class="HomeHero-meteoSky">
+					{% include 'component/base_icon.html.twig' with {
+						props: {
+							name: 'weather-peu-nuageux'
+						}
+					} %}
+					Peu nuageux
+				</div>
+				<div class="HomeHero-meteoTemp">
+					{% include 'component/base_icon.html.twig' with {
+						props: {
+							name: 'thermometer'
+						}
+					} %}
+					22°c
+				</div>
+			</div>
+			<h2 class="HomeHero-title">Votre havre de paix</h2>
+			<h1 class="HomeHero-subtitle">Alliance pornic, un centre thalasso historique</h1>
+		</div>
+
+		<div class="HomeHero-wrapFilterBar">
+			{% include 'component/filter_bar.html.twig' with {
+				props: {
+					theme: "home"
+				}
+			} %}
+		</div>
+	</section>
+
+	{# Deal #}
+	{% include 'component/slider_card.html.twig' with {
+			props: {
+				title: "Nos bons <br>plans",
+				slides: data.slides,
+				images: [
+					{
+						src: asset('build/images/home/deal-bg-1.jpg'),
+						alt: '',
+						size: {
+							width: "480",
+							height: "800"
+						}
+					},
+					{
+						src: asset('build/images/home/deal-bg-2.jpg'),
+						alt: '',
+						size: {
+							width: "480",
+							height: "800"
+						}
+					},
+					{
+						src: asset('build/images/home/deal-bg-3.jpg'),
+						alt: '',
+						size: {
+							width: "480",
+							height: "800"
+						}
+					}
+				],
+				allLink: {
+					title: 'Tous nos bons plans',
+					url: '#'
+				}
+			}
+		} %}
+
+
+	{# Separator #}
+	<div class="u-wrapperMedium">
+		{% include 'component/base_separator.html.twig' %}
+	</div>
+
+	{# Pornic #}
+	<section class="HomePornic">
+		<div class="u-wrapperMedium">
+			<h2 class="u-titleLarge">Découvrez
+				<br>Pornic</h2>
+
+
+			<div class="HomePornic-illu">
+				{% include 'component/base_image.html.twig' with {
+					props: {
+						src: asset('build/images/home/pornic-illu.png'),
+						alt: ''
+					}
+				} %}
+			</div>
+
+			<div class="HomePornic-content u-alignCenter">
+				<div class="HomePornic-text HomePornic-text1">
+					<p class="HomePornic-textIntro">Alliance pornic, votre havre de paix</p>
+					<p>Découvrez notre centre de thalassothérapie, surplombant la plage de La Source – petite crique encadrée de cabanes de pêcheurs sur pilotis, à quelques encablures du port et de ses boutiques – notre hôtel 4* de Loire Atlantique : Alliance Pornic Resort Hôtel Thalasso &  Spa s’élève face à l’océan.</p>
+				</div>^
+
+				<div class="HomePornic-imgs">
+					<div class="HomePornic-img1">
+						{% include 'component/base_image.html.twig' with {
+							props: {
+								src: asset('build/images/home/pornic-img-1.jpg'),
+								alt: ''
+							}
+						} %}
+					</div>
+
+					<div class="HomePornic-img2">
+						{% include 'component/base_image.html.twig' with {
+							props: {
+								src: asset('build/images/home/pornic-img-2.jpg'),
+								alt: ''
+							}
+						} %}
+					</div>
+				</div>
+
+
+				<div class="HomePornic-text HomePornic-text2">
+					<p>Un magnifique établissement de 120 chambres lumineuses, deux restaurants avec vue sur mer et deux bars panoramiques, sans oublier notre Espace Forme Thalassothérapie & Spa : 4 000 m² dédiés à la forme et à l’équilibre.</p>
+
+					<div class="HomePornic-link">
+						{% include 'component/base_link.html.twig' with {
+								props: {
+									title: "Qui sommes nous ?",
+									url: "#"
+								}
+						} %}
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	{# Discover #}
+	{% include 'component/home_discover.html.twig' with {
+			props: {
+				title: "Découvrez <strong>en images</strong>",
+				items: [
+					{
+						title: "L’hotel",
+						description: "Savourez la vue sur l’Océan depuis votre chambre, et laissez-vous transporter par le murmure des vagues en région Pays de la Loire. Niché dans une crique préservée, l’hôtel **** Alliance Pornic propose 112 chambres et 8 suites, tout en confort et luminosité.",
+						image: {
+							src: asset('build/images/home/discover-hotel.jpg'),
+							alt: '',
+							size: {
+								width: "1440",
+								height: "680"
+							}
+						},
+						link: "#"
+					},
+					{
+						title: "Restaurant",
+						description: "Face à la mer, Alliance Pornic propose 4 espaces de restauration : les Restaurants La Source et sa cuisine contemporaine, La Terrasse et sa carte 100% bio et diététique ou ayurvedique, le Bar La Terrasse, avec ses déjeuners, ses goûters et smoothies et surplombant l’océan, le Bar Le Phare et ses soirées musicales…",
+						image: {
+							src: asset('build/images/home/discover-restaurant.jpg'),
+							alt: '',
+							size: {
+								width: "1440",
+								height: "680"
+							}
+						},
+						link: "#"
+					},
+					{
+						title: "Thalasso",
+						description: "Le centre de thalassothérapie d’Alliance Pornic est un espace de 4 000 m² dédié au bien-être grâce aux soins d’eau de mer. Se ressourcer, retrouver la ligne, prendre soin de son capital santé, se remettre au sport… la Thalassothérapie de Pornic vous propose des programmes sur mesure.",
+						image: {
+							src: asset('build/images/home/discover-thalasso.jpg'),
+							alt: '',
+							size: {
+								width: "1440",
+								height: "680"
+							}
+						},
+						link: "#"
+					},
+					{
+						title: "Alentour",
+						description: "Le centre de thalassothérapie d’Alliance Pornic est un espace de 4 000 m² dédié au bien-être grâce aux soins d’eau de mer. Se ressourcer, retrouver la ligne, prendre soin de son capital santé, se remettre au sport… la Thalassothérapie de Pornic vous propose des programmes sur mesure.",
+						image: {
+							src: asset('build/images/home/discover-arround.jpg'),
+							alt: '',
+							size: {
+								width: "1440",
+								height: "680"
+							}
+						},
+						link: "#"
+					}
+				]
+			}
+	} %}
+
+	{# Details #}
+	{% include 'component/slider_text.html.twig' with {
+			props: {
+					slides: [
+						{
+							large_title: "Le Spa",
+							title: "Tout pour la détente",
+							details: [
+								{
+									icon: "massage",
+									label: "massage"
+								},
+								{
+									icon: "treatment",
+									label: "soins"
+								},
+								{
+									icon: "oil",
+									label: "huiles"
+								}
+							],
+							description: "<p>Avec ses cabines lumineuses ouvrant sur un jardin zen, ou ses ambiances feutrées favorisant la détente, le Spa Alliance Pornic propose des soins créés exclusivement pour ses clients...</p>",
+							image: {
+								src: asset("build/images/home/slider-text-spa.jpg"),
+								alt: "alt de l'image",
+								size: {
+									width: "960",
+									height: "560"
+								}
+							},
+							link: "#"
+						},
+						{
+							large_title: "Le Spa",
+							title: "Tout pour la détente",
+							details: [
+								{
+									icon: "massage",
+									label: "massage"
+								},
+								{
+									icon: "treatment",
+									label: "soins"
+								},
+								{
+									icon: "oil",
+									label: "huiles"
+								}
+							],
+							description: "<p>Avec ses cabines lumineuses ouvrant sur un jardin zen, ou ses ambiances feutrées favorisant la détente, le Spa Alliance Pornic propose des soins créés exclusivement pour ses clients...</p>",
+							image: {
+								src: asset("build/images/home/slider-text-spa.jpg"),
+								alt: "alt de l'image",
+								size: {
+									width: "960",
+									height: "560"
+								}
+							},
+							link: "#"
+						},
+						{
+							large_title: "Le Spa",
+							title: "Tout pour la détente",
+							details: [
+								{
+									icon: "massage",
+									label: "massage"
+								},
+								{
+									icon: "treatment",
+									label: "soins"
+								},
+								{
+									icon: "oil",
+									label: "huiles"
+								}
+							],
+							description: "<p>Avec ses cabines lumineuses ouvrant sur un jardin zen, ou ses ambiances feutrées favorisant la détente, le Spa Alliance Pornic propose des soins créés exclusivement pour ses clients...</p>",
+							image: {
+								src: asset("build/images/home/slider-text-spa.jpg"),
+								alt: "alt de l'image",
+								size: {
+									width: "960",
+									height: "560"
+								}
+							},
+							link: "#"
+						},
+					]
+			}
+		}
+	%}
+
+
+	{# <div
+														class="Home-wrapCures"> #}
+
+	{# Cures #}
+{% include 'component/slider_card.html.twig' with {
+			props: {
+				reverse: true,
+				title: "Nos cures",
+				slides: data.slides,
+				images: [
+					{
+						src: asset('build/images/home/deal-bg-1.jpg'),
+						alt: '',
+						size: {
+							width: "480",
+							height: "800"
+						}
+					},
+					{
+						src: asset('build/images/home/deal-bg-2.jpg'),
+						alt: '',
+						size: {
+							width: "480",
+							height: "800"
+						}
+					},
+					{
+						src: asset('build/images/home/deal-bg-3.jpg'),
+						alt: '',
+						size: {
+							width: "480",
+							height: "800"
+						}
+					}
+				],
+				allLink: {
+					title: 'Toutes nos cures',
+					url: '#'
+				}
+			}
+		} %}
+
+	{# </div> #}
+
+{% endblock %}

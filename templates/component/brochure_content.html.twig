@@ -1,0 +1,31 @@
+{#
+  component: brochure_content
+  
+  title {string}: titre
+  items {array}: tableau de brochures
+    - image {base_image}: image
+    - pdf_url {string}: url du pdf
+#}
+
+{% set props = {
+  title: null,
+  items: [],
+}|merge(props|default({}))  %}
+
+<section data-component="brochure_content" class="BrochureContent">
+
+
+	<div class="BrochureContent-wrapper u-wrapperSmall">
+		<h2 class="BrochureContent-title u-titleXSmall u-cGold u-textCenter">{{ props.title|raw }}</h2>
+		<div class="BrochureContent-items">
+			{% for item in props.items %}
+				<a href="{{ item.pdf_url }}" class="BrochureContent-item" target="_blank">
+					{% include 'component/base_image.html.twig' with {
+          props: item.image
+        } %}
+				</a>
+			{% endfor %}
+		</div>
+	</div>
+
+</section>

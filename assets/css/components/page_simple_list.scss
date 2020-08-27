@@ -1,0 +1,32 @@
+.PageSimpleList {
+  padding: 0px 0 120px 0;
+}
+
+.PageSimpleList-item {
+  width: 100%;
+  margin: 40px 0;
+}
+
+.PageSimpleList-intro {
+  text-align: center;
+  max-width: 620px;
+  margin: 0 auto;
+  color: $darkBlue;
+}
+
+.PageSimpleList-firstTitle {
+  margin-bottom: 10px;
+}
+
+.PageSimpleList-secondTitle {
+  margin-bottom: 10px;
+}
+
+.PageSimpleList-thirdTitle {
+  font-family: $title-font;
+  font-weight: 600;
+  color: $darkBlue;
+  font-size: 16px;
+  line-height: 19px;
+  margin-bottom: 10px;
+}

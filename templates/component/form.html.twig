@@ -1,0 +1,82 @@
+{#
+	component: form
+
+	action {string}: Action
+	intro {string}: text
+	inputs {array}: tableau de {base_input}
+  button_label {string}: label du bouton
+
+#}
+
+{% set props = {
+  action: '',
+	intro: null,
+  inputs: null,
+  button_label: null
+}|merge(props|default({}))  %}
+
+{% set jsComponentId = "form" %}
+
+<section class="Form">
+	<div class="Form-wrapper u-wrapperSmall">
+		{% if props.intro is not null %}
+			<div class="Form-intro u-titleXSmall u-cGold">{{ props.intro|raw }}</div>
+
+			{% include 'component/base_separator.html.twig' %}
+		{% endif %}
+
+		<div
+			class="Form-content">
+
+			{# Form #}
+			<form
+				action="{{ props.action }}" class="Form-form">
+
+				{# Inputs #}
+				<div class="Form-inputs">
+
+					{% for item in props.inputs %}
+
+						{# Group #}
+						{% if item.group is defined and item.group == true %}
+							<div class="{% if item.class is defined and item.class is not null %}{{ item.class }}{% endif %}">
+								{% for item in item.inputs %}
+									<div class="Form-input {% if item.class is defined and item.class is not null %}{{ item.class }}{% endif %}">
+										{% include "component/base_input.html.twig" with {
+                      props: item
+                    } %}
+									</div>
+								{% endfor %}
+							</div>
+
+							{# siple #}
+						{% else %}
+							<div class="Form-input {% if item.class is defined and item.class is not null %}{{ item.class }}{% endif %}">
+								{% include "component/base_input.html.twig" with {
+                    props: item
+                  } %}
+							</div>
+						{% endif %}
+					{% endfor %}
+				</div>
+
+				{# Infos #}
+
+				{# Mandatory fields info #}
+				<p class="Form-mandatoryFieldsInfo">*champs obligatoires</p>
+
+				{# Submit button #}
+				<div class="Form-submit">
+					{% include "component/base_submit.html.twig" with {
+              props: {
+                title: props.button_label
+              }
+            } %}
+				</div>
+
+			</form>
+
+		</div>
+	</div>
+
+</section>

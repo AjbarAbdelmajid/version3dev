@@ -1,0 +1,133 @@
+{# 
+	page: list_lvl1
+#}
+
+{% extends "layouts/base.html.twig" %}
+
+{% set jsPageId = 'about' %}
+{% set pageClass = 'About' %}
+{% set heroSize = 'small' %}
+
+{% block content %}
+
+	{# Hero #}
+	{% include 'component/page_hero.html.twig' with {
+    props: {
+      title: "Emplois",
+      size: heroSize,
+      content_over: false,
+      image: {
+       	src: asset('build/images/job/hero-job.jpg'),
+        alt: '',
+        size: {
+          width: "1440",
+          height: "800"
+        }
+      }
+    }
+  } %}
+
+	{# Intro #}
+	{% include 'component/page_intro_media_text.html.twig' with {
+    props: {
+      title: "<strong>Nous rejoindre</strong>",
+      subtitle: "La relation humaine est au cœur de nos préoccupations et la fidélité de nos clients et de nos équipes sont notre fierté.",
+      image: {
+       	src: asset('build/images/job/bg-intro.jpg'),
+        alt: '',
+        size: {
+          width: "1120",
+          height: "640"
+        }
+      },
+      content: {
+        title: "Ce que nous recherchons",
+        text: "<p>Dans notre univers, le bien-être de nos clients est primordial.</p>
+        <p>Nous recherchons des personnes motivées et désireuses de mettre leur professionnalisme au service de la santé et de la remise en forme, dans une ambiance chaleureuse et bienveillante.</p>"
+      }
+    }
+  } %}
+
+	{# List #}
+	{% include 'component/job_list.html.twig' with {
+    props: {
+      labels: {
+        contract: "Contrat :",
+        work_time: "Temps de travail :"
+      },
+      list: [
+        {
+          contract: "CDI",
+          work_time: "Temps plein",
+          title: "Kinésithérapeute F/H",
+          url: "/job-detail",
+          image: {
+            src: asset('build/images/job/job-kine.jpg'),
+            alt: '',
+            size: {
+              width: "240",
+              height: "120"
+            }
+          }
+        },
+        {
+          contract: "CDD",
+          work_time: "Temps partiel",
+          title: "Cuisinier F/H",
+          url: "/job-detail",
+          image: {
+            src: asset('build/images/job/job-cuisinier.jpg'),
+            alt: '',
+            size: {
+              width: "240",
+              height: "120"
+            }
+          }
+        },
+        {
+          contract: "CDI",
+          work_time: "Temps plein",
+          title: "Coach sportif F/H",
+          url: "/job-detail",
+          image: {
+            src: asset('build/images/job/job-coach.jpg'),
+            alt: '',
+            size: {
+              width: "240",
+              height: "120"
+            }
+          }
+        },
+        {
+          contract: "CDD",
+          work_time: "Temps partiel",
+          title: "Esthéticienne",
+          url: "/job-detail",
+          image: {
+            src: asset('build/images/job/job-estheticienne.jpg'),
+            alt: '',
+            size: {
+              width: "240",
+              height: "120"
+            }
+          }
+        },
+      ]
+    }
+  } %}
+
+
+	{# Speculative application #}
+	{% include 'component/job_speculative.html.twig' with {
+    props: {
+      title: "Je postule<br><strong>Candidature spontanée F/H</strong>",
+      icon: "cv",
+      button: {
+        title: "je transmets mon cv",
+        url: "/job-detail"
+      }
+    }
+  } %}
+
+
+{% endblock %}

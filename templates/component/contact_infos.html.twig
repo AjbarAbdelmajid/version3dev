@@ -1,0 +1,47 @@
+{#
+  component: contact_infos
+
+  image {base_image}: image
+  title {string}: titre
+  intro {string}: intro
+  contact: contact
+    - title {string}: titre
+    - address {string}: adresse
+    - tel {string}: telephone
+    - email {string}: email
+  
+    
+#}
+
+{% set props = {
+  image: null,
+  title: null,
+  intro: null,
+  contact: null
+}|merge(props|default({}))  %}
+
+<section data-component="contact-transports" class="ContactInfos">
+
+	<div class="ContactInfos-wrapper u-wrapperLarge">
+
+		<div class="ContactInfos-bg">
+			{% include 'component/base_image.html.twig' with {
+          props: props.image
+        } %}
+		</div>
+
+		<div class="ContactInfos-content">
+			<div class="ContactInfos-left">
+				<h2 class="ContactInfos-title u-titleXSmall u-cGold">{{ props.title}}</h2>
+				<div class="ContactInfos-intro">{{ props.intro }}</div>
+			</div>
+			<div class="ContactInfos-right u-cDarkBlue">
+				<div class="ContactInfos-name u-titleXSmall">{{ props.contact.title|raw }}</div>
+				<div class="ContactInfos-address">{{ props.contact.address|raw }}</div>
+				<div class="ContactInfos-tel">{{ props.contact.tel|raw }}</div>
+				<div class="ContactInfos-email">{{ props.contact.email|raw }}</div>
+			</div>
+		</div>
+	</div>
+
+</section>

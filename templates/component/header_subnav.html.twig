@@ -1,0 +1,48 @@
+{# 
+	component: header_subnav 
+
+	id {string}: nav id
+	title {string}: tilte of article
+	items {string}: sub items list
+	image {base_image}: image de fond
+#}
+
+{% set props = {
+	id: null, 
+  title: null, 
+	items: null,
+  image: null,
+}|merge(props|default({}))  %}
+
+
+<div class="HeaderSubnav" data-id="{{props.id}}" ref="subnavItem">
+	<div class="HeaderSubnav-inner u-posFit">
+		<div class="Headersubnav-bg u-posFit">
+			{% include 'component/base_image.html.twig' with {
+			props: {
+				src: asset(props.image.src),
+				alt: props.image.alt
+			}
+		} %}
+		</div>
+		<div class="HeaderSubnav-wrapper u-alignVerticalCenter u-wrapperSmall">
+			<div class="HeaderSubnav-title u-titleMedium u-cWhite u-textCenter">{{ props.title|raw }}</div>
+			<nav class="HeaderSubnav-nav">
+				{% for item in props.items %}
+					<div class="HeaderSubnav-navItem u-alignCenter">
+						<a href="{{ item.link }}" class="HeaderSubnav-navItemInner">
+							<div class="HeaderSubnav-navItemIcon u-alignVerticalCenter">
+								{% include 'component/base_icon_half_circle.html.twig' with {
+									props: {
+										icon: 'phone'
+									}
+            	  } %}
+							</div>
+							<span class="HeaderSubnav-navItemLabel">{{ item.label|raw }}</span>
+						</a>
+					</div>
+				{% endfor %}
+			</nav>
+		</div>
+	</div>
+</div>

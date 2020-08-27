@@ -1,0 +1,49 @@
+.PageKnowMore {
+  padding: 120px 0;
+  position: relative;
+}
+
+.PageKnowMore-logo {
+  width: 24px;
+  height: 19px;
+  margin: 0 auto 60px auto;
+
+  .BaseIcon {
+    fill: $gold;
+  }
+}
+
+.PageKnowMore-items {
+  flex-wrap: wrap;
+  width: 100%;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 40px;
+  margin-top: 50px;
+}
+
+.PageKnowMore-item {
+  flex: none;
+  width: calc(100% / 3 - (160px / 3));
+  position: relative;
+  margin: 20px 0;
+}
+
+.PageKnowMore-itemIcon {
+  margin-bottom: 50px;
+}
+
+.PageKnowMore-itemTitle {
+  color: $goldDark;
+  font-family: $title-font;
+  font-size: 20px;
+  line-height: 28px;
+  margin-bottom: 30px;
+}
+
+.PageKnowMore-itemContent {
+  &,
+  p {
+    line-height: 26px;
+  }
+}

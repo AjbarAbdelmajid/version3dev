@@ -1,0 +1,18 @@
+@mixin pseudo {
+  content: "";
+  display: block;
+}
+
+@mixin posFit {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  margin: auto;
+  right: 0;
+  top: 0;
+}
+
+@mixin bgPattern {
+  background: url("../../images/bgs/pattern-pornic.svg") repeat $white;
+  background-size: 24px 20px;
+}

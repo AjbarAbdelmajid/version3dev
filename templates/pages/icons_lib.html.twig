@@ -1,0 +1,568 @@
+{# 
+	page: icons lib
+#}
+
+{% extends "layouts/base.html.twig" %}
+
+{% set jsPageId = 'page_template' %}
+{% set pageClass = 'PageTemplate' %}
+{% set heroSize = 'small' %}
+
+{% block content %}
+
+	{# Hero #}
+	{% include 'component/page_hero.html.twig' with {
+    props: {
+      title: "Icons",
+      size: heroSize,
+      content_over: true,
+      image: {
+       	src: asset('build/images/job/hero-kine.jpg'),
+        alt: '',
+        size: {
+          width: "1440",
+          height: "800"
+        }
+      }
+    }
+  } %}
+
+	<div class="PageTemplate-mainCont u-bgGrey">
+		<div class="PageTemplate-wrapper u-wrapperMedium u-cDarkBlue u-bgWhite">
+
+			<div class="PageTemplate-contentSection u-textCenter u-flex u-flexWrap">
+
+
+				<div class="IconsLib-section u-size1of3">
+
+
+					<div class="IconsLib-item">
+						{% include 'component/base_icon.html.twig' with {
+              props: {
+                name: 'youtube'
+              }
+            } %}
+						youtube
+					</div>
+					<div class="IconsLib-item">
+						{% include 'component/base_icon.html.twig' with {
+              props: {
+                name: 'advantages'
+              }
+            } %}
+						advantages
+					</div>
+					<div class="IconsLib-item">
+						{% include 'component/base_icon.html.twig' with {
+              props: {
+                name: 'american-express'
+              }
+            } %}
+						american-express
+					</div>
+					<div class="IconsLib-item">
+						{% include 'component/base_icon.html.twig' with {
+              props: {
+                name: 'ancv'
+              }
+            } %}
+						ancv
+					</div>
+					<div class="IconsLib-item">
+						{% include 'component/base_icon.html.twig' with {
+              props: {
+                name: 'arrow-left'
+              }
+            } %}
+						arrow-left
+					</div>
+					<div class="IconsLib-item">
+						{% include 'component/base_icon.html.twig' with {
+              props: {
+                name: 'arrow-right'
+              }
+            } %}
+						arrow-right
+					</div>
+					<div class="IconsLib-item">
+						{% include 'component/base_icon.html.twig' with {
+              props: {
+                name: 'balance'
+              }
+            } %}
+						balance
+					</div>
+					<div class="IconsLib-item">
+						{% include 'component/base_icon.html.twig' with {
+              props: {
+                name: 'bathrobe'
+              }
+            } %}
+						bathrobe
+					</div>
+					<div class="IconsLib-item">
+						{% include 'component/base_icon.html.twig' with {
+              props: {
+                name: 'beauty'
+              }
+            } %}
+						beauty
+					</div>
+					<div class="IconsLib-item">
+						{% include 'component/base_icon.html.twig' with {
+              props: {
+                name: 'bed'
+              }
+            } %}
+						bed
+					</div>
+				</div>
+				<div class="IconsLib-section u-size1of3">
+					<div class="IconsLib-item">
+						{% include 'component/base_icon.html.twig' with {
+              props: {
+                name: 'blog'
+              }
+            } %}
+						blog
+					</div>
+					<div class="IconsLib-item">
+						{% include 'component/base_icon.html.twig' with {
+              props: {
+                name: 'bus'
+              }
+            } %}
+						bus
+					</div>
+					<div class="IconsLib-item">
+						{% include 'component/base_icon.html.twig' with {
+              props: {
+                name: 'calendar'
+              }
+            } %}
+						calendar
+					</div>
+					<div class="IconsLib-item">
+						{% include 'component/base_icon.html.twig' with {
+              props: {
+                name: 'call-back'
+              }
+            } %}
+						call-back
+					</div>
+					<div class="IconsLib-item">
+						{% include 'component/base_icon.html.twig' with {
+              props: {
+                name: 'car'
+              }
+            } %}
+						car
+					</div>
+					<div class="IconsLib-item">
+						{% include 'component/base_icon.html.twig' with {
+              props: {
+                name: 'cutlery'
+              }
+            } %}
+						cutlery
+					</div>
+					<div class="IconsLib-item">
+						{% include 'component/base_icon.html.twig' with {
+              props: {
+                name: 'cv'
+              }
+            } %}
+						cv
+					</div>
+					<div class="IconsLib-item">
+						{% include 'component/base_icon.html.twig' with {
+              props: {
+                name: 'doctor'
+              }
+            } %}
+						doctor
+					</div>
+					<div class="IconsLib-item">
+						{% include 'component/base_icon.html.twig' with {
+              props: {
+                name: 'e-shop'
+              }
+            } %}
+						e-shop
+					</div>
+					<div class="IconsLib-item">
+						{% include 'component/base_icon.html.twig' with {
+              props: {
+                name: 'engagement'
+              }
+            } %}
+						engagement
+					</div>
+				</div>
+				<div class="IconsLib-section u-size1of3">
+					<div class="IconsLib-item">
+						{% include 'component/base_icon.html.twig' with {
+              props: {
+                name: 'facebook-circle'
+              }
+            } %}
+						facebook-circle
+					</div>
+					<div class="IconsLib-item">
+						{% include 'component/base_icon.html.twig' with {
+              props: {
+                name: 'facebook'
+              }
+            } %}
+						facebook
+					</div>
+					<div class="IconsLib-item">
+						{% include 'component/base_icon.html.twig' with {
+              props: {
+                name: 'fidelity'
+              }
+            } %}
+						fidelity
+					</div>
+					<div class="IconsLib-item">
+						{% include 'component/base_icon.html.twig' with {
+              props: {
+                name: 'fitness'
+              }
+            } %}
+						fitness
+					</div>
+					<div class="IconsLib-item">
+						{% include 'component/base_icon.html.twig' with {
+              props: {
+                name: 'gallery'
+              }
+            } %}
+						gallery
+					</div>
+					<div class="IconsLib-item">
+						{% include 'component/base_icon.html.twig' with {
+              props: {
+                name: 'gift'
+              }
+            } %}
+						gift
+					</div>
+					<div class="IconsLib-item">
+						{% include 'component/base_icon.html.twig' with {
+              props: {
+                name: 'group'
+              }
+            } %}
+						group
+					</div>
+					<div class="IconsLib-item">
+						{% include 'component/base_icon.html.twig' with {
+              props: {
+                name: 'health'
+              }
+            } %}
+						health
+					</div>
+					<div class="IconsLib-item">
+						{% include 'component/base_icon.html.twig' with {
+              props: {
+                name: 'heartbeat'
+              }
+            } %}
+						heartbeat
+					</div>
+					<div class="IconsLib-item">
+						{% include 'component/base_icon.html.twig' with {
+              props: {
+                name: 'hotel'
+              }
+            } %}
+						hotel
+					</div>
+				</div>
+				<div class="IconsLib-section u-size1of3">
+					<div class="IconsLib-item">
+						{% include 'component/base_icon.html.twig' with {
+              props: {
+                name: 'info'
+              }
+            } %}
+						info
+					</div>
+					<div class="IconsLib-item">
+						{% include 'component/base_icon.html.twig' with {
+              props: {
+                name: 'instagram'
+              }
+            } %}
+						instagram
+					</div>
+					<div class="IconsLib-item">
+						{% include 'component/base_icon.html.twig' with {
+              props: {
+                name: 'linkedin'
+              }
+            } %}
+						linkedin
+					</div>
+					<div class="IconsLib-item">
+						{% include 'component/base_icon.html.twig' with {
+              props: {
+                name: 'logo-min'
+              }
+            } %}
+						logo-min
+					</div>
+					<div class="IconsLib-item">
+						{% include 'component/base_icon.html.twig' with {
+              props: {
+                name: 'massage'
+              }
+            } %}
+						massage
+					</div>
+					<div class="IconsLib-item">
+						{% include 'component/base_icon.html.twig' with {
+              props: {
+                name: 'mastercard'
+              }
+            } %}
+						mastercard
+					</div>
+					<div class="IconsLib-item">
+						{% include 'component/base_icon.html.twig' with {
+              props: {
+                name: 'message'
+              }
+            } %}
+						message
+					</div>
+					<div class="IconsLib-item">
+						{% include 'component/base_icon.html.twig' with {
+              props: {
+                name: 'napkins'
+              }
+            } %}
+						napkins
+					</div>
+					<div class="IconsLib-item">
+						{% include 'component/base_icon.html.twig' with {
+              props: {
+                name: 'nursery'
+              }
+            } %}
+						nursery
+					</div>
+					<div class="IconsLib-item">
+						{% include 'component/base_icon.html.twig' with {
+              props: {
+                name: 'oil'
+              }
+            } %}
+						oil
+					</div>
+				</div>
+				<div class="IconsLib-section u-size1of3">
+					<div class="IconsLib-item">
+						{% include 'component/base_icon.html.twig' with {
+              props: {
+                name: 'phone'
+              }
+            } %}
+						phone
+					</div>
+					<div class="IconsLib-item">
+						{% include 'component/base_icon.html.twig' with {
+              props: {
+                name: 'pinterest'
+              }
+            } %}
+						pinterest
+					</div>
+					<div class="IconsLib-item">
+						{% include 'component/base_icon.html.twig' with {
+              props: {
+                name: 'plane'
+              }
+            } %}
+						plane
+					</div>
+					<div class="IconsLib-item">
+						{% include 'component/base_icon.html.twig' with {
+              props: {
+                name: 'pornic'
+              }
+            } %}
+						pornic
+					</div>
+					<div class="IconsLib-item">
+						{% include 'component/base_icon.html.twig' with {
+              props: {
+                name: 'press'
+              }
+            } %}
+						press
+					</div>
+					<div class="IconsLib-item">
+						{% include 'component/base_icon.html.twig' with {
+              props: {
+                name: 'question'
+              }
+            } %}
+						question
+					</div>
+					<div class="IconsLib-item">
+						{% include 'component/base_icon.html.twig' with {
+              props: {
+                name: 'quote'
+              }
+            } %}
+						quote
+					</div>
+					<div class="IconsLib-item">
+						{% include 'component/base_icon.html.twig' with {
+              props: {
+                name: 'restaurant'
+              }
+            } %}
+						restaurant
+					</div>
+					<div class="IconsLib-item">
+						{% include 'component/base_icon.html.twig' with {
+              props: {
+                name: 'search'
+              }
+            } %}
+						search
+					</div>
+					<div class="IconsLib-item">
+						{% include 'component/base_icon.html.twig' with {
+              props: {
+                name: 'seminar'
+              }
+            } %}
+						seminar
+					</div>
+				</div>
+				<div class="IconsLib-section u-size1of3">
+					<div class="IconsLib-item">
+						{% include 'component/base_icon.html.twig' with {
+              props: {
+                name: 'shop'
+              }
+            } %}
+						shop
+					</div>
+					<div class="IconsLib-item">
+						{% include 'component/base_icon.html.twig' with {
+              props: {
+                name: 'solo'
+              }
+            } %}
+						solo
+					</div>
+					<div class="IconsLib-item">
+						{% include 'component/base_icon.html.twig' with {
+              props: {
+                name: 'sport-area'
+              }
+            } %}
+						sport-area
+					</div>
+					<div class="IconsLib-item">
+						{% include 'component/base_icon.html.twig' with {
+              props: {
+                name: 'sport'
+              }
+            } %}
+						sport
+					</div>
+					<div class="IconsLib-item">
+						{% include 'component/base_icon.html.twig' with {
+              props: {
+                name: 'thalasso'
+              }
+            } %}
+						thalasso
+					</div>
+					<div class="IconsLib-item">
+						{% include 'component/base_icon.html.twig' with {
+              props: {
+                name: 'thermometer'
+              }
+            } %}
+						thermometer
+					</div>
+					<div class="IconsLib-item">
+						{% include 'component/base_icon.html.twig' with {
+              props: {
+                name: 'train'
+              }
+            } %}
+						train
+					</div>
+					<div class="IconsLib-item">
+						{% include 'component/base_icon.html.twig' with {
+              props: {
+                name: 'treatment'
+              }
+            } %}
+						treatment
+					</div>
+					<div class="IconsLib-item">
+						{% include 'component/base_icon.html.twig' with {
+              props: {
+                name: 'upload'
+              }
+            } %}
+						upload
+					</div>
+					<div class="IconsLib-item">
+						{% include 'component/base_icon.html.twig' with {
+              props: {
+                name: 'visa'
+              }
+            } %}
+						visa
+					</div>
+				</div>
+				<div class="IconsLib-section u-size1of3">
+					<div class="IconsLib-item">
+						{% include 'component/base_icon.html.twig' with {
+              props: {
+                name: 'voucher'
+              }
+            } %}
+						voucher
+					</div>
+					<div class="IconsLib-item">
+						{% include 'component/base_icon.html.twig' with {
+              props: {
+                name: 'weather-peu-nuageux'
+              }
+            } %}
+						weather-peu-nuageux
+					</div>
+					<div class="IconsLib-item">
+						{% include 'component/base_icon.html.twig' with {
+              props: {
+                name: 'well-being'
+              }
+            } %}
+						well-being
+					</div>
+					<div class="IconsLib-item">
+						{% include 'component/base_icon.html.twig' with {
+              props: {
+                name: 'yoga'
+              }
+            } %}
+						yoga
+					</div>
+				</div>
+			</div>
+		</div>
+
+	</div>
+{% endblock %}

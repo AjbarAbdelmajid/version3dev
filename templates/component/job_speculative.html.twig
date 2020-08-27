@@ -1,0 +1,34 @@
+{#
+  component: job_speculative
+
+  icon {string}: icon
+	title {string}: titre
+  button {base_link}: bouton
+#}
+
+{% set props = {
+	title: "",
+  icon: "",
+  button: {}
+}|merge(props|default({}))  %}
+
+<section class="JobSpeculative">
+	<div class="JobSpeculative-wrapper u-wrapperMedium">
+		<div class="JobSpeculative-content u-alignVerticalCenter">
+			<div class="JobSpeculative-icon">
+				{% include 'component/base_icon_circle.html.twig' with {
+          props: {
+            icon: props.icon
+          }
+        } %}
+			</div>
+			<h2 class="JobSpeculative-title u-textCenter u-titleMedium">{{props.title|raw}}</h2>
+			<div class="JobSpeculative-button">
+				{% include 'component/base_button.html.twig' with {
+          props: props.button|merge({size:"large"})
+        } %}
+			</div>
+		</div>
+	</div>
+
+</section>

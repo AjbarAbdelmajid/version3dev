@@ -1,0 +1,55 @@
+{# 
+	component: home_discover 
+
+	title {string}: titre
+	items {array}: tableau d'items
+		- title: {string}: titre
+		- description {string}: description
+		- link {string}: lien
+		- image {base_image}: image
+	
+#}
+
+{% set jsComponentId = "home_discover" %}
+
+{% set props = {
+  title: null, 
+	items: null
+}|merge(props|default({}))  %}
+
+
+<section class="HomeDiscover" data-component="{{ jsComponentId }}">
+	<div class="u-wrapperMedium u-alignCenter">
+		<h2 class="u-titleMedium">{{ props.title|raw }}</h2>
+	</div>
+	<div class="HomeDiscover-content" ref="content">
+		<div class="HomeDiscover-items u-alignCenter">
+			{% for item in props.items %}
+				<a href="{{ item.link }}" class="HomeDiscover-item u-alignVerticalCenter u-cWhite" ref="item" data-id="{{ loop.index }}">
+					<h3 class="HomeDiscover-itemTitle u-titleMedium u-cWhite">
+						{{ item.title }}
+					</h3>
+					<div class="HomeDiscover-itemDescription">
+						<p>{{ item.description }}</p>
+
+						<div class="HomeDiscover-itemButton u-alignVerticalCenter">
+							<div class="HomeDiscover-itemButtonIcon"></div>
+						</div>
+					</div>
+				</a>
+			{% endfor %}
+		</div>
+		<div class="HomeDiscover-images u-posFit u-alignCenter">
+			{% for item in props.items %}
+				<div class="HomeDiscover-wrapImage" ref="image" data-id="{{ loop.index }}">
+					{% include 'component/base_image.html.twig' with {
+						props: {
+							src: item.image.src,
+							alt: item.image.alt
+						}
+					} %}
+				</div>
+			{% endfor %}
+		</div>
+	</div>
+</section>

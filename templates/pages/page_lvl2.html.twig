@@ -1,0 +1,259 @@
+{# 
+	page: list_lvl2
+#}
+
+{% extends "layouts/base.html.twig" %}
+
+{% set jsPageId = 'page' %}
+{% set pageClass = 'PageLvl2' %}
+{% set heroSize = 'small' %}
+
+{% block content %}
+
+	{# Hero #}
+	{% include 'component/page_hero.html.twig' with {
+    props: {
+      size: heroSize,
+      content_over: false,
+      has_icon: true,
+      title: "Thalasso & SPA",
+      image: {
+       	src: asset('build/images/page/hero-thalasso-spa.jpg'),
+        alt: '',
+        size: {
+          width: "1440",
+          height: "800"
+        }
+      }
+    }
+  } %}
+
+
+	{# Filter bar #}
+	{% include 'component/filter_bar.html.twig' %}
+
+	{# Breadcrumb #}
+	{% include 'component/breadcrumb.html.twig' with {
+    props: {
+      items: [
+        {
+          label: "Accueil",
+          link: "./",
+          active: false
+        },
+        {
+          label: "Séjours détente en thalassothérapie",
+          link: "/page-lvl1",
+          active: false
+        },
+        {
+          label: "Cures thalasso & SPA",
+          link: "/page-lvl2",
+          active: true
+        }
+      ]
+    }
+  } %}
+	<div
+		class="u-bgPattern">
+		{# List #}
+		{% include 'component/page_lvl2_list.html.twig' with {
+        props: {
+          icon: "thalasso",
+          title: "Cures <strong>Thalasso & SPA</strong>",
+          introduction: "Optez pour une cure de bien-être avec massages et soins thalasso",
+          list: [
+            {
+              title: "Thalasso & secret du monde",
+              description: "Les bienfaits des soins d’eau de mer, mêlés à l’exploration sensorielle de différentes techniques de massages. Un plaisir tous les jours renouvelé.",
+              image: {
+                src: asset('build/images/page/lvl2-thalasso-secret-monde.jpg'),
+                alt: '',
+                size: {
+                  width: "320",
+                  height: "180"
+                }
+              },
+              link: {
+                title: "Découvrir cette cure",
+                url: "/page-lvl3"
+              }
+            },
+            {
+              title: "Multi-sensorielle",
+              description: "Une parenthèse  ressourçante qui se conjugue au féminin comme au masculin avec des soins marins, des massages et aussi la cryothérapie à « l’effet booster ».",
+              image: {
+                src: asset('build/images/page/lvl2-multi-sensorielle.jpg'),
+                alt: '',
+                size: {
+                  width: "320",
+                  height: "180"
+                }
+              },
+              link: {
+                title: "Découvrir cette cure",
+                url: "/page-lvl3"
+              }
+            },
+            {
+              title: "Sensation libre",
+              description: "Une cure sur mesure. La liberté de choisir vos soins thalasso et vos soins Spa. Composée au gré de vos envies, de vos besoins, de vos affinités…",
+              image: {
+                src: asset('build/images/page/lvl2-sensation-libre.jpg'),
+                alt: '',
+                size: {
+                  width: "320",
+                  height: "180"
+                }
+              },
+              link: {
+                title: "Découvrir cette cure",
+                url: "/page-lvl3"
+              }
+            },
+            {
+              title: "Sensation libre",
+              description: "Une cure sur mesure. La liberté de choisir vos soins thalasso et vos soins Spa. Composée au gré de vos envies, de vos besoins, de vos affinités…",
+              image: {
+                src: asset('build/images/page/lvl2-sensation-libre.jpg'),
+                alt: '',
+                size: {
+                  width: "320",
+                  height: "180"
+                }
+              },
+              link: {
+                title: "Découvrir cette cure",
+                url: "/page-lvl3"
+              }
+            },
+            {
+              title: "Sensation libre",
+              description: "Une cure sur mesure. La liberté de choisir vos soins thalasso et vos soins Spa. Composée au gré de vos envies, de vos besoins, de vos affinités…",
+              image: {
+                src: asset('build/images/page/lvl2-sensation-libre.jpg'),
+                alt: '',
+                size: {
+                  width: "320",
+                  height: "180"
+                }
+              },
+              link: {
+                title: "Découvrir cette cure",
+                url: "/page-lvl3"
+              }
+            },
+          ],
+          nav: {
+            prev: {
+              title: "remise en forme",
+              link: "/page-lvl2"
+            },
+            next: {
+              title: "remise en forme",
+              link: "/page-lvl2"
+            }
+          }
+        }
+      
+        }
+        %}
+
+
+		{# Voucher #}
+		{% include 'component/page_voucher.html.twig' with {
+      props: {
+        page: "list-lvl2",
+        title: "Offrez un bon cadeau <br><strong>à vos proches</strong>",
+        introduction: "Anniversaire, Noël, Saint-Valentin, fête des mères et fête des pères, ou pour le simple plaisir d’offrir un cadeau bien-être.",
+        items: [
+          {
+            title: "Pour un moment",
+            description: "Offrez un moment de détente dans notre Espace Forme pour profiter des piscines d’eau de mer...",
+            image: {
+              src: asset('build/images/page/voucher-moment.jpg'),
+              alt: '',
+              size: {
+                width: "320",
+                height: "180"
+              }
+            },
+            price: "34€",
+            link: {
+              title: "Voir ce cadeau",
+              url: "#"
+            }
+          },
+          {
+            title: "Pour une journée",
+            description: "Des journées inoubliables Thalasso & Spa avec accès à l’Espace Forme, pour une journée complète.",
+            image: {
+              src: asset('build/images/page/voucher-day.jpg'),
+              alt: '',
+              size: {
+                width: "320",
+                height: "180"
+              }
+            },
+            price: "79€",
+            link: {
+              title: "Voir ce cadeau",
+              url: "#"
+            }
+          },
+          {
+            title: "Pour un week-end",
+            description: "Pourquoi ne pas offrir un séjour Thalasso et Spa les pieds dans l’eau ? dans l’eau ?",
+            image: {
+              src: asset('build/images/page/voucher-week-end.jpg'),
+              alt: '',
+              size: {
+                width: "320",
+                height: "180"
+              }
+            },
+            price: "149€",
+            link: {
+              title: "Voir ce cadeau",
+              url: "#"
+            }
+          }
+        ],
+        allLink: {
+          title: "Tous nos cadeaux",
+          url: "#"
+        }
+      }
+    } %}
+
+		{# Txt - image #}
+		{% include 'component/page_seo_content.html.twig' with {
+      props: {
+        illu: {
+          src: asset('build/images/page/illu-pornic.png'),
+          alt: '',
+          size: {
+            width: "500",
+            height: "250"
+          }
+        },
+        introduction: "En Envie d’un séjour thermal et d’une cure de détente? La thalassothérapie de Pornic vous propose bien-être, détente et relaxation face à l’océan Atlantique.",
+        content: "<span class='h4 u-cGold'>Retrouvez la forme grâce à une cure en thalassothérapie Votre dos est fragile ?</span>
+          <p>Vous sentez le besoin de prendre soin de vos articulations ? Les cures santé vous apportent un confort corporel. Des experts vous accompagnent dans une bulle de détente en suivant des soins adaptés et un programme personnalisé. Vous trouvez ainsi un véritable mieux-être. Notre spa hôtel en bord de mer est le cadre idéal pour préserver votre capital santé. Vous profitez chaque jour du spa beauté pour un séjour tout en douceur</p>
+          <span class='h4 u-cGold'>Vivez une cure de bien-être dans un spa thalasso</span>
+          <p>Entre ressources, techniques et accompagnement, vous bénéficiez du meilleur de la thalassothérapie lors de courts séjours. Dans ce spa de Loire-Atlantique vous êtes en osmose avec l’environnement marin. Le spa situé en Bretagne historique offre des points de vue superbes sur la Côte de Jade. Entre détente et sérénité, vous prenez du temps pour vous.</p>",
+        image: {
+          src: asset('build/images/page/seo-content-image.jpg'),
+          alt: '',
+          size: {
+            width: "400",
+            height: "568"
+          }
+        },
+      }
+    } %}
+
+	</div>
+
+
+{% endblock %}

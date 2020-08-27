@@ -1,0 +1,49 @@
+{# 
+	component: page_lvl1_list 
+
+  title {string}: Titre
+	list {array}: Liste
+    - icon {string}: icon
+    - image {base_image}: image
+    - link {string}: url
+    - title {string}: titre
+    - description {string}: description
+	
+#}
+
+{% set props = {
+  title: null,
+  list: null
+}|merge(props|default({}))  %}
+
+
+<section class="PageLvl1List">
+	<div class="u-wrapperLarge u-alignVerticalCenter">
+		<h2 class="u-titleMedium">{{ props.title|raw }}
+		</h2>
+		<div class="PageLvl1List-items u-alignCenter">
+			{% for item in props.list %}
+				<a href="{{ item.link }}" class="PageLvl1List-item">
+					<div class="PageLvl1List-itemInner">
+						<div class="PageLvl1List-itemContent u-posFit u-alignVerticalCenter">
+							<div class="PageLvl1List-itemIcon">
+								{% include 'component/base_icon_half_circle.html.twig' with {
+                props: {
+                  icon: item.icon
+                  }
+                } %}
+							</div>
+							<div class="PageLvl1List-itemTitle u-titleMedium u-cWhite">{{ item.title|raw }}</div>
+							<div class="PageLvl1List-itemDesc">{{ item.description|raw }}</div>
+						</div>
+						<div class="PageLvl1List-itemImage u-posFit">
+							{% include 'component/base_image.html.twig' with {
+                props: item.image
+              } %}
+						</div>
+					</div>
+				</a>
+			{% endfor %}
+		</div>
+	</div>
+</section>

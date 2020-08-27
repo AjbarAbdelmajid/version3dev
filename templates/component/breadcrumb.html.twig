@@ -1,0 +1,21 @@
+{# 
+	component: breadcrumb 
+
+  theme {string}: theme
+	items {object}: liste des items
+    - label {string} : label
+    - link {string} : lien
+    - active {boolean} : page courrante
+#}
+
+{% set props = {
+  theme: 'dark',
+	items: null
+}|merge(props|default({}))  %}
+
+
+<div class="Breadcrumb u-alignCenter {{ props.theme }}">
+	{% for item in props.items %}
+		<a href="{{ item.link }}" class="Breadcrumb-item {%- if item.active == true %} active{% endif %}">{{ item.label }}</a>
+	{% endfor %}
+</div>

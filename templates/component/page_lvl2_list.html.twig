@@ -1,0 +1,80 @@
+{# 
+	component: page_lvl2_list 
+
+  icon {string}: icon
+	title {string}: titre
+  introduction {string}: introduction
+  list {array}: Tableau de cartes verticales {vertical_card}
+  nav {object}: navigation
+    - prev/next {object}: element precedent/suivant
+      - link {string}: url
+      - title {string}: titre
+#}
+
+{% set props = {
+  icon: null,
+  title: null,
+  introduction: null,
+  list: null,
+  allLink: null,
+  nav: null
+}|merge(props|default({}))  %}
+
+<section
+	class="PageLvl2List">
+
+	{# Nav side #}
+	<div class="PageLvl2List-sideNav">
+		<a href="{{ props.nav.prev.link }}" class="PageLvl2List-sideNavItem u-titleMedium prev">
+			{{props.nav.prev.title}}
+		</a>
+		<a href="{{ props.nav.next.link }}" class="PageLvl2List-sideNavItem u-titleMedium next">
+			{{props.nav.next.title}}
+		</a>
+	</div>
+
+	<div class="u-wrapperMedium">
+		<div
+			class="PageLvl2List-top u-textCenter">
+			{# Nav #}
+			<div class="PageLvl2List-topNav u-alignCenter">
+				<a href="{{ props.nav.prev.link }}" class="PageLvl2List-topNavItem u-alignVerticalCenter prev">
+					{% include 'component/base_icon.html.twig' with {
+            props: {
+              name:"arrow-left"
+            }
+      } %}
+				</a>
+				<div class="PageLvl2List-icon">
+					{% include 'component/base_icon_half_circle.html.twig' with {
+            props: {
+              color: "gold",
+              icon: props.icon
+            }
+          } %}
+
+				</div>
+				<a href="{{ props.nav.next.link }}" class="PageLvl2List-topNavItem u-alignVerticalCenter next">
+					{% include 'component/base_icon.html.twig' with {
+            props: {
+              name:"arrow-right"
+            }
+          } %}
+				</a>
+			</div>
+			<h2 class="u-titleMedium">{{ props.title|raw }}
+			</h2>
+			<div class="PageLvl2List-intro">{{ props.introduction }}</div>
+		</div>
+		{# items #}
+		<div class="PageLvl2List-items u-alignCenter">
+			{% for item in props.list %}
+				<article class="PageLvl2List-item">
+					{% include 'component/vertical_card.html.twig' with {
+              props: item
+            } %}
+				</article>
+			{% endfor %}
+		</div>
+	</div>
+</section>

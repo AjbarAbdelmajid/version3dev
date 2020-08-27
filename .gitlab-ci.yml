@@ -1,0 +1,45 @@
+image: alpine
+
+stages:
+  - build
+  - deploy_project
+  - deploy_assets
+
+# Installe node js et yarn
+# Build le projet
+# Expose public build
+webpack_build:
+  stage: build
+  before_script:
+    - apk update -q
+    - apk add --update nodejs npm yarn
+  script:
+    - yarn
+    - yarn build
+  artifacts:
+    expire_in: 1 days
+    paths:
+      - public/build
+
+# Se connecte au serveur en SSH et execute bin/depoy.sh
+# Pull le projet et fais un composer install
+deploy_project_with_git:
+  stage: deploy_project
+  before_script:
+    - "which ssh-agent || ( apk update -q && apk add openssh-client )"
+    - eval $(ssh-agent -s)
+    - echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add -
+    - mkdir -p ~/.ssh
+    - chmod 700 ~/.ssh
+    - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
+  script:
+    - ssh akaru@ssh.cluster002.hosting.ovh.net "/bin/bash -s " < bin/deploy.sh
+
+# Déplace public/build sur le serveur
+move_assets:
+  stage: deploy_assets
+  before_script:
+    - apk update -q
+    - apk add lftp
+  script:
+    - lftp -e "open $FTP_HOST; user $FTP_USERNAME $FTP_PASSWORD; mirror --reverse --verbose --delete public/build $FTP_PATH; bye"

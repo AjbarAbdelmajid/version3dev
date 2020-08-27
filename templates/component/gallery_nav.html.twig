@@ -1,0 +1,28 @@
+{#
+  component: gallery_nav
+
+  items {array}: items
+    - icon {string}: icon
+    - label {string}: labe
+#}
+
+{% set props = {
+  items: []
+}|merge(props|default({}))  %}
+
+<section class="GalleryNav">
+
+	<div class="GalleryNav-wrapper u-wrapperMedium">
+		<div class="GalleryNav-items" style="--nbItemsGallery: {{ props.items|length }}">
+			{% for item in props.items %}
+				<div class="GalleryNav-item u-alignVerticalCenter" ref="navItem" data-id="{{ item.id }}">
+					{% include 'component/base_icon.html.twig' with {
+            props: {
+              name: item.icon
+            }
+          } %}
+					<div class="GalleryNav-itemLabel">{{ item.label|raw }}</div>
+				</div>
+			{% endfor %}
+		</div>
+	</section>

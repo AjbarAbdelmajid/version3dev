@@ -1,0 +1,24 @@
+{# 
+	component: base_icon_detail
+
+	icon {string}: icon
+  label {string}: label
+#}
+
+{% set props = {
+  icon: null,
+  label: null
+}|merge(props|default({}))  %}
+
+<div class="BaseIconDetail">
+	<div class="BaseIconDetail-icon u-alignVerticalCenter">
+		{% include 'component/base_icon.html.twig' with {
+      props: {
+        name: props.icon
+      }
+    } %}
+	</div>
+	<span class="BaseIconDetail-label">
+		{{ props.label }}
+	</span>
+</div>

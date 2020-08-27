@@ -1,0 +1,155 @@
+{#
+	component: base_input
+
+	type {string}: type
+	label {string}: label
+  placeholder {string}: placeholder
+  name {string}: name
+  id {string}: id
+  value {string}: value
+  required {boolean}: required
+	checked {boolean}: checked
+	max_chars {number}: max de charactères
+#}
+
+
+{% set props = {
+    type: 'text',
+    label: null,
+    placeholder: null,
+    name: null,
+    id: null,
+    value: null,
+    required: false,
+		checked: false,
+		max_chars: null
+}|merge(props|default({})) %}
+
+{# Add * after label if required #}
+{% set label = props.label %}
+{% if props.required and props.label %}
+	{% set label = label ~ '*' %}
+{% endif %}
+
+{#  #}
+{# Construct attributes #}
+{#  #}
+{% set attributes = 'ref=input name='~props.name %}
+
+{# Placeholder attribute #}
+	{% if props.placeholder %}
+{% set attributes = attributes ~ ' placeholder="' ~ props.placeholder ~ '"' %}
+{% endif %}
+
+{# required attribute #}
+	{% if props.required %}
+{% set attributes = attributes ~ ' required' %}
+{% endif %}
+
+{# checked attribute #}
+	{% if props.checked %}
+{% set attributes = attributes ~ ' checked' %}
+{% endif %}
+
+{# value attribute #}
+	{% if props.value %}
+{% set attributes = attributes ~ ' value="' ~ props.value ~ '"' %}
+{% endif %}
+
+{#  #}
+{# Construct classes #}
+{#  #}
+{% set classes = ['type-' ~ props.type] %}
+
+{# Required #}
+	{% if props.required %}
+{% set classes = classes|merge(['is-required']) %}
+{% endif %}
+
+{% set jsComponentId = "base_input" %}
+
+	<div
+	data-component="{{ jsComponentId }}" data-type="{{ props.type }}" class="BaseInput {{ classes|join(' ') }} "> {# Label #}
+	<label class="BaseInput-label" for="{{ props.id }}">{{ label|raw }}</label>
+
+	{# Textarea #}
+	{% if props.type == 'textarea' %}
+		<div class="BaseInput-textarea">
+			<textarea {{ attributes }} id="{{ props.id }}" maxlength="{{props.max_chars}}">{{ props.value }}</textarea>
+			{% if props.max_chars is not null %}
+				<div class="BaseInput-textareaMaxChars">
+
+					<span class="nb" ref="counter">0</span>
+					/
+					<span class="max">{{ props.max_chars }}</span>
+					caractères max.
+				</div>
+			{% endif %}
+		</div>
+
+		{# Commons inputs #}
+	{% elseif props.type == 'text' or props.type == 'email' or props.type == 'tel' or props.type == 'number' %}
+
+		<div class="BaseInput-input">
+			<input {{ attributes }} id="{{ props.id }}" type="{{ props.type }}">
+		</div>
+
+
+		{# Date input #}
+	{% elseif props.type == 'date' %}
+		<div class="BaseInput-date">
+			<datepicker {{ attributes }} :language="datePickerLang" data-lang="fr"></datepicker>
+		</div>
+
+		{# Select #}
+	{% elseif props.type == 'select' %}
+
+		<div class="BaseInput-select">
+			<v-select ref="input" id="{{ props.id }}" :options="{{ props.options|json_encode() }}" data-options="{{ props.options|json_encode() }}" v-model="selected" :searchable="false" :clearable="false">
+				{% verbatim %}
+					<template #selected-option="{ label }">
+						<span class="vs__selected-optionsLabel" v-html="label"/>
+					</template>
+					<template #search="{attributes, events}">
+						<input class="vs__search" :required="!selected" v-bind="attributes" v-on="events"/>
+					</template>
+				{% endverbatim %}
+			</v-select>
+		</div>
+
+		{# checkbox #}
+	{% elseif props.type == 'checkbox' %}
+		<div class="BaseInput-checkbox">
+			<input {{ attributes }} id="{{ props.id }}" type="checkbox">
+		</div>
+
+		{# Radio #}
+	{% elseif props.type == 'radio' %}
+		<div class="BaseInput-radio">
+			<input {{ attributes }} id="{{ props.id }}" type="radio">
+		</div>
+
+		{# Radio #}
+	{% elseif props.type == 'file' %}
+		<div class="BaseInput-file u-alignVerticalCenter">
+			<input {{ attributes }} id="input_file" type="file">
+			{% include 'component/base_icon.html.twig' with {
+					props: {
+						name: 'upload'
+					}
+				} %}
+
+			<div class="BaseInput-fileValue u-alignVerticalCenter u-cDark" ref="labelValue"></div>
+			<div class="BaseInput-placeholder u-alignVerticalCenter" ref="labelPlaceholder">
+				<div class="BaseInput-fileLabel">Choisissez votre fichier</div>
+				<div class="BaseInput-fileSpec">DOC, PDF, JPG . Taille max : 2mo</div>
+				<span></span>
+			</div>
+			<label for="input_file" class="BaseInput-fileFakeLabel"/>
+		</div>
+
+
+	{% endif %}
+
+
+</div>

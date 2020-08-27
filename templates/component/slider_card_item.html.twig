@@ -1,0 +1,54 @@
+{# 
+	component: slider_card_item 
+
+	theme {string}: theme
+	title {string}: titre
+  details {array}: Tableau de détails ({ icon: "", label: "" })
+  description {string}: Description,
+  previousPrice {string} optionel: Ancien prix
+  price {object}: Prix
+  link {base_button}: lien 
+#}
+
+{% set props = {
+  theme: null,
+  title: null,
+  details: [],
+  description: null,
+  previousPrice: null,
+  price: null,
+  link: null
+}|merge(props|default({}))  %}
+
+<div class="SliderCardItem">
+	<div class="SliderCardItem-theme">{{ props.theme }}</div>
+	<div class="SliderCardItem-title u-titleSmall">{{ props.title }}</div>
+	<div class="SliderCardItem-details">
+
+		{% for item in props.details %}
+			<div class="SliderCardItem-detailsItem">
+				{% include 'component/base_icon_detail.html.twig' with {
+				props: {
+					icon: item.icon,
+					label: item.label
+				}
+			} %}
+			</div>
+		{% endfor %}
+
+	</div>
+	<p class="SliderCardItem-desc">{{ props.description }}</p>
+	<div class="SliderCardItem-price">
+		<span class="SliderCardItem-priceStart">A partir de</span>
+		{% if props.previousPrice is defined %}
+			<div class="SliderCardItem-pricePrevious">{{ props.previousPrice }}</div>
+		{% endif %}
+		<div class="SliderCardItem-priceCurrent">{{ props.price }}<small>Par personne</small>
+		</div>
+	</div>
+	<div class="SliderCardItem-button">
+		{% include 'component/base_button.html.twig' with {
+				props: props.link
+		} %}
+	</div>
+</div>

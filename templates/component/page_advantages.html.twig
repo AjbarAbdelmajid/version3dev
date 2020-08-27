@@ -1,0 +1,45 @@
+{#
+  component: page_advantages
+
+  title {string}: titre
+  items {array}: tableau d'items
+    - icon {string}: icon
+    - title {string}: titre
+    - text {base_cms_text}: texte
+#}
+
+{% set props = {
+  title: null,
+  items: null
+}|merge(props|default({}))  %}
+
+<section class="PageAdvantages">
+
+	<div class="PageAdvantages-wrapper u-wrapperLarge">
+		<h2 class="u-titleMedium u-alignCenter">{{ props.title }}</h2>
+
+		<div class="PageAdvantages-items">
+			{% for item in props.items %}
+				<div class="PageAdvantages-item">
+					<div class="PageAdvantages-itemIcon">
+						{% include 'component/base_icon_circle.html.twig' with {
+              props: {
+                icon: item.icon
+            }
+          } %}
+					</div>
+					<div class="PageAdvantages-itemContent">
+						<div class="u-titleXSmall u-cGold">
+							{{ item.title }}
+						</div>
+						{% include 'component/base_cms_text.html.twig' with {
+              props: {
+                  content: item.text
+                }
+              } %}
+					</div>
+				</div>
+			{% endfor %}
+		</div>
+	</div>
+</section>

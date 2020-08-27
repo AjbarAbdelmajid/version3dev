@@ -1,0 +1,29 @@
+{#
+  component: map
+
+  coord {array}: tableau de coordonnées [latitude, longitude]
+  zoom {number}: zoom
+#}
+
+{% set jsComponentId = "map" %}
+
+{% set props = {
+  coord: [0,0],
+  zoom: 9
+}|merge(props|default({}))  %}
+
+<section data-component="{{ jsComponentId }}" class="Map" data-latitude="{{ props.coord[0] }}" data-longitude="{{ props.coord[1] }}" data-zoom="{{ props.zoom }}">
+	<div class="u-posFit">
+		<div class="Map-container" ref="map"></div>
+	</div>
+	<div class="Map-marker" ref="marker">
+		<div class="Map-markerInner">
+			{% include 'component/base_image.html.twig' with {
+				props: {
+					src: asset('build/images/header/logo.png'),
+					alt: 'Logo Pornic'
+				}
+			} %}</div>
+	</div>
+
+</section>

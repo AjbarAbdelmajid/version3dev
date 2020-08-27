@@ -1,0 +1,134 @@
+.BaseCMSText {
+  p {
+    font-size: 14px;
+    line-height: 20px;
+    margin: 0 0 25px 0;
+  }
+
+  strong {
+    font-weight: 600;
+    color: $darkBlue;
+  }
+
+  .h1,
+  .h2,
+  .h3,
+  .h4 {
+    font-family: $title-font;
+    color: $goldDark;
+    margin: 0 0 25px 0;
+    padding-top: 10px;
+    display: block;
+  }
+
+  .h1 {
+    font-family: $title-font;
+    font-weight: 400;
+    font-size: 50px;
+    line-height: 50px;
+  }
+
+  .h2 {
+    font-size: 36px;
+    line-height: 43px;
+  }
+
+  .h3 {
+    font-size: 24px;
+    line-height: 28px;
+  }
+
+  .h4 {
+    font-size: 20px;
+    line-height: 28px;
+    font-weight: 500;
+  }
+
+  .text-highlight {
+    display: block;
+    font-size: 16px;
+    line-height: 22px;
+    font-weight: 500;
+    color: $darkBlue;
+    font-family: $title-font;
+    margin: 10px 0 20px 0;
+
+    strong {
+      color: $goldDark;
+    }
+  }
+
+  a {
+    color: $goldDark;
+    transition: color 0.5s $ease-quart-out;
+
+    &:hover {
+      color: $darkBlue;
+    }
+  }
+
+  ul {
+    padding-left: 60px;
+    margin: 0 0 25px 0;
+    min-width: 35%;
+  }
+
+  li {
+    position: relative;
+    display: block;
+    margin-bottom: 5px;
+
+    &::before {
+      @include pseudo();
+      position: absolute;
+      width: 6px;
+      height: 6px;
+      left: -25px;
+      top: 7px;
+      border-radius: 100%;
+      background: $gold;
+    }
+  }
+
+  // > ul > li {
+  //   // &::before {
+  //   //   top: 3px;
+  //   //   width: 10px;
+  //   //   height: 10px;
+  //   //   border: 2px solid $gold;
+  //   // }
+  // }
+
+  > ul > li > ul > li {
+    padding-left: 25px;
+
+    &::before {
+      top: 5px;
+      width: 6px;
+      height: 6px;
+      background: $gold;
+    }
+  }
+
+  /* Responsive
+     ========================================================================== */
+
+  // @include media('<=medium') {
+  //   /deep/ {
+  //     .h1 {
+  //       font-size: 20vw;
+  //       line-height: 17vw;
+  //     }
+  //   }
+  // }
+
+  // @include media('<=small') {
+  //   /deep/ {
+  //     .h2,
+  //     .h3 {
+  //       font-size: 50px;
+  //       line-height: 55px;
+  //     }
+  //   }
+  // }
+}

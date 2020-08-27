@@ -1,0 +1,48 @@
+.BaseIconHalfCircle {
+  width: 100px;
+  height: 100px;
+  position: relative;
+
+  &.c-gold {
+    .BaseIcon {
+      fill: $gold;
+    }
+
+    .BaseIconHalfCircle-circle {
+      &--bg svg {
+        stroke: $gold;
+      }
+
+      &--hover svg {
+        stroke: $gold;
+      }
+    }
+  }
+
+  .BaseIcon {
+    width: 36px;
+    height: 36px;
+    fill: $white;
+  }
+}
+
+.BaseIconHalfCircle-circle {
+  @include posFit();
+
+  svg {
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+  &--bg svg {
+    opacity: 0.3;
+    stroke: $white;
+  }
+
+  &--hover svg {
+    stroke: $white;
+    stroke-width: 3px;
+    stroke-dasharray: 30 315;
+    transform: rotate(73deg);
+  }
+}

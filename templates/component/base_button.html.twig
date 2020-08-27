@@ -1,0 +1,19 @@
+{# 
+	component: base_button 
+
+	size {string}: taille en hauteur
+	url {string}: url
+	title {string}: titre du bouton
+  external {boolean}: lien externe
+#}
+
+{% set props = {
+	size: 'medium',
+  url: null,
+	title: null,
+  external: false
+}|merge(props|default({}))  %}
+
+<a href="{{ props.url }}" class="BaseButton u-alignVerticalCenter {{ props.size }}">
+	<span class="BaseButton-label">{{ props.title|raw }}</span>
+</a>

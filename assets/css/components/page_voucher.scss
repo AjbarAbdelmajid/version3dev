@@ -1,0 +1,69 @@
+.PageVoucher {
+  padding: 120px 0 60px 0;
+
+  position: relative;
+
+  &::before {
+    @include pseudo();
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    @include bgPattern();
+    height: 430px;
+  }
+
+  &.list-lvl1 {
+  }
+
+  &.list-lvl2 {
+    &::before {
+      height: 670px;
+      background: $white;
+    }
+
+    .PageVoucher-wrapper::after {
+      @include pseudo();
+      position: absolute;
+      top: -80px;
+      width: 100%;
+      height: 100%;
+      background: $white;
+      z-index: 0;
+    }
+  }
+}
+
+.PageVoucher-wrapper {
+  position: relative;
+}
+
+.PageVoucher-intro {
+  font-size: 20px;
+  line-height: 24px;
+  max-width: 640px;
+  margin: 20px auto;
+  font-style: italic;
+}
+
+.PageVoucher-items {
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content: space-between;
+  margin-bottom: 40px;
+  margin-top: 60px;
+  position: relative;
+  z-index: 2;
+}
+
+.PageVoucher-item {
+  flex: none;
+  width: calc(100% / 3 - (156px / 3));
+  position: relative;
+  margin: 20px 0;
+}
+
+.PageVoucher-top {
+  position: relative;
+  z-index: 2;
+}

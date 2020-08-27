@@ -1,0 +1,75 @@
+.BaseLink {
+  font-family: $title-font;
+  font-size: 16px;
+  line-height: 21px;
+  color: $goldDark;
+  height: 60px;
+  display: inline-flex;
+  align-items: center;
+  padding-right: 115px;
+  position: relative;
+  cursor: pointer;
+
+  &.reverse {
+    padding-left: 115px;
+    padding-right: 0;
+
+    .BaseLink-icon {
+      left: 0;
+      right: auto;
+      transform: scaleX(-1);
+    }
+  }
+}
+
+.BaseLink-icon {
+  position: absolute;
+  right: 0;
+  height: 100%;
+}
+
+.BaseLink-iconArrow {
+  width: 66px;
+  height: 2px;
+  position: absolute;
+  right: 26px;
+  top: 50%;
+
+  &::before {
+    @include pseudo();
+    width: calc(100% - 5px);
+    height: 1px;
+    background: $darkBlue;
+  }
+  &::after {
+    @include pseudo();
+    position: absolute;
+    right: 0;
+    top: 50%;
+    margin-top: -5px;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 4.5px 0 4.5px 7px;
+    border-color: transparent transparent transparent $darkBlue;
+  }
+}
+
+.BaseLink-iconCircle {
+  width: 60px;
+  height: 60px;
+  position: relative;
+  position: absolute;
+  right: 0;
+  top: 0;
+
+  svg {
+    stroke: #e8e8e8;
+    stroke-width: 2px;
+    stroke-dasharray: 270 315;
+    transform: rotate(-155deg);
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+}

@@ -1,0 +1,233 @@
+{# 
+	page: page_simple
+#}
+
+{% extends "layouts/base.html.twig" %}
+
+{% set jsPageId = 'page' %}
+{% set pageClass = 'PageGoodDeal' %}
+{% set heroSize = 'small' %}
+
+{% block content %}
+
+	{# Hero #}
+	{% include 'component/page_hero.html.twig' with {
+    props: {
+      size: heroSize,
+      content_over: false,
+      title: "Bons plans",
+      image: {
+       	src: asset('build/images/page/hero-good-deals.jpg'),
+        alt: '',
+        size: {
+          width: "1440",
+          height: "800"
+        }
+      }
+    }
+  } %}
+
+
+	{# Filter bar #}
+	{% include 'component/filter_bar.html.twig' %}
+
+	{# Breadcrumb #}
+	{% include 'component/breadcrumb.html.twig' with {
+    props: {
+      items: [
+        {
+          label: "Accueil",
+          link: "./",
+          active: false
+        },
+        {  
+          label: " Salle de remise en forme à Pornic ",
+          link: "/page-lvl1",
+          active: false
+        },
+        {
+          label: "Abonnement au centre de thalassothérapie   ",
+          link: "/page-lvl2",
+          active: true
+        }
+      ]
+    }
+  } %}
+
+	{# detail_card #}
+	{% include 'component/page_simple_list.html.twig' with {
+      props: {
+        first_title:"Découvrez <br><strong>les bons plans Thalasso</strong>",
+        second_title:"Séjours pas chers, offres exceptionnelles…",
+        third_title:null,
+        text: null,
+        list: [
+          {
+            theme: 'good-deal',
+            image: {
+              src: asset('build/images/page/carte-offer-early-booking.jpg'),
+              alt: '',
+              size: {
+                width: "400",
+                height: "480"
+              }
+            },
+            title: "Offre <strong>Early booking</strong>",
+            intro: "Avec nous, plus vous réservez tôt… Et plus le prix de séjour à l’Alliance Pornic est avantageux !",
+            offers: [
+              {
+                value: "-20%",
+                for: "pour une réservation confirmée",
+                duration: "<strong>+ de 6 mois</strong>(avant votre arrivée)"
+              },
+              {
+                value: "-15%",
+                for: "pour une réservation confirmée",
+                duration: "<strong>+ de 4 à 6 mois</strong>(avant votre arrivée)"
+              },
+              {
+                value: "-10%",
+                for: "pour une réservation confirmée",
+                duration: "<strong>+ de 3 à 4 mois</strong>(avant votre arrivée)"
+              }
+            ],
+            actions: {
+              note: "* Offre valable pour toute réservation de séjours de 4 jours de soins et 4 nuits et plus, en demi-pension ou pension complète (hors cure Anti-Âge et Sensation Libre).",
+              button: {
+                title: "Réserver",
+                url: "#",
+                external: true
+              }
+            }
+          },
+          {
+            theme: 'good-deal',
+            image: {
+              src: asset('build/images/page/carte-offer-solo.jpg'),
+              alt: '',
+              size: {
+                width: "400",
+                height: "480"
+              }
+            },
+            title: "Offre <strong>Solo</strong>",
+            intro: "Envie de faire une pause, de vous ressourcer en région Pays de la Loire. Sentir qu’on s’occupe de vous le temps d’une semaine détente, et rien que de vous, c’est possible grâce à notre forfait SOLO.",
+            content: 
+              "<p class='text-highlight'>Le supplément « chambre individuelle » vous est OFFERT sur les semaines suivantes :</p>
+              <div class='u-flex'>
+              <ul>
+                <li>Du 15 au 21 mars 2020</li>
+                <li>Du 24 au 30 mai 2020</li>
+                <li>Du 7 au 20 juin 2020</li>
+              </ul>
+              <ul>
+                <li>Du 11 au 17 octobre 2020</li>
+                <li>Du 22 au 28 novembre 2020</li>
+              </ul>
+              </div>",
+            actions: {
+              selection: {
+                name: "lodging",
+                inputs:[
+                  {
+                    value: "with_lodging",
+                    url: "#",
+                    label: "Avec hébergement",
+                    description: "4 à 6 jours",
+                    price: {
+                      start: "à partir de",
+                      value: 1962,
+                      quantity: "Par personne"
+                    }
+                  },
+                  {
+                    value: "without_lodging",
+                    url: "#",
+                    label: "Sans hébergement",
+                    price: {
+                      start: "à partir de",
+                      value: 1182,
+                      quantity: "Par personne"
+                    }
+                  }
+                ],
+              },
+              price: {
+                start: "à partir de",
+                value: 1962,
+                quantity: "Par personne"
+              },
+              button: {
+                title: "Réserver",
+                url: "#",
+                external: true
+              }
+            }
+          },
+          {
+            theme: 'good-deal',
+            image: {
+              src: asset('build/images/page/carte-offer-mother.jpg'),
+              alt: '',
+              size: {
+                width: "400",
+                height: "480"
+              }
+            },
+            title: "Offre <strong>Mère / Fille</strong>",
+            intro: "Et si vous vous retrouviez entre filles au cœur d’un cadre privilégié face à l’océan lors d’une cure Mère-Fille ?",
+            content: 
+              "<p class='text-highlight'>Alliance Pornic a pensé à vous et vous propose un week-end thalasso Mère-Fille de <strong>2 nuits</strong> ou <strong>un séjour de 4 nuits.</strong></p>
+              <p>Un vrai moment de complicité en vue…</p>",
+            actions: {
+              button: {
+                title: "Réserver",
+                url: "#",
+                external: true
+              }
+            }
+          },
+          {
+            theme: 'good-deal',
+            image: {
+              src: asset('build/images/page/carte-offer-family.jpg'),
+              alt: '',
+              size: {
+                width: "400",
+                height: "480"
+              }
+            },
+            title: "Offre <strong>Famille . 4 jours / 4 nuits</strong>",
+            intro: "Enfin un forfait pensé pour satisfaire toute la famille le temps d’un séjour bien-être",
+            details: [
+              {
+                icon: "nursery",
+                title: "Une nursery pour les enfants <strong>de 2 mois à 6 ans</strong> !",
+                text: "(babysitting possible pour les enfants de plus de 6 ans)"
+              },
+              {
+                icon: "bed",
+                title: "Hébergement en chambre Patio, en demi-pension <strong>4 jours de soins</strong> pour les parents/grand parents en cure Remise en Forme"
+              }
+            ],
+            actions: {
+              note: "*Supplément pour toutes les autres cures. La demi-pension est comprise pour les adultes uniquement. Vous avez la possibilité de bénéficier de chambres communicantes pendant votre séjour en famille.",
+              price: {
+                start: "À partir de ",
+                value: 2820,
+                quantity: "Pour la famille"
+              },
+              button: {
+                title: "Réserver",
+                url: "#",
+                external: true
+              }
+            }
+          }
+        ]
+      }
+    }
+  %}
+
+
+{% endblock %}

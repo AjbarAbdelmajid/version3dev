@@ -1,0 +1,66 @@
+{#
+  component: page_form_content
+
+  slides {array}: tableau d'images {base_image}
+  title {string}: titre
+  intro {base_cms_text}: intro
+  texts {array}: tableau de textes avec titre
+    - icon {string}: icon
+    - title {string}: title
+    - text {base_cms_text}: texte
+  button {base_button} (optional): bouton
+  
+#}
+
+{% set props = {
+  slides: [],
+  title: null,
+  intro: null,
+  texts: [],
+  button: {}
+}|merge(props|default({}))  %}
+
+<section class="PageFormContent">
+
+	<div
+		class="PageFormContent-wrapper u-wrapperMedium">
+
+		{# Images #}
+		{% include 'component/slider_image.html.twig' with {
+        props: {
+          slides: props.slides
+        }
+    } %}
+
+		<div class="PageFormContent-content">
+			<div class="PageFormContent-contentInner">
+				<h2 class="PageFormContent-title u-titleSmall">{{ props.title|raw }}</h2>
+				{% include 'component/base_cms_text.html.twig' with {
+          props: {
+            content: props.intro
+          }
+        } %}
+				<div class="PageFormContent-items">
+					{% for item in props.texts %}
+						<div class="PageFormContent-item">
+							{% include 'component/block_icon_title_text.html.twig' with {
+                props: item
+              } %}
+						</div>
+					{% endfor %}
+				</div>
+			</div>
+
+			{% if props.button is not null %}
+				{% include 'component/base_button.html.twig' with {
+          props: {
+					  size: 'large',
+					  title: props.button.title,
+					  url: props.button.url
+				  }
+      } %}
+			{% endif %}
+
+		</div>
+	</div>
+</section>

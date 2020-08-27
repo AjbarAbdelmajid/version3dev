@@ -1,0 +1,40 @@
+{#
+  component: about_founder
+
+  image {base_image}: image
+  text {base_cms_text}: text
+#}
+
+{% set props = {
+  image: null,
+  text: null
+}|merge(props|default({}))  %}
+
+<section data-component="about_founder" class="AboutFounder">
+
+	<div class="u-wrapperMedium">
+		<div class="AboutFounder-image">
+			{% include 'component/base_image.html.twig' with {
+        props: props.image
+      } %}
+		</div>
+
+		<div class="AboutFounder-wrapText">
+			<div class="AboutFounder-text AboutFounder-text--gold u-cGold">
+				<div class="AboutFounder-textInner">
+					{{ props.text|raw }}
+				</div>
+			</div>
+
+
+			<div class="AboutFounder-text AboutFounder-text--blue u-cDarkBlue">
+				<div class="AboutFounder-textMask">
+					<div class="AboutFounder-textInner">
+						{{ props.text|raw }}
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</section>

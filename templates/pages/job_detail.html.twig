@@ -1,0 +1,263 @@
+{# 
+	page: list_lvl1
+#}
+
+{% extends "layouts/base.html.twig" %}
+
+{% set jsPageId = 'job_detail' %}
+{% set pageClass = 'JobDetail' %}
+{% set heroSize = 'small' %}
+
+{% block content %}
+
+	{# Hero #}
+	{% include 'component/page_hero.html.twig' with {
+    props: {
+      title: "Emplois",
+      size: heroSize,
+      content_over: true,
+      image: {
+       	src: asset('build/images/job/hero-kine.jpg'),
+        alt: '',
+        size: {
+          width: "1440",
+          height: "800"
+        }
+      }
+    }
+  } %}
+	<div class="PageTemplate-mainCont u-bgGrey">
+		<div
+			class="PageTemplate-wrapper u-wrapperMedium u-cDarkBlue u-bgWhite">
+
+			{# HEAD #}
+			<div class="PageTemplate-contentSection u-textCenter">
+				<div class="JobDetail-headInfo u-alignCenter">
+					<div class="JobDetail-headInfoItem">contrat :
+						<span class="u-cGold">CDI</span>
+					</div>
+					<div class="JobDetail-headInfoItem">temps de travail :
+						<span class="u-cGold">Temps plein (35h)</span>
+					</div>
+					<div class="JobDetail-headInfoItem">salaire :
+						<span class="u-cGold">selon expérience</span>
+					</div>
+				</div>
+				<h1 class="JobDetail-headTitle u-titleMedium u-cGold">
+					<strong>Kinésithérapeute F/H</strong>
+				</h1>
+
+				<div class="JobDetail-formBack u-wrapperSmall u-bgWhite u-alignCenter u-hidden" ref="backButton">
+					{% include 'component/base_link.html.twig' with {
+            props: {
+                reverse: true,
+                title: "Retour à l'annonce",  
+              }
+            }
+          %}
+				</div>
+
+			</div>
+
+			{# Separator #}
+			{% include 'component/base_separator.html.twig' %}
+
+
+			<div class="JobDetail-content" ref="contentSection">
+				<div class="JobDetail-contentInner">
+					<div class="PageTemplate-contentSection">
+						{% include 'component/base_cms_text.html.twig' with {
+          props: {
+              content: "
+                <span class='h3'>Profil recherché</span>
+                <ul>
+                  <li>ous présentez un grand intérêt et une motivation pour les métiers de service</li>
+                  <li>Vous avez une présentation soignée et une bonne culture générale</li>
+                  <li>Vous aimez le travail en équipe</li>
+                  <li>Niveau Anglais A1 apprécié</li>
+                </ul>
+                <span class='h3'>Description du poste</span>
+                <p>Vous évoluez au sein d'une équipe de 10 kinésithérapeute et officiez uniquement pour les séjours orientés \"santé\".</p>
+                <strong>Nos installations sont composées de :</strong><br><br>
+                <ul>
+                  <li>1 salle de rééducation</li>
+                  <li>1 salle de gymnastique / relaxation</li>
+                  <li>1 piscine de rééducation avec couloir de marche en eau de mer froide</li>
+                  <li>12 cabines de massage tables électriques</li>
+                </ul>
+                <strong>Vos pratiques :</strong><br><br>
+                <ul>
+                  <li>Massage thérapeutique</li>
+                  <li>Piscine de rééducation </li>
+                  <li>Kinébalnéo jambes </li>
+                  <li>Aquastretching </li>
+                  <li>Massage bébé </li>
+                  <li>Différentes gymnastiques en salle</li>
+                </ul>
+              "
+                
+              }
+            } %}
+
+					</div>
+					{# Separator #}
+					{% include 'component/base_separator.html.twig' %}
+					<div class="PageTemplate-contentSection">
+						{% include 'component/share.html.twig' with {
+            props: {
+              text: "Partager cette annonce :",
+              items: [
+                {
+                  icon: "facebook",
+                  url: "#"
+                },
+                {
+                  icon: "linkedin",
+                  url: "#"
+                }
+              ]
+            }
+          } %}
+					</div>
+
+					<div class="JobDetail-contentButton" ref="contentButton">
+						{% include 'component/base_button.html.twig' with {
+            props: {
+                  size: "large",
+                  title: "Postuler"
+                }
+              }
+            %}
+					</div>
+				</div>
+			</div>
+			<div
+				class="JobDetail-form hidden" ref="formSection">
+				{# Form #}
+				{% include 'component/form.html.twig' with {
+      props: {
+        action: "#",
+        inputs: [
+            {
+              group: true,
+              inputs: [
+                {
+                  type: 'radio',
+                  label: 'Mme',
+                  name: 'gender',
+                  value: 'woman',
+                  checked: true,
+                  id: 'woman',
+                },
+                {
+                  type: 'radio',
+                  label: 'Mr',
+                  name: 'gender',
+                  value: 'man',
+                  checked: false,
+                  id: 'man'
+                }
+              ],
+              class: 'u-sizeFull u-flex'
+            },
+            {
+              type: 'text',
+              label: 'Prénom',
+              required: true,
+              name: 'firstname',
+              id: 'firstname',
+              class:'u-size1of2'
+            },
+            {
+              type: 'text',
+              label: 'Nom',
+              required: true,
+              name: 'lastname',
+              id: 'lastname',
+              class:'u-size1of2'
+            },
+            {
+              type: 'email',
+              label: 'Email',
+              required: true,
+              name: 'email',
+              id: 'email',
+              class:'u-size1of2'
+            },
+              {
+              type: 'tel',
+              label: 'Téléphone',
+              required: true,
+              name: 'tel',
+              id: 'tel',
+              class:'u-size1of2'
+            },
+            {
+              type: 'select',
+              label: 'Disponibilités',
+              required: true,
+              name: 'available',
+              id: 'available',
+              options: [
+                {
+                label: 'Immédiate',
+                value: 'immediate'
+                }, 
+                {
+                  label: 'Plus tard',
+                  value: 'plus tard'
+                }
+              ],
+              class:'u-size1of2'
+            },
+            {
+              type: 'select',
+              label: 'Attente salariale (brut/an)*',
+              required: true,
+              name: 'salary',
+              id: 'salary',
+              options: [
+                {
+                  label: 'De 30 000 à 35 000 €',
+                  value: '30k-35k'
+                }, {
+                  label: 'De 35 000 à 45 000 €',
+                   value: '30k-35k'
+                }
+              ],
+              class:'u-size1of2'
+            },
+            {
+              type: 'file',
+              label: 'CV',
+              required: true,
+              name: 'cv',
+              id: 'cv',
+              class:'u-sizeFull'
+            },
+            {
+              type: 'textarea',
+              label: 'Votre message',
+              required: true,
+              name: 'message',
+              id: 'message',
+              class:'u-sizeFull'
+            },
+            {
+              type: 'checkbox',
+              label: '<strong>J\'accepte que l\'entreprise Alliance Pornic conserve mes données personnelles</strong>Consulter la <a href=\'#\'>politique de confidentialité.</a>',
+              required: true,
+              name: 'confidentiality',
+              id: 'confidentiality',
+              class:'u-sizeFull'
+            },
+        ],
+        button_label: "J'envoie ma candidature"
+      }
+    } %}
+			</div>
+
+
+		</div>
+
+	{% endblock %}

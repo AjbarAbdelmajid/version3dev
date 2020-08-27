@@ -1,0 +1,47 @@
+{# 
+	component: vertical_card 
+	
+	title {string}: titre
+  description {string}: Description,
+  image {base_image}: Image,
+  previousPrice {string} optionel: Ancien prix
+  price {string}: Prix
+  link {base_button}: lien
+#}
+
+{% set props = {
+  title: null,
+  description: null,
+  image: null,
+  previousPrice: null,
+  price: null,
+  link: null
+}|merge(props|default({}))  %}
+
+<div class="VerticalCard {%- if props.previousPrice is null and props.price is null %} no-price{% endif %}">
+	<div class="VerticalCard-image">
+		{% include 'component/base_image.html.twig' with {
+				props: props.image
+		} %}
+	</div>
+	<div class="VerticalCard-content">
+		<div class="VerticalCard-title">{{ props.title }}</div>
+
+		<p class="VerticalCard-desc">{{ props.description }}</p>
+		{% if props.previousPrice is not null or props.price is not null %}
+			<div class="VerticalCard-price">
+				<span class="VerticalCard-priceStart">A partir de</span>
+				{% if props.previousPrice is defined %}
+					<div class="VerticalCard-pricePrevious">{{ props.previousPrice }}</div>
+				{% endif %}
+				<div class="VerticalCard-priceCurrent{%- if props.previousPrice is null %} center{% endif %}">{{ props.price }}<small>Par personne</small>
+				</div>
+			</div>
+		</div>
+	{% endif %}
+	<div class="VerticalCard-button">
+		{% include 'component/base_button.html.twig' with {
+				props: item.link
+		} %}
+	</div>
+</div>

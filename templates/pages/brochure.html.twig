@@ -1,0 +1,203 @@
+{# 
+	page: page_forms
+#}
+
+{% extends "layouts/base.html.twig" %}
+
+{% set jsPageId = 'page_form' %}
+{% set pageClass = 'PageForm' %}
+{% set heroSize = 'medium ' %}
+
+{% block content %}
+<div
+	class="u-bgGrey">
+
+	{# Hero #}
+	{% include 'component/page_hero.html.twig' with {
+    props: {
+      size: heroSize,
+      content_over: true,
+      title: "Brochures",
+      image: {
+       	src: asset('build/images/brochure/hero-brochure.jpg'),
+        alt: '',
+        size: {
+          width: "1440",
+          height: "800"
+        }
+      }
+    }
+  } %}
+
+	{# Intro #}
+	{% include 'component/brochure_content.html.twig' with {
+      props: {
+        title: "Découvrez nos brochures en .PDF <span class='u-cDarkBlue u-textUnderline'>en cliquant</span> sur le visuel souhaité",
+        items: [
+          {
+            image: {
+              src: asset("build/images/brochure/brochure-experience.jpg"),
+              alt: "Brochure experience à vivre",
+              size: {
+                width: "240",
+                height: "285"
+              }
+            },
+            pdf_url: "#"
+          },
+          {
+            image: {
+              src: asset("build/images/brochure/brochure-spa-ocean.jpg"),
+              alt: "Brochure spa et océan",
+              size: {
+                width: "240",
+                height: "285"
+              },
+            },
+            pdf_url: "#"
+          },
+          {
+            image: {
+              src: asset("build/images/brochure/brochure-tarifs.jpg"),
+              alt: "Brochure tarifs",
+              size: {
+                width: "240",
+                height: "285"
+              },
+            },
+            pdf_url: "#"
+          },
+        ],
+      }
+    } %}
+
+
+	{# Form #}
+	{% include 'component/form.html.twig' with {
+      props: {
+        action: "#",
+        intro: "Je souhaitre recevoir les brochures <br><span class='u-cDarkBlue u-textUnderline'>par courrier</span> (prix d’envoi 10€)",
+        inputs: [
+            {
+              group: true,
+              inputs: [
+                {
+                  type: 'radio',
+                  label: 'Mme',
+                  name: 'gender',
+                  value: 'woman',
+                  checked: true,
+                  id: 'woman',
+                },
+                {
+                  type: 'radio',
+                  label: 'Mr',
+                  name: 'gender',
+                  value: 'man',
+                  checked: false,
+                  id: 'man'
+                }
+              ],
+              class: 'u-sizeFull u-flex'
+            },
+            {
+              type: 'text',
+              label: 'Prénom',
+              required: true,
+              name: 'firstname',
+              id: 'firstname',
+              class:'u-size1of2'
+            },
+            {
+              type: 'text',
+              label: 'Nom',
+              required: true,
+              name: 'lastname',
+              id: 'lastname',
+              class:'u-size1of2'
+            },
+            {
+              type: 'email',
+              label: 'Email',
+              required: true,
+              name: 'email',
+              id: 'email',
+              class:'u-size1of2'
+            },
+              {
+              type: 'tel',
+              label: 'Téléphone',
+              required: true,
+              name: 'tel',
+              id: 'tel',
+              class:'u-size1of2'
+            },
+            {
+              type: 'text',
+              label: 'Adresse',
+              required: true,
+              name: 'address',
+              id: 'address',
+              class:'u-size1of2'
+            },
+            {
+              type: 'text',
+              label: 'Adresse (suite)',
+              required: false,
+              name: 'address_next',
+              id: 'address_next',
+              class:'u-size1of2'
+            },
+            {
+              type: 'text',
+              label: 'Code postale',
+              required: true,
+              name: 'zip',
+              id: 'zip',
+              class:'u-size1of2'
+            },
+            {
+              type: 'select',
+              label: 'Pays',
+              required: true,
+              name: 'country',
+              id: 'country',
+              options: [
+                {
+                label: 'France',
+                value: 'france'
+                }, {
+                  label: 'Italie',
+                  value: 'italie'
+                },
+                {
+                  label: 'Espagne',
+                  value: 'espagne'
+                }
+              ],
+              class:'u-size1of2'
+            },
+            {
+              type: 'checkbox',
+              label: '<strong>J\'autorise Alliance Pornic à traiter mes coordonnées personnelles et mes habitudes (historique, préférences...). </strong>Consulter la <a href=\'#\'>politique de confidentialité.</a>',
+              required: true,
+              name: 'confidentiality',
+              id: 'confidentiality',
+              class:'u-sizeFull'
+            },
+            {
+              type: 'checkbox',
+              label: '<strong>Je souhaite m\'inscrire aux newsletters d\'Alliance Pornic</strong> afin de découvrir son actualité et ses offres commerciales',
+              required: false,
+              name: 'newsletter',
+              id: 'newsletter',
+              class:'u-sizeFull'
+            }
+        ],
+        button_label: "Envoyer"
+      }
+    } %}
+	</div>
+
+
+{% endblock %}

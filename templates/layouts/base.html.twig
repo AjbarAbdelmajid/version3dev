@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+{% set bodyId = bodyId|default('') %}
+
+<html>
+	<head>
+		{% block stylesheets %}
+			{{ encore_entry_link_tags('app') }}
+		{% endblock %}
+	</head>
+	<body>
+
+		<div id="app" class="Page {{ pageClass }}" data-page="{{ jsPageId|default('') }}">
+			{% include 'component/header.html.twig' with {
+				props: {
+					subnav_size: heroSize
+				}
+			} %}
+			<div class="Page-content"> {% block content %}{% endblock %}
+				</div>
+				{% include 'component/footer.html.twig' %}
+			</div>
+
+			{% block javascripts %}
+				{{ encore_entry_script_tags('app') }}
+			{% endblock %}
+		</body>
+	</html>

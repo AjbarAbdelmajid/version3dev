@@ -1,0 +1,10 @@
+.BaseSvgCircle {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  fill: none;
+  stroke-width: 0.6px;
+  stroke: $white;
+  transform: rotate(-90deg);
+  overflow: visible;
+}

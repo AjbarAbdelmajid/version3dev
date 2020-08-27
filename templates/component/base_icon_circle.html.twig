@@ -1,0 +1,28 @@
+{# 
+	component: base_icon_half_circle
+
+	icon {string}: icon
+  size {string}: taille
+#}
+
+{% set props = {
+  icon: null,
+  size: 'medium'
+}|merge(props|default({}))  %}
+
+<div class="BaseIconCircle u-alignVerticalCenter {{ props.size }}">
+	<div class="BaseIconCircle-circle">
+		{% include 'component/base_svg_circle.html.twig' with {
+        props: {
+          strokeWidth: 2
+        }
+      } %}
+	</div>
+	<div class="BaseIconCircle-svg">
+		{% include 'component/base_icon.html.twig' with {
+        props: {
+          name: props.icon
+        }
+      } %}
+	</div>
+</div>

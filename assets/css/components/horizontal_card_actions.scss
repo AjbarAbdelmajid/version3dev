@@ -1,0 +1,106 @@
+.HorizontalCardActions {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+
+  &.one-line {
+    .HorizontalCardActions-left {
+      border-top: 0;
+    }
+    .HorizontalCardActions-right {
+      width: 50%;
+
+      .HorizontalCardActions-button {
+        width: 100%;
+      }
+    }
+  }
+}
+
+.HorizontalCardActions-left,
+.HorizontalCardActions-right {
+  border-top: 1px solid #e8e8e8;
+  flex: none;
+  width: 50%;
+}
+
+.HorizontalCardActions-left {
+  border-right: 1px solid #e8e8e8;
+  padding: 0px 30px 0 80px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.HorizontalCardActions-right {
+  &.is-full {
+    width: 100% !important;
+    display: flex;
+    border-top: 0;
+
+    .HorizontalCardActions-price {
+      width: 50%;
+      flex: none;
+    }
+    .HorizontalCardActions-button {
+      width: 50%;
+    }
+  }
+}
+.HorizontalCardActions-price {
+  height: 80px;
+  font-weight: 500;
+  font-size: 42px;
+  line-height: 50px;
+  color: $gold;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.HorizontalCardActions-priceStart {
+  font-weight: 500;
+  font-size: 10px;
+  line-height: 12px;
+  color: $gold;
+  text-transform: uppercase;
+  padding: 2px 20px;
+  background: $white;
+  position: absolute;
+  top: -8px;
+  left: 0px;
+  background: $white;
+  z-index: 2;
+}
+
+.HorizontalCardActions-priceInner {
+  font-weight: 500;
+  font-size: 42px;
+  line-height: 50px;
+  color: $gold;
+  display: flex;
+  text-align: left;
+  align-items: center;
+  position: relative;
+
+  small {
+    font-size: 10px;
+    line-height: 12px;
+    text-transform: uppercase;
+    max-width: 60px;
+    margin-left: 12px;
+    font-family: $text-font;
+  }
+}
+
+.HorizontalCardActions-button {
+}
+
+.HorizontalCardActions-note {
+  font-size: 12px;
+  line-height: 16px;
+  font-style: italic;
+}

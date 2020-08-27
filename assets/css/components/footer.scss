@@ -1,0 +1,212 @@
+.Footer {
+}
+
+.Footer-smallTitle {
+  text-transform: uppercase;
+  font-size: 10px;
+  line-height: 12px;
+  color: $greenBlue;
+  margin-bottom: 20px;
+  display: block;
+}
+
+// Contact
+
+.Footer-sectionContact {
+  align-items: stretch;
+  height: 400px;
+}
+
+.Footer-contact {
+  width: 50%;
+  padding: 75px 50px;
+}
+
+.Footer-contactInner {
+  max-width: 300px;
+  width: 100%;
+  margin: 0 auto;
+}
+.Footer-contactTitle {
+  font-family: $title-font;
+  font-size: 24px;
+  line-height: 29px;
+}
+
+.Footer-contactSubtitle {
+  font-family: $title-font;
+  font-size: 20px;
+  line-height: 24px;
+}
+
+// Newsletter
+
+.Footer-newsletter {
+  width: 50%;
+  padding: 75px 80px;
+  position: relative;
+  height: 100%;
+  background: $white;
+}
+
+.Footer-newsletterInner {
+  max-width: 560px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.Footer-newsletterTitle {
+  font-family: $title-font;
+  font-size: 20px;
+  line-height: 24px;
+  color: $darkBlue;
+}
+
+.Footer-newsletterInput {
+  height: 60px;
+  display: flex;
+  margin-top: 20px;
+
+  input {
+    height: 100%;
+    width: calc(100% - 160px);
+    border: 0;
+    outline: none;
+    border: 1px solid #e8e8e8;
+    font-size: 16px;
+    line-height: 19px;
+    box-shadow: none;
+    border-right: 0;
+    color: $greyDark;
+    padding: 0 20px;
+
+    &::placeholder {
+      color: #838383;
+      opacity: 0.5;
+    }
+  }
+
+  button {
+    height: 100%;
+    width: 160px;
+    background: $gold;
+    font-family: $title-font;
+    color: $white;
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 21px;
+  }
+}
+// Socials
+.Footer-socials {
+  height: 90px;
+  background: #f9f9f9;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+}
+
+.Footer-socialsItem {
+  width: 60px;
+  height: 60px;
+  margin: 0 20px;
+
+  .BaseIcon {
+    width: 24px;
+    height: 24px;
+    fill: $darkBlue;
+  }
+}
+
+.Footer-brochure {
+  width: 50%;
+}
+
+.Footer-brochureItems {
+  display: flex;
+  margin-top: 24px;
+}
+
+.Footer-brochureItem {
+  width: 147px;
+  height: 176px;
+  margin-right: 30px;
+}
+
+// Links
+
+.Footer-sectionLinks {
+  background: $white;
+  padding: 75px 0;
+}
+
+.Footer-sitemap {
+  width: 50%;
+  padding-left: 80px;
+}
+
+.Footer-sitemapItem {
+  display: flex;
+  font-size: 20px;
+  line-height: 45px;
+  color: $darkBlue;
+
+  .BaseIcon {
+    width: 18px;
+    height: 18px;
+    fill: $gold;
+    margin-right: 20px;
+  }
+}
+
+.Footer-sitemapItems {
+  display: flex;
+  margin-top: 30px;
+}
+
+.Footer-sitemapCol {
+  width: 50%;
+}
+
+// BottomBar
+
+.Footer-bottomBar {
+  padding: 0 80px;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: $white;
+  text-transform: uppercase;
+  font-size: 10px;
+  line-height: 12px;
+}
+
+.Footer-payment {
+  display: flex;
+  align-items: center;
+
+  .BaseIcon {
+    width: 30px;
+    height: 17px;
+    margin: 0 3px;
+    margin-top: -2px;
+    fill: $white;
+
+    &:first-child {
+      margin-left: 15px;
+    }
+  }
+}
+
+.Footer-bottomLinksItem {
+  padding: 5px 8px;
+  transition: color 0.5s $ease-quart-out;
+
+  &.is-link {
+    &:hover {
+      color: $greenBlue;
+    }
+  }
+}

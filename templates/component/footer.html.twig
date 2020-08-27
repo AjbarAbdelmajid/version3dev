@@ -1,0 +1,344 @@
+{# 
+	component: footer 
+#}
+
+{% set jsComponentId = "footer" %}
+
+{% set data = {
+  socials: [
+    {
+      icon: "instagram",
+      link: "#"
+    },
+    {
+      icon: "facebook-circle",
+      link: "#"
+    },
+    {
+      icon: "youtube",
+      link: "#"
+    },
+    {
+      icon: "pinterest",
+      link: "#"
+    }
+  ],
+  brochures:[
+    {
+      image: {
+        src: asset('build/images/footer/brochure-experience.jpg'),
+        alt: 'brochure experience',
+        size: {
+          width: "147",
+          height: "176"
+        }
+      },
+      link: "#"
+    },
+    {
+      image: {
+        src: asset('build/images/footer/brochure-spa-ocean.jpg'),
+        alt: 'brochure spa et océan',
+        size: {
+          width: "147",
+          height: "176"
+        }
+      },
+      link: "#"
+    },
+    {
+      image: {
+        src: asset('build/images/footer/brochure-tarifs.jpg'),
+        alt: 'brochure tarifs',
+        size: {
+          width: "147",
+          height: "176"
+        }
+      },
+      link: "#"
+    }
+  ],
+  sitemap: [
+      {
+        label:"Groupes & séminaires",
+        icon: "group",
+        link: "/page-form"
+      },
+      {
+        label:"E-boutique",
+        icon: "e-shop",
+        link: "#"
+      },
+      {
+        label:"Galerie photos",
+        icon: "gallery",
+        link: "/gallery"
+      },
+      {
+        label:"Espace presse",
+        icon: "press",
+        link: "#"
+      },
+      {
+        label:"Pornic",
+        icon: "pornic",
+        link: "#"
+      },
+      {
+        label:"Infos pratiques",
+        icon:"info"  ,
+        link: "#"
+        },
+      {
+        label:"Qui sommes-nous?",
+        icon:"question"  ,
+        link: "/about"
+        },
+      {
+        label:"Nos avantages",
+        icon:"advantages"  ,
+        link: "#"
+        },
+      {
+        label:"Fidélité",
+        icon:"fidelity"  ,
+        link: "#"
+      },
+      {
+        label:"Nos engagements",
+        icon:"engagement",
+        link: "#"
+      },
+  ],
+  payment: [
+    {
+      icon: "mastercard"
+    },
+    {
+      icon: "visa"
+    },
+    {
+      icon: "american-express"
+    },
+    {
+      icon: "ancv"
+    }
+  ],
+  bottom_links: [
+      {
+        label: "© 2019 Thalasso Pornic"
+      },
+      {
+        label: "emplois",
+        link: "#"
+      },
+      {
+        label: "politique de confidentialité",
+        link: "#"
+      },
+      {
+        label: "Mentions légales",
+        link: "#"
+      },
+      {
+        label: "CGV",
+        link: "#"
+      },
+      {
+        label: "Plan du site",
+        link: "#"
+      },
+      {
+        label: "Lexique",
+        link: "#"
+      },
+      {
+        label: "FAQ",
+        link: "#"
+      }
+  ]
+} %}
+
+<footer
+	class="Footer">
+
+	{# Separator #}
+	<div class="Footer-firstSeparator u-wrapperMedium">
+		{% include 'component/base_separator.html.twig' %}</div>
+
+	{# Section review #}
+	<div
+		class="Footer-sectionReview">
+
+		{# Review #}
+		{% include 'component/slider_review.html.twig' with {
+			props: {
+				title: "Avis client",
+        subtitle: "Découvrez les avis de nos clients",
+        text: "Nous accordons beaucoup d’importance à votre séjour. ",
+        author: "Alliance pornic",
+				slides: [
+          {
+            rate: 9,
+            content: "Excellent séjour dans son ensemble, avec une équipe compétente et dévouée. Terrasse du restaurant du déjeuner très agréable avec des plats recherchés. Cadre naturel exceptionnel dont on profite particulièrement l’été. Séjour bénéfique au corps et à l’esprit!",
+            date: "14.01.2020"
+          },
+          {
+            rate: 9,
+            content: "Excellent séjour dans son ensemble, avec une équipe compétente et dévouée. Terrasse du restaurant du déjeuner très agréable avec des plats recherchés. Cadre naturel exceptionnel dont on profite particulièrement l’été. Séjour bénéfique au corps et à l’esprit!",
+            date: "14.01.2020"
+          },
+          {
+            rate: 9,
+            content: "Excellent séjour dans son ensemble, avec une équipe compétente et dévouée. Terrasse du restaurant du déjeuner très agréable avec des plats recherchés. Cadre naturel exceptionnel dont on profite particulièrement l’été. Séjour bénéfique au corps et à l’esprit!",
+            date: "14.01.2020"
+          },
+          {
+            rate: 9,
+            content: "Excellent séjour dans son ensemble, avec une équipe compétente et dévouée. Terrasse du restaurant du déjeuner très agréable avec des plats recherchés. Cadre naturel exceptionnel dont on profite particulièrement l’été. Séjour bénéfique au corps et à l’esprit!",
+            date: "14.01.2020"
+          }
+        ],
+        link: {
+          title: "Tous nos <br>témoignages",
+          link: "#"
+        }
+			}
+	  } %}
+
+		{% include 'component/base_image.html.twig' with {
+				props: {
+					src: asset('build/images/footer/bg-hotel.png'),
+					alt: 'Hotel Pornic'
+				}
+			} %}
+	</div>
+
+	{# Section contact #}
+	<div
+		class="Footer-sectionContact u-alignCenter">
+
+		{# Contact #}
+		<div class="Footer-contact u-bgBlue u-cWhite">
+			<div class="Footer-contactInner">
+				<span class="Footer-smallTitle">Notre adresse</span>
+				<span class="Footer-contactTitle">Alliance Pornic</span><br>
+				<span class="Footer-contactSubtitle">Resort Hôtel Thalasso & Spa</span><br>
+				Plage de la Source<br>
+				44210 Pornic<br><br>
+
+				Tel: 02 57 23 00 50
+				<br>
+				Email: info.resa@thalassopornic.com
+			</div>
+		</div>
+
+		{# Newsletter #}
+		<div class="Footer-newsletter">
+			<div class="Footer-newsletterInner">
+				<span class="Footer-smallTitle">Notre adresse</span>
+				<span class="Footer-newsletterTitle">Ne loupez rien de nos promos et actualités, en vous abonnant à notre newsletter</span><br>
+				<div class="Footer-newsletterInput">
+					<input type="text" name="newsletter" placeholder="Votre adresse email"/>
+					<button type="submit" name="newsletter">Je m'inscris</button>
+				</div>
+			</div>
+			<div class="Footer-socials u-alignCenter">
+				{% for item in data.socials %}
+					<a href="{{ item.link }}" target="_blank" class="Footer-socialsItem u-alignVerticalCenter">
+						{% include 'component/base_icon.html.twig' with {
+              props: {
+                name: item.icon
+              }
+            } %}
+					</a>
+				{% endfor %}
+			</div>
+		</div>
+	</div>
+
+	{# Section links #}
+	<div class="Footer-sectionLinks">
+		<div
+			class="u-wrapperLarge u-alignCenter">
+
+			{# Brochure #}
+			<div class="Footer-brochure">
+				<div class="u-titleMedium">Télécharger<br>
+					<strong>nos brochures</strong>
+				</div>
+				<div class="Footer-brochureItems">
+					{% for item in data.brochures %}
+						<a href="{{ item.link }}" target="_blank" class="Footer-brochureItem u-alignVerticalCenter">
+							{% include 'component/base_image.html.twig' with {
+              props: item.image
+            } %}
+						</a>
+					{% endfor %}
+				</div>
+			</div>
+
+			{# Sitemap #}
+			<div class="Footer-sitemap">
+				<div class="u-titleMedium">Plan
+					<strong>du site</strong>
+				</div>
+				<div class="Footer-sitemapItems">
+					<div class="Footer-sitemapCol">
+						{% for item in data.sitemap|slice(0, 5) %}
+							<a href="{{ item.link }}" target="_blank" class="Footer-sitemapItem">
+								{% include 'component/base_icon.html.twig' with {
+              props: {
+                name: item.icon
+              }
+            } %}
+								{{ item.label }}
+							</a>
+						{% endfor %}
+					</div>
+					<div class="Footer-sitemapCol">
+
+						{% for item in data.sitemap|slice(5, data.sitemap|length) %}
+							<a href="{{ item.link }}" class="Footer-sitemapItem">
+								{% include 'component/base_icon.html.twig' with {
+              props: {
+                name: item.icon
+              }
+            } %}
+								{{ item.label }}
+							</a>
+						{% endfor %}
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+
+	{# Bottom #}
+	<div class="Footer-bottomBar u-bgBlue">
+		<div class="Footer-payment">
+			moyens de paiements acceptés
+			{% for item in data.payment %}
+				{% include 'component/base_icon.html.twig' with {
+              props: {
+                name: item.icon
+              }
+            } %}
+			{% endfor %}
+		</div>
+		<div class="Footer-bottomLinks">
+			{% for item in data.bottom_links %}
+				{% if item.link is defined %}
+					<a href="{{ item.link }}" target="_blank" class="Footer-bottomLinksItem is-link">
+						{{ item.label }}
+					</a>
+				{% else %}
+					<span class="Footer-bottomLinksItem">
+						{{ item.label }}
+					</span>
+				{% endif %}
+			{% endfor %}
+		</div>
+	</div>
+</footer>

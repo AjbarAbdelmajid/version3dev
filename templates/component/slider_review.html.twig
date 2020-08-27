@@ -1,0 +1,72 @@
+{# 
+	component: Slider review 
+
+	title	{string}: titre
+	subtitle	{string}: sous-titre
+	text	{string}: texte à gauche
+	author	{string}: auteur à gauche
+	link	{base_link}: lien vers tout les témoignages
+	slides {array}: Tableau de slides (slider_card_item)
+		- rate	{number}: note (/10)
+    - content	{string}: Contenu
+    - date {string}: Date
+#}
+
+{% set props = {
+	title: null,
+	subtitle: null,
+	text: null,
+	author: null,
+	link: {},
+  slides: [],
+}|merge(props|default({}))  %}
+
+{% set jsComponentId = "slider_review" %}
+
+
+<div class="SliderReview" data-component="{{ jsComponentId }}">
+	<div class="u-wrapperMedium u-alignVerticalCenter">
+		<h2 class="u-titleLarge">
+			{{ props.title }}
+		</h2>
+		<h3 class="SliderReview-subtitle">{{ props.subtitle }}</h3>
+	</div>
+	<div class="SliderReview-content u-wrapperMedium">
+		<div class="SliderReview-left">
+			<div class="SliderReview-leftText">{{ props.text }}</div>
+			<div class="SliderReview-leftAuthor">{{ props.author }}</div>
+		</div>
+		<div class="SliderReview-items">
+			{% for item in props.slides %}
+				<div ref="item" class="SliderReview-item">
+					<div class="SliderReview-itemRate u-alignCenter">
+						<span class="value">{{ item.rate }}</span>&nbsp;
+						<span class="separator"></span>&nbsp;
+						<span class="total">10</span>
+					</div>
+					<div ref="itemContent" class="SliderReview-itemContent">
+						{% include 'component/base_icon.html.twig' with {
+								props: {
+									name: "quote"
+								}
+						} %}
+						{{ item.content }}
+						{% include 'component/base_icon.html.twig' with {
+								props: {
+									name: "quote"
+								}
+						} %}
+					</div>
+					<div ref="itemDate" class="SliderReview-itemDate">
+						<span>{{ item.date }}</span>
+					</div>
+				</div>
+			{% endfor %}
+		</div>
+		<div class="SliderReview-right">
+			{% include 'component/base_link.html.twig' with {
+					props: props.link
+			} %}
+		</div>
+	</div>
+</div>

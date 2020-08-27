@@ -1,0 +1,268 @@
+{# 
+	page: list_lvl1
+#}
+
+{% extends "layouts/base.html.twig" %}
+
+{% set jsPageId = 'page' %}
+{% set pageClass = 'PageLvl1' %}
+{% set heroSize = 'small' %}
+
+{% block content %}
+
+	{# Hero #}
+	{% include 'component/page_hero.html.twig' with {
+    props: {
+      size: heroSize,
+      content_over: false,
+      has_icon: true,
+      title: "<span class='small'>Séjour détente en</span>Thalassothérapie",
+      image: {
+       	src: asset('build/images/page/hero-thalassotherapie.jpg'),
+        alt: '',
+        size: {
+          width: "1440",
+          height: "800"
+        }
+      }
+    }
+  } %}
+
+	<div
+		class="u-bgGrey">
+		{# Filter bar #}
+		{% include 'component/filter_bar.html.twig' %}
+
+		{# Breadcrumb #}
+		{% include 'component/breadcrumb.html.twig' with {
+    props: {
+      items: [
+        {
+          label: "Accueil",
+          link: "./",
+          active: false
+        },
+        {
+          label: "Séjours détente en thalassothérapie",
+          link: "/page-lvl1",
+          active: true
+        }
+      ]
+    }
+  } %}
+
+		{# List #}
+		{% include 'component/page_lvl1_list.html.twig' with {
+      props: {
+        title: "Découvrez <strong>nos cures</strong>",
+        list: [
+          {
+            icon: "fitness",
+            title: "Les cures <strong>remise en forme</strong>",
+            description: "Pour vous, il est temps de lâcher prise pour retrouver votre vitalité ? Laissez-vous aller…",
+            link: "/page-lvl2",
+            image: {
+              src: asset('build/images/page/lvl1-cures-fitness.jpg'),
+              alt: 'Femme détente piscine',
+              size: {
+                width: "400",
+                height: "560"
+              }
+            }
+          },
+          {
+            icon: "thalasso",
+            title: "Les cures <strong>thalasso & spa</strong>",
+            description: "Riches en soins individuels et en massages inspirés de cultures lointaines, ces cures poussent les portes de votre perception, pour une suprême relaxation. ",
+            link: "/page-lvl2",
+            image: {
+              src: asset('build/images/page/lvl1-cures-thalasso.jpg'),
+              alt: 'Femme massage',
+              size: {
+                width: "400",
+                height: "560"
+              }
+            }
+          },
+          {
+            icon: "health",
+            title: "Les cures <strong>santé</strong>",
+            description: "Soins marins, exercices physiques et équipements de haute technologie  : tout est là pour soulager vos maux, immédiatement et sur le long terme",
+            link: "/page-lvl2",
+            image: {
+              src: asset('build/images/page/lvl1-cures-health.jpg'),
+              alt: 'Femme peignoire',
+              size: {
+                width: "400",
+                height: "560"
+              }
+            }
+          },
+          {
+            icon: "beauty",
+            title: "Les cures <strong>beauté</strong>",
+            description: "Nos soins beauté ouvrent une parenthèse sensorielle pour régénérer votre peau, et les conseils d’un coach sportif vous aident à retrouver votre tonus – et votre silhouette.",
+            link: "/page-lvl2",
+            image: {
+              src: asset('build/images/page/lvl1-cures-beauty.jpg'),
+              alt: 'Femme détente',
+              size: {
+                width: "400",
+                height: "560"
+              }
+            }
+          },
+          {
+            icon: "sport",
+            title: "Les cures <strong>sport</strong>",
+            description: "Vous souhaitez reprendre goût à l’exercice physique ou optimiser une pratique sportive : nous vous accompagnons, à votre rythme",
+            link: "/page-lvl2",
+            image: {
+              src: asset('build/images/page/lvl1-cures-sport.jpg'),
+              alt: 'Femmes sport',
+              size: {
+                width: "400",
+                height: "560"
+              }
+            }
+          },
+          {
+            icon: "yoga",
+            title: "Les cures <strong>sport</strong>",
+            description: "Un long week-end ou quelques jours en semaine rien que pour vous, seul(e) ou à deux ? Pour se faire plaisir, il est toujours temps." ,
+            link: "/page-lvl2",
+            image: {
+              src: asset('build/images/page/lvl1-cures-breakaway.jpg'),
+              alt: 'Femmes yoga',
+              size: {
+                width: "400",
+                height: "560"
+              }
+            }
+          },
+          {
+            icon: "yoga",
+            title: "Les cures <strong>sport</strong>",
+            description: "Un long week-end ou quelques jours en semaine rien que pour vous, seul(e) ou à deux ? Pour se faire plaisir, il est toujours temps." ,
+            link: "/page-lvl2",
+            image: {
+              src: asset('build/images/page/lvl1-cures-breakaway.jpg'),
+              alt: 'Femmes yoga',
+              size: {
+                width: "400",
+                height: "560"
+              }
+            }
+          },
+          {
+            icon: "yoga",
+            title: "Les cures <strong>sport</strong>",
+            description: "Un long week-end ou quelques jours en semaine rien que pour vous, seul(e) ou à deux ? Pour se faire plaisir, il est toujours temps." ,
+            link: "/page-lvl2",
+            image: {
+              src: asset('build/images/page/lvl1-cures-breakaway.jpg'),
+              alt: 'Femmes yoga',
+              size: {
+                width: "400",
+                height: "560"
+              }
+            }
+          }
+        ]
+      }
+    } %}
+	</div>
+
+	{# Voucher #}
+	{% include 'component/page_voucher.html.twig' with {
+      props: {
+        page: "list-lvl1",
+        title: "Offrez un bon cadeau <br><strong>à vos proches</strong>",
+        introduction: "Anniversaire, Noël, Saint-Valentin, fête des mères et fête des pères, ou pour le simple plaisir d’offrir un cadeau bien-être.",
+        items: [
+          {
+            title: "Pour un moment",
+            description: "Offrez un moment de détente dans notre Espace Forme pour profiter des piscines d’eau de mer...",
+            image: {
+              src: asset('build/images/page/voucher-moment.jpg'),
+              alt: '',
+              size: {
+                width: "320",
+                height: "180"
+              }
+            },
+            price: "34€",
+            link: {
+              title: "Voir ce cadeau",
+              url: "#"
+            }
+          },
+          {
+            title: "Pour une journée",
+            description: "Des journées inoubliables Thalasso & Spa avec accès à l’Espace Forme, pour une journée complète.",
+            image: {
+              src: asset('build/images/page/voucher-day.jpg'),
+              alt: '',
+              size: {
+                width: "320",
+                height: "180"
+              }
+            },
+            price: "79€",
+            link: {
+              title: "Voir ce cadeau",
+              url: "#"
+            }
+          },
+          {
+            title: "Pour un week-end",
+            description: "Pourquoi ne pas offrir un séjour Thalasso et Spa les pieds dans l’eau ? dans l’eau ?",
+            image: {
+              src: asset('build/images/page/voucher-week-end.jpg'),
+              alt: '',
+              size: {
+                width: "320",
+                height: "180"
+              }
+            },
+            price: "149€",
+            link: {
+              title: "Voir ce cadeau",
+              url: "#"
+            }
+          }
+        ],
+        allLink: {
+          title: "Tous nos cadeaux",
+          url: "#"
+        }
+      }
+    } %}
+
+
+	{# Know more #}
+	{% include 'component/page_know_more.html.twig' with {
+      props: {
+        title: "En savoir <strong>un peu plus</strong>",
+        items: [
+          {
+            title: "Envie d’un moment de détente<br> dans un hôtel spa?",
+            text: "<p>Le centre de thalassothérapie de Pornic vous accueille sur la Côte Atlantique pour des séjours spa et des week-ends thalasso. Hydrothérapie, massage, enveloppements… Vous profitez de ces instants de bien-être pour lâcher prise et découvrir les bienfaits des soins prodigués aux thermes.</p>",
+            icon: "bathrobe"
+          },
+          {
+            title: "Optez pour une semaine <br>de cure en thalasso",
+            text: "<p>Vous souhaitez prendre soin de votre corps ? Venez vivre l’expérience bienveillante d’un centre de thalasso, le temps d’un séjour. Énergie, forme, santé… Choisissez à la carte, les soins qui vous conviennent. Massage californien, soin du visage, réflexologie… Une large palette vous est proposée. Les professionnels vous permettent de vous relaxer en faisant une pause dans votre quotidien. Sport, soins, farniente…</p>",
+            icon: "napkins"
+          },
+          {
+            title: "Détendez-vous le temps<br> d’un séjour en thalasso",
+            text: "<p>Entre ressources, techniques et accompagnement, vous bénéficiez du meilleur de la thalassothérapie lors de courts séjours. Dans ce spa de Loire-Atlantique vous êtes en osmose avec l’environnement marin. Le spa situé en Bretagne historique offre des points de vue superbes sur la Côte de Jade. Entre détente et sérénité, vous prenez du temps pour vous.</p>",
+            icon: "balance"
+          }
+        ]
+      }
+    } %}
+
+
+{% endblock %}

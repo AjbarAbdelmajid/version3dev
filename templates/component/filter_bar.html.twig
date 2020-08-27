@@ -1,0 +1,193 @@
+{# 
+	component: header_subnav 
+
+	theme {string}: theme
+#}
+
+{% set props = {
+	theme: "default"
+}|merge(props|default({}))  %}
+
+{% set jsComponentId = "filter_bar" %}
+
+{% set data = {
+  selects: [
+		{
+			label: "Type de séjour",
+			name: "type",
+			id: "type",
+			default_options: "default"
+		},
+		{
+			label: "Durée",
+			name: "duration",
+			id: "duration",
+			default_options: "duration_days"
+		},
+		{
+			label: "Programme",
+			name: "program",
+			id: "program",
+			default_options: "program_6days"
+		},
+		{
+			label: "date d’arrivée",
+			name: "date",
+			id: "about",
+		}
+  ],
+	options: {
+		type: {
+			"default": [
+				{
+					label: "Thalasso <small>(hébergement)</small>",
+					value: 0,
+					duration: "duration_days"
+				},
+				{
+					label: "Thalasso <small>(sans hébergement)</small>",
+					value: 1,
+					duration: "duration_days"
+				},
+				{
+					label: "Hébergement seul",
+					value: 2,
+					duration: "duration_nights"
+				}
+			]
+		},
+		duration: {
+			"duration_days": [
+				{
+					label: "6 jours",
+					value: 0,
+					program: "program_6days"
+				},
+				{
+					label: "4 jours",
+					value: 1,
+					program: "program_4days"
+				},
+				{
+					label: "1 à 3 jours",
+					value: 2,
+					program: "program_1-3days"
+				}
+			],
+			"duration_nights": [
+				{
+					label: "1 nuitée",
+					value: 0,
+					program: "room_formulas"
+				},
+				{
+					label: "2 nuitées",
+					value: 1,
+					program: "room_formulas"
+				},
+				{
+					label: "3 nuitées",
+					value: 2,
+					program: "room_formulas"
+				}
+			]
+		},
+		program: {
+			"program_6days": [
+				{
+					label: "Tous",
+					value: 0
+				},
+				{
+					label: "Anti-Age",
+					value: 1
+				},
+				{
+					label: "Anti-Tabac",
+					value: 2
+				},
+				{
+					label: "Capital Santé Énergie",
+					value: 3
+				}
+			],
+			"program_4days": [
+				{
+					label: "Tous",
+					value: 0
+				},
+				{
+					label: "Capital Santé Énergie",
+					value: 1
+				},
+				{
+					label: "Femme équilibre Ado-Gestalt",
+					value: 2
+				},
+				{
+					label: "Femme équilibre yoga",
+					value: 3
+				}
+			],
+			"program_1-3days": [
+				{
+					label: "Tous",
+					value: 0
+				},
+				{
+					label: "Séjour Alliance",
+					value: 1
+				},
+			],
+			"room_formulas": [
+				{
+					label: "Chambre seule",
+					value: 0
+				},
+				{
+					label: "Demi pension",
+					value: 1
+				},
+				{
+					label: "Pension complète",
+					value: 2
+				},
+				{
+					label: "Petit déjeuner",
+					value: 2
+				}
+			]
+		},
+	}
+} %}
+
+
+<form class="FilterBar {{ props.theme }}" data-component="{{ jsComponentId }}" data-lang="fr" data-options="{{ data.options|json_encode() }}">
+	<div class="FilterBar-items">
+		{% for item in data.selects %}
+			<div class="FilterBar-item">
+				<span class="FilterBar-itemLabel">{{ item.label }}</span>
+				{% if item.default_options is defined %}
+
+					<v-select :options="options.{{ item.id }}" v-model="selected_options.{{ item.id }}" class="FilterBar-select" :searchable="false" :clearable="false" ref="{{ item.id }}" @input="onChange">
+						{% verbatim %}
+							<template #selected-option="{ label }">
+								<span class="vs__selected-optionsLabel" v-html="label"/>
+							</template>
+							<template #option="{ label }">
+								<span class="vs__selected-optionsLabel" v-html="label"/>
+							</template>
+						{% endverbatim %}
+					</v-select>
+
+				{% else %}
+					<datepicker class="FilterBar-datepicker" :format="customFormatter" :language="datePickerLang" ref="datepicker" clear-button v-model="datepicker_value"></datepicker>
+				{% endif %}
+			</div>
+		{% endfor %}
+	</div>
+	<button class="FilterBar-button">
+		Réservez
+		<small>votre séjour</small>
+	</button>
+</form>

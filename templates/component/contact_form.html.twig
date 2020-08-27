@@ -1,0 +1,268 @@
+{#
+	component: contact_form
+
+	action {string}: Action
+	intro {string}: intro
+
+#}
+
+{% set props = {
+  action: '',
+  intro: null
+}|merge(props|default({}))  %}
+
+{% set jsComponentId = "form" %}
+
+<section class="ContactForm">
+	<div class="ContactForm-wrapper u-wrapperSmall">
+
+		<div class="ContactForm-intro u-titleXSmall u-cGold">{{ props.intro }}</div>
+
+		{% include 'component/base_separator.html.twig' %}
+
+		<div
+			class="ContactForm-content">
+
+			{# Form #}
+			<form
+				action="{{ props.action }}" class="ContactForm-form">
+
+				{# Inputs #}
+				<div
+					class="ContactForm-inputs">
+
+					{# Radios gender #}
+					<div class="ContactForm-input u-sizeFull u-flex">
+						{% include "component/base_input.html.twig" with {
+              props: {
+                type: 'radio',
+                label: 'Mme',
+                required: true,
+                name: 'gender',
+                value: 'woman',
+                checked: true,
+                id: 'woman',
+                class: 'u-sizeFull u-flex'
+              }
+            } %}
+
+						{% include "component/base_input.html.twig" with {
+              props: {
+                type: 'radio',
+                label: 'Mr',
+                required: true,
+                name: 'gender',
+                value: 'man',
+                id: 'man'
+              }
+            } %}
+					</div>
+					{# Firstname input #}
+					<div class="ContactForm-input u-size1of2">
+						{% include "component/base_input.html.twig" with {
+              props: {
+                type: 'text',
+                label: 'Prénom',
+                required: true,
+                name: 'firstname',
+                id: 'firstname'
+              }
+            } %}
+					</div>
+
+					{# Lastname input #}
+					<div class="ContactForm-input u-size1of2">
+						{% include "component/base_input.html.twig" with {
+              props: {
+                type: 'text',
+                label: 'Nom',
+                required: true,
+                name: 'lastname',
+                id: 'lastname'
+              }
+            } %}
+					</div>
+
+					{# Email input #}
+					<div class="ContactForm-input u-size1of2">
+						{% include "component/base_input.html.twig" with {
+              props: {
+                type: 'email',
+                label: 'Email',
+                required: true,
+                name: 'email',
+                id: 'email'
+              }
+            } %}
+					</div>
+
+					{# Tel input #}
+					<div class="ContactForm-input u-size1of2">
+						{% include "component/base_input.html.twig" with {
+              props: {
+                type: 'tel',
+                label: 'Téléphone',
+                required: true,
+                name: 'tel',
+                id: 'tel'
+              }
+            } %}
+					</div>
+
+					{# Adresse input #}
+					<div class="ContactForm-input u-size1of2">
+						{% include "component/base_input.html.twig" with {
+              props: {
+                type: 'text',
+                label: 'Adresse',
+                required: true,
+                name: 'address',
+                id: 'address'
+              }
+            } %}
+					</div>
+
+					{# Adresse suite #}
+					<div class="ContactForm-input u-size1of2">
+						{% include "component/base_input.html.twig" with {
+              props: {
+                type: 'text',
+                label: 'Adresse (suite)',
+                required: false,
+                name: 'address_next',
+                id: 'address_next'
+              }
+            } %}
+					</div>
+
+
+					{# Code postale #}
+					<div class="ContactForm-input u-size1of2">
+						{% include "component/base_input.html.twig" with {
+              props: {
+                type: 'text',
+                label: 'Code postale',
+                required: true,
+                name: 'zip',
+                id: 'zip'
+              }
+            } %}
+					</div>
+
+					{# Ville #}
+					<div class="ContactForm-input u-size1of2">
+						{% include "component/base_input.html.twig" with {
+              props: {
+                type: 'text',
+                label: 'Ville',
+                required: true,
+                name: 'city',
+                id: 'city'
+              }
+            } %}
+					</div>
+
+					{# Pays #}
+					<div class="ContactForm-input ContactForm-subjectInput u-sizeFull">
+						{% include "component/base_input.html.twig" with {
+                  props: {
+                    type: 'select',
+                    label: 'Pays',
+                    required: true,
+                    name: 'country',
+                    id: 'country',
+                    options: [{
+                      label: 'France',
+                      value: 'france'
+                    }, {
+                      label: 'Italie',
+                      value: 'italie'
+                    },
+                    {
+                      label: 'Espagne',
+                      value: 'espagne'
+                    }]
+                  }
+                } %}
+					</div>
+
+
+					{# Subject selection #}
+					<div class="ContactForm-input ContactForm-subjectInput u-sizeFull">
+						{% include "component/base_input.html.twig" with {
+                  props: {
+                    type: 'select',
+                    label: 'Sujet',
+                    required: true,
+                    name: 'object',
+                    id: 'object',
+                    options: [{
+                      label: 'Obtenir un devis',
+                      value: 'devis'
+                    }, {
+                      label: 'Question',
+                      value: 'question'
+                    }]
+                  }
+                } %}
+					</div>
+
+					{# Textarea input #}
+					<div class="ContactForm-input ContactForm-messageInput u-sizeFull">
+						{% include "component/base_input.html.twig" with {
+                props: {
+                  type: 'textarea',
+                  label: 'Message',
+                  required: true,
+                  name: 'message',
+                  id: 'message',
+                  max_chars: 500
+                }
+              } %}
+					</div>
+
+					{# Checkbox confidentiality #}
+					<div class="ContactForm-input u-sizeFull">
+						{% include "component/base_input.html.twig" with {
+            props: {
+              type: 'checkbox',
+              label: '<strong>J\'autorise Alliance Pornic à traiter mes coordonnées personnelles et mes habitudes (historique, préférences...). </strong>Consulter la <a href=\'#\'>politique de confidentialité.</a>',
+              required: true,
+              name: 'confidentiality',
+              id: 'confidentiality'
+            }
+          } %}
+						<br>
+						{# Checkbox newsletter #}
+						{% include "component/base_input.html.twig" with {
+            props: {
+              type: 'checkbox',
+              label: '<strong>Je souhaite m\'inscrire aux newsletters d\'Alliance Pornic</strong> afin de découvrir son actualité et ses offres commerciales',
+              required: false,
+              name: 'newsletter',
+              id: 'newsletter'
+            }
+          } %}
+					</div>
+				</div>
+
+				{# Infos #}
+
+				{# Mandatory fields info #}
+				<p class="ContactForm-mandatoryFieldsInfo">*champs obligatoires</p>
+
+				{# Submit button #}
+				<div class="ContactForm-submit">
+					{% include "component/base_submit.html.twig" with {
+              props: {
+                title: 'Envoyer'
+              }
+            } %}
+				</div>
+
+			</form>
+
+		</div>
+	</div>
+
+</section>

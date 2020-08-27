@@ -1,0 +1,32 @@
+{#
+  component: base_video
+
+  id {string}: video id
+  cover {base_image}
+#}
+
+{% set props = {
+  id: null,
+  cover: null
+}|merge(props|default({}))  %}
+
+<section class="BaseVideo" data-video="{{ props.id }}">
+	<div class="BaseVideo-inner u-alignVerticalCenter">
+		<div class="BaseVideo-cover u-posFit">
+			{% include 'component/base_image.html.twig' with {
+        props: props.cover
+      } %}
+		</div>
+		<div class="BaseVideo-iframe u-posFit"></div>
+		<div class="BaseVideo-button">
+			<div class="BaseVideo-buttonCircle BaseVideo-buttonCircle--bg">
+				{% include 'component/base_svg_circle.html.twig' %}
+			</div>
+			<div class="BaseVideo-buttonCircle BaseVideo-buttonCircle--hover">
+				{% include 'component/base_svg_circle.html.twig' %}
+			</div>
+			<div class="BaseVideo-buttonIcon"></div>
+		</div>
+	</div>
+
+</section>

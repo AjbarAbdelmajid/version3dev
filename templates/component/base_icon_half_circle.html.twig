@@ -1,0 +1,33 @@
+{# 
+	component: base_icon_half_circle
+
+	icon {string}: icon
+  color {string}: color
+#}
+
+{% set props = {
+  icon: null,
+  color: "white"
+}|merge(props|default({}))  %}
+
+<div class="BaseIconHalfCircle u-alignVerticalCenter c-{{ props.color }}">
+	<div class="BaseIconHalfCircle-circle BaseIconHalfCircle-circle--bg">
+		{% include 'component/base_svg_circle.html.twig' with {
+      props: {}
+    } %}
+	</div>
+	<div class="BaseIconHalfCircle-circle BaseIconHalfCircle-circle--hover">
+		{% include 'component/base_svg_circle.html.twig' with {
+        props: {
+          strokeWidth: 2
+        }
+      } %}
+	</div>
+	<div class="BaseIconHalfCircle-svg">
+		{% include 'component/base_icon.html.twig' with {
+        props: {
+          name: props.icon
+        }
+      } %}
+	</div>
+</div>

@@ -1,0 +1,237 @@
+{# 
+	page: page_forms
+#}
+
+{% extends "layouts/base.html.twig" %}
+
+{% set jsPageId = 'page_form' %}
+{% set pageClass = 'PageForm' %}
+{% set heroSize = 'small' %}
+
+{% block content %}
+	<div
+		class="u-bgGrey">
+
+		{# Hero #}
+		{% include 'component/page_hero.html.twig' with {
+    props: {
+      size: heroSize,
+      content_over: true,
+      title: "<span class='small'>Comités d’entreprise</span> & associations",
+      image: {
+       	src: asset('build/images/page/hero-seminar.jpg'),
+        alt: '',
+        size: {
+          width: "1440",
+          height: "800"
+        }
+      }
+    }
+  } %}
+
+		{# Intro #}
+		{% include 'component/page_form_content.html.twig' with {
+      props: {
+        	slides: [
+            {
+              image: {
+                src: asset(" build/images/home/slider-text-spa.jpg"),
+                alt: " alt de l'image",
+                size: {
+                  width: "960",
+                  height: "560"
+                }
+              },
+            },
+            {
+              image: {
+                src: asset("build/images/home/slider-text-spa.jpg"),
+                alt: "alt de l' image",
+                size: {
+                  width: " 960",
+                  height: " 560"
+                }
+              }
+            },
+          ],
+          title: "Offre <strong>CE & Association</strong>",
+          intro: "Vous êtes un comité d’entreprise ou une association et souhaitez faire profiter à vos salariés/adhérents de tarifs préférentiels pour l’accès à notre Espace Forme, pour des journées de soins ou pour des séjours ? Alliance Pornic vous fait profiter d’offres exceptionnelles sur les prestations suivantes :",
+          texts: [
+            {
+              icon: "solo",
+              title: "Séjour individuel",
+              text: "<p>Vous souhaitez bénéficier de tarifs groupe en séjournant chez nous librement de manière individuelle ? Avec notre convention de partenariat, nous vous proposons une offre billetterie pour l’accès à l’espace forme et les journées de soins mais aussi des séjours sous forme de bons cadeaux.</p>"
+            } ,
+            {
+              icon: "group",
+              title: "Séjour en groupe",
+              text: "<p>Vous souhaitez fédérer votre équipe et conserver un esprit d’entreprise pour un accès espace forme, une journée, un week-end ou une semaine en thalasso en groupe ?</p>"
+            }
+          ],
+          button: {
+            url: "#",
+            title: "télécharger notre brochure",
+          }
+      }
+  } %}
+
+
+		{# Form #}
+		{% include 'component/form.html.twig' with {
+      props: {
+        action: "#",
+        intro: "Nous proposons des prestations personnalisées sur demande.",
+        inputs: [
+            {
+              group: true,
+              inputs: [
+                {
+                  type: 'radio',
+                  label: 'Mme',
+                  name: 'gender',
+                  value: 'woman',
+                  checked: true,
+                  id: 'woman',
+                },
+                {
+                  type: 'radio',
+                  label: 'Mr',
+                  name: 'gender',
+                  value: 'man',
+                  checked: false,
+                  id: 'man'
+                }
+              ],
+              class: 'u-sizeFull u-flex'
+            },
+            {
+              type: 'text',
+              label: 'Prénom',
+              required: true,
+              name: 'firstname',
+              id: 'firstname',
+              class:'u-size1of2'
+            },
+            {
+              type: 'text',
+              label: 'Nom',
+              required: true,
+              name: 'lastname',
+              id: 'lastname',
+              class:'u-size1of2'
+            },
+            {
+              type: 'email',
+              label: 'Email',
+              required: true,
+              name: 'email',
+              id: 'email',
+              class:'u-size1of2'
+            },
+              {
+              type: 'tel',
+              label: 'Téléphone',
+              required: true,
+              name: 'tel',
+              id: 'tel',
+              class:'u-size1of2'
+            },
+            {
+              type: 'text',
+              label: 'Société',
+              required: true,
+              name: 'society',
+              id: 'society',
+              class:'u-size1of2'
+            },
+            {
+              type: 'text',
+              label: 'Adresse',
+              required: true,
+              name: 'address',
+              id: 'address',
+              class:'u-size1of2'
+            },
+            {
+              type: 'text',
+              label: 'Code postale',
+              required: true,
+              name: 'zip',
+              id: 'zip',
+              class:'u-size1of2'
+            },
+            {
+              type: 'text',
+              label: 'Ville',
+              required: true,
+              name: 'city',
+              id: 'city',
+              class:'u-size1of2'
+            },
+            {
+              type: 'date',
+              label: 'Date d\'arrivée',
+              required: true,
+              name: 'start_date',
+              id: 'start_date',
+              class:'u-size1of2'
+            },
+            {
+              type: 'date',
+              label: 'Date de départ',
+              required: true,
+              name: 'end_date',
+              id: 'end_date',
+              class:'u-size1of2'
+            },
+            {
+              type: 'number',
+              label: 'Nombre de personnes',
+              required: true,
+              name: 'nb_person',
+              value: 0,
+              id: 'nb_person',
+              class:'u-size1of2'
+            },
+            {
+              type: 'number',
+              label: 'Nombre de repas',
+              required: true,
+              name: 'nb_meal',
+              value: 0,
+              id: 'nb_meal',
+              class:'u-size1of2'
+            },
+            {
+              type: 'textarea',
+              label: 'Commentaire',
+              required: true,
+              name: 'comment',
+              id: 'comment',
+              max_chars: 500,
+              class:'u-sizeFull'
+            },
+            {
+              type: 'checkbox',
+              label: '<strong>J\'autorise Alliance Pornic à traiter mes coordonnées personnelles et mes habitudes (historique, préférences...). </strong>Consulter la <a href=\'#\'>politique de confidentialité.</a>',
+              required: true,
+              name: 'confidentiality',
+              id: 'confidentiality',
+              class:'u-sizeFull'
+            },
+            {
+              type: 'checkbox',
+              label: '<strong>Je souhaite m\'inscrire aux newsletters d\'Alliance Pornic</strong> afin de découvrir son actualité et ses offres commerciales',
+              required: false,
+              name: 'newsletter',
+              id: 'newsletter',
+              class:'u-sizeFull'
+            }
+        ],
+        button_label: "Envoyer"
+      }
+    } %}
+	</div>
+
+
+{% endblock %}

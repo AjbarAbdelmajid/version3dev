@@ -1,0 +1,35 @@
+{# 
+	component: base_link 
+
+	reverse {boolean}: inversé
+	url {string}: url
+	title {string}: titre du lien
+	external {boolean}: lien externe
+
+#}
+
+{% set props = {
+	reverse: false,
+  url: null,
+	title: null,
+	external: false
+}|merge(props|default({}))  %}
+
+{% if props.url is not null %}
+	<a href="{{ props.url }}" class="BaseLink {%- if props.reverse == true %} reverse{% endif %}">
+	{% else %}
+		<div class="BaseLink {%- if props.reverse == true %} reverse{% endif %}">
+		{% endif %}
+		<span class="BaseLink-label">{{ props.title|raw }}</span>
+		<div class="BaseLink-icon">
+			<div class="BaseLink-iconArrow"></div>
+			<div class="BaseLink-iconCircle">
+				{% include 'component/base_svg_circle.html.twig' with {
+        props: {}
+      } %}</div>
+		</div>
+		{% if props.url is not null %}
+		</a>
+{% else %}
+	</div>
+{% endif %}

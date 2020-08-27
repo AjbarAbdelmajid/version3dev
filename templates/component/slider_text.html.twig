@@ -1,0 +1,64 @@
+{# 
+	component: Slider text 
+
+	slides {array}: Tableau de slides (slider_card_item)
+    - large_title	{string}: Titre sur l'image
+    - title	{string}: Titre
+    - description {CMS text}(sans les titres) :	Description	
+    - image	{base_image}: Image
+    - link {string}: Lien du bouton
+
+#}
+
+{% set props = {
+  slides: [],
+  images: [],
+  allLink: null
+}|merge(props|default({}))  %}
+
+{% set componentId = "slider_text" %}
+
+
+<section class="SliderText" data-component="{{ componentId }}">
+	<div class="SliderText-inner u-alignCenter u-wrapperSmall">
+
+		{% include 'component/slider_image.html.twig' with {
+				props: {
+					slides: props.slides
+				}
+			} %}
+
+		{% for i in 0..2 %}
+			{% if i == 1 %}
+				<div class="SliderText-wrapText">
+					{% for item in props.slides %}
+						<div class="SliderText-text u-posFit">
+							<div class="SliderText-textContent">
+								<h3 class="u-titleSmall">{{ item.title }}</h3>
+								<div class="SliderText-textDetail">
+									{% for item in item.details %}
+										{% include 'component/base_icon_detail.html.twig' with {
+                      props: {
+                        icon: item.icon,
+                        label: item.label
+                      }
+                    } %}
+									{% endfor %}
+								</div>
+								{% include 'component/base_cms_text.html.twig' with {
+                props: {
+                    content: item.description
+                  }
+                } %}
+							</div>
+							<div class="SliderText-textButton">
+								<div class="SliderText-textButtonArrow"></div>
+							</div>
+						</div>
+					{% endfor %}
+				</div>
+			{% endif %}
+		{% endfor %}
+
+	</div>
+</section>

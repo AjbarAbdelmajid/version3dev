@@ -1,0 +1,73 @@
+{# 
+	component: Slider card 
+
+	reverse {boolean}: sens de présentation
+	title {string}: Titre
+	slides {array}: Tableau de slides (slider_card_item)
+  images {array}: Tableau d'images (base_image)
+  allLink {base_link}: Lien
+#}
+
+{% set props = {
+	reverse: false,
+	title: null,
+  slides: [],
+  images: [],
+  allLink: null
+}|merge(props|default({}))  %}
+
+{% set jsComponentId = "slider_card" %}
+
+<section class="SliderCard {%- if props.reverse %} reverse{% endif %}">
+
+	<div class="u-wrapperMedium">
+		<h2 class="SliderCard-title u-titleLarge">{{ props.title|raw }}</h2>
+	</div>
+
+	<div class="SliderCard-images">
+		{% for item in props.images %}
+			{% include 'component/base_image.html.twig' with {
+        props: {
+          src: asset(item.src),
+          alt: item.alt
+        }
+      } %}
+		{% endfor %}
+	</div>
+
+	<div class="u-wrapperMedium">
+		<div class="SliderCard-content">
+			<div class="SliderCard-nav">
+				{% include 'component/base_slider_nav_button.html.twig' with {
+						props: {
+							sens: 'prev'
+						}
+				} %}
+				{% include 'component/base_slider_nav_button.html.twig' with {
+						props: {
+							sens: 'next'
+						}
+				} %}
+			</div>
+
+
+			<div class="SliderCard-slides">
+				{% for item in props.slides %}
+					<div class="SliderCard-slidesItem">
+						{% include 'component/slider_card_item.html.twig' with {
+            props: item
+          } %}
+					</div>
+				{% endfor %}
+			</div>
+		</div>
+
+		<div class="SliderCard-allLink">
+			{% include 'component/base_link.html.twig' with {
+          props: props.allLink
+      } %}
+		</div>
+
+
+	</div>
+</section>

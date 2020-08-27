@@ -1,0 +1,42 @@
+{# 
+	component: page_voucher 
+
+  page {string}: page qui contient le composant
+	title {string}: titre
+  introduction {string}: introduction
+  items {array}: Tableau de cartes verticales {vertical_card}
+  allLink {base_link}: Lien
+#}
+
+{% set props = {
+  page: null,
+  title: null,
+  introduction: null,
+  items: null,
+  allLink: null
+}|merge(props|default({}))  %}
+
+<section class="PageVoucher {{ props.page }}">
+
+	<div class="PageVoucher-wrapper u-wrapperMedium u-textCenter">
+		<div class="PageVoucher-top u-textCenter">
+			<h2 class="u-titleMedium">{{ props.title|raw }}
+			</h2>
+			<div class="PageVoucher-intro">{{ props.introduction }}</div>
+		</div>
+		<div class="PageVoucher-items u-alignCenter">
+			{% for item in props.items %}
+				<article class="PageVoucher-item">
+					{% include 'component/vertical_card.html.twig' with {
+              props: item
+            } %}
+				</article>
+			{% endfor %}
+		</div>
+
+		{% include 'component/base_link.html.twig' with {
+        props: props.allLink
+      } %}
+
+	</div>
+</section>

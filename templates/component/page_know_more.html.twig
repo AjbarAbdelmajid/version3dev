@@ -1,0 +1,41 @@
+{# 
+	component: page_voucher 
+
+	title {string}: titre
+  items {vertical_card}: Tableau de cartes verticales
+    - icon {string}: icon
+    - title {string}: titre
+    - text {base_cms_text}: texte
+#}
+
+{% set props = {
+  title: null,
+  items: null,
+}|merge(props|default({}))  %}
+
+<section class="PageKnowMore">
+
+	<div class="PageKnowMore-logo">
+		{% include 'component/base_icon.html.twig' with {
+      props:{
+        name: "logo-min"
+      }
+  } %}</div>
+
+	<div class="PageKnowMore-top u-textCenter">
+		<div class="u-wrapperMedium">
+			<h2 class="u-titleMedium">{{ props.title|raw }}
+			</h2>
+			<div class="PageKnowMore-items u-alignCenter">
+				{% for item in props.items %}
+					<div class="PageKnowMore-item u-alignVerticalCenter">
+						{% include 'component/block_icon_title_text.html.twig' with {
+              	props: item|merge({theme:"icon-circle"})
+            	} %}
+
+					</div>
+				{% endfor %}
+			</div>
+		</div>
+	</div>
+</section>

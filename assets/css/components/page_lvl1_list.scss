@@ -1,0 +1,90 @@
+.PageLvl1List {
+  padding: 0 0 120px 0;
+}
+
+.PageLvl1List-items {
+  flex-wrap: wrap;
+  width: 100%;
+  justify-content: flex-start;
+  margin-top: 40px;
+}
+
+.PageLvl1List-item {
+  flex: none;
+  width: calc(100% / 3 - (80px / 3));
+  position: relative;
+  margin: 20px 0;
+
+  &:nth-child(3n) {
+    margin-left: 40px;
+  }
+
+  &:nth-child(3n - 2) {
+    margin-right: 40px;
+  }
+
+  &:hover {
+    &::after {
+      transform: scaleX(1);
+    }
+
+    .BaseIconHalfCircle-svg .BaseIcon {
+      fill: $gold;
+    }
+
+    .BaseIconHalfCircle-circle--hover svg {
+      stroke: $gold;
+      stroke-dasharray: 230 315;
+      transform: rotate(-40deg);
+    }
+  }
+
+  &::after {
+    @include pseudo();
+    width: 120px;
+    height: 1px;
+    background: $gold;
+    position: absolute;
+    bottom: 40px;
+    left: 50%;
+    margin-left: -60px;
+    transform: scaleX(0);
+  }
+}
+
+.PageLvl1List-itemInner {
+  width: 100%;
+  height: 0;
+  padding-bottom: calc((560 / 400) * 100%);
+  position: relative;
+}
+
+.PageLvl1List-itemContent {
+  z-index: 2;
+  padding: 0 30px;
+  text-align: center;
+  color: $white;
+}
+
+.PageLvl1List-itemTitle {
+  margin-bottom: 20px;
+  margin-top: 25px;
+  strong {
+    display: block;
+  }
+}
+
+.PageLvl1List-itemDesc {
+  font-style: italic;
+  height: 0;
+}
+
+.PageLvl1List-itemIcon {
+  width: 100px;
+  height: 100px;
+  margin-top: 0;
+
+  .BaseIcon {
+    fill: $white;
+  }
+}

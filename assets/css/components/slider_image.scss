@@ -1,0 +1,61 @@
+.SliderImage {
+  width: 100%;
+}
+
+.SliderImage-slider {
+  flex: none;
+  width: 100%;
+  height: 0;
+  padding-bottom: calc(560 / 960 * 100%);
+  position: relative;
+  margin: 0 40px;
+  display: flex;
+  justify-content: center;
+
+  &:nth-child(1),
+  &:nth-child(3) {
+    opacity: 0.2;
+  }
+}
+
+.SliderImage-images {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+// Images
+.SliderImage-imageTitle {
+  position: relative;
+  margin-top: -215px;
+}
+
+// Nav
+
+.SliderImage-nav {
+  position: absolute;
+  width: 100%;
+  top: calc(50% - 40px);
+  left: -80px;
+}
+
+.SliderImage-navWrapper {
+  width: calc(100% + 160px);
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  .BaseSliderNavButton {
+    &--prev {
+      position: relative;
+      left: -40px;
+    }
+    &--next {
+      position: relative;
+      right: -40px;
+    }
+  }
+}

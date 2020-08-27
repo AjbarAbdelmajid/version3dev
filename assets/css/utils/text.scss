@@ -1,0 +1,21 @@
+.u-textCenter {
+  text-align: center;
+}
+
+.u-textLeft {
+  text-align: left;
+}
+
+.u-textUppercase {
+  text-transform: uppercase;
+}
+
+.u-textUnderline {
+  text-decoration: underline;
+}
+
+.u-textHeading {
+  font-family: $title-font;
+  text-transform: uppercase;
+  font-weight: 600;
+}

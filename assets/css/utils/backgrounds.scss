@@ -1,0 +1,15 @@
+.u-bgGrey {
+  background: $greyBg;
+}
+
+.u-bgBlue {
+  background: $darkBlue;
+}
+
+.u-bgWhite {
+  background: $white;
+}
+
+.u-bgPattern {
+  @include bgPattern();
+}

@@ -1,0 +1,56 @@
+{# 
+	component: horizontal_card_actions
+
+    - selection {horizontal_card_selection} (optional): selection
+		- note {string} (optional): remarque
+		- price {object} (optional): prix
+			- start {string}(optional): à partir de
+			- value {number}: prix
+			- quantity {string}: quantité (ex: par personne)
+    - button {base_button}: button
+		
+#}
+
+{% set props = {
+  selection: null,
+	note: null,
+	price: null,
+  button: null
+}|merge(props|default({}))  %}
+
+<div class="HorizontalCardActions {%- if props.selection is null and (props.note is not null and props.price is null) %} one-line{% endif %}">
+	{% if props.selection is not null %}
+		<div class="HorizontalCardActions-left">
+			{% include 'component/horizontal_card_selection.html.twig' with {
+				props: props.selection
+			} %}
+		</div>
+	{% endif %}
+	{% if props.note is not null %}
+		<div class="HorizontalCardActions-left">
+			<div class="HorizontalCardActions-note">{{ props.note }}</div>
+		</div>
+	{% endif %}
+	<div class="HorizontalCardActions-right {%- if props.selection is null and props.price is not null and props.note is null  %} is-full{% endif %}">
+		{% if props.price is not null %}
+			<div class="HorizontalCardActions-price">
+				{% if props.price.start is defined and props.price.start is not null  %}
+					<span class="HorizontalCardActions-priceStart">{{props.price.start}}</span>
+				{% endif %}
+				<div class="HorizontalCardActions-priceInner">
+					<span class="price">{{ props.price.value }}</span>€
+					<small>{{props.price.quantity}}</small>
+				</div>
+			</div>
+		{% endif %}
+		<div class="HorizontalCardActions-button">
+			{% include 'component/base_button.html.twig' with {
+        props: {
+					size: 'large',
+					title: props.button.title,
+					url: props.button.url
+				}
+      } %}
+		</div>
+	</div>
+</div>

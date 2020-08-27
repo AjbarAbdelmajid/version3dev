@@ -1,0 +1,286 @@
+{# 
+	page: gallery
+#}
+
+{% extends "layouts/base.html.twig" %}
+
+{% set jsPageId = 'gallery' %}
+{% set pageClass = 'Gallery' %}
+{% set heroSize = 'small' %}
+
+{% set data = {
+  items:
+    [
+      {
+        icon: "logo-min",
+        label: "<strong>Pornic</strong>",
+        id: "pornic",
+        images: [
+          {
+            src: asset("build/images/home/slider-text-spa.jpg"),
+            alt: "alt de l'image",
+            size: {
+              width: "960",
+              height: "560"
+            }
+          },
+          {
+            src: asset("build/images/home/slider-text-spa.jpg"),
+            alt: "alt de l'image",
+            size: {
+              width: "960",
+              height: "560"
+            }
+          },
+          {
+            src: asset("build/images/home/slider-text-spa.jpg"),
+            alt: "alt de l'image",
+            size: {
+              width: "960",
+              height: "560"
+            }
+          },
+        ]
+      },
+      {
+        icon: "hotel",
+        label: "<strong>L’hôtel</strong>",
+        id: "hotel",
+        images: [
+          {
+            src: asset("build/images/home/slider-text-spa.jpg"),
+            alt: "alt de l'image",
+            size: {
+              width: "960",
+              height: "560"
+            }
+          },
+          {
+            src: asset("build/images/home/slider-text-spa.jpg"),
+            alt: "alt de l'image",
+            size: {
+              width: "960",
+              height: "560"
+            }
+          },
+          {
+            src: asset("build/images/home/slider-text-spa.jpg"),
+            alt: "alt de l'image",
+            size: {
+              width: "960",
+              height: "560"
+            }
+          },
+        ]
+      },
+      {
+        icon: "bed",
+        label: "Chambres & <strong>suites</strong>",
+        id: "room",
+        images: [
+          {
+            src: asset("build/images/home/slider-text-spa.jpg"),
+            alt: "alt de l'image",
+            size: {
+              width: "960",
+              height: "560"
+            }
+          },
+          {
+            src: asset("build/images/home/slider-text-spa.jpg"),
+            alt: "alt de l'image",
+            size: {
+              width: "960",
+              height: "560"
+            }
+          },
+          {
+            src: asset("build/images/home/slider-text-spa.jpg"),
+            alt: "alt de l'image",
+            size: {
+              width: "960",
+              height: "560"
+            }
+          },
+        ]
+      },
+      {
+        icon: "napkins",
+        label: "Soins <strong>thalasso</strong>",
+        id: "thalasso",
+        images: [
+          {
+            src: asset("build/images/home/slider-text-spa.jpg"),
+            alt: "alt de l'image",
+            size: {
+              width: "960",
+              height: "560"
+            }
+          },
+          {
+            src: asset("build/images/home/slider-text-spa.jpg"),
+            alt: "alt de l'image",
+            size: {
+              width: "960",
+              height: "560"
+            }
+          },
+          {
+            src: asset("build/images/home/slider-text-spa.jpg"),
+            alt: "alt de l'image",
+            size: {
+              width: "960",
+              height: "560"
+            }
+          },
+        ]
+      },
+      {
+        icon: "well-being",
+        label: "SPA & <strong>bien-être</strong>",
+        id: "spa",
+        images: [
+          {
+            src: asset("build/images/home/slider-text-spa.jpg"),
+            alt: "alt de l'image",
+            size: {
+              width: "960",
+              height: "560"
+            }
+          },
+          {
+            src: asset("build/images/home/slider-text-spa.jpg"),
+            alt: "alt de l'image",
+            size: {
+              width: "960",
+              height: "560"
+            }
+          },
+          {
+            src: asset("build/images/home/slider-text-spa.jpg"),
+            alt: "alt de l'image",
+            size: {
+              width: "960",
+              height: "560"
+            }
+          },
+        ]
+      },
+      {
+        icon: "restaurant",
+        label: "Les <strong>restaurants</strong>",
+        id: "restaurant",
+        images: [
+          {
+            src: asset("build/images/home/slider-text-spa.jpg"),
+            alt: "alt de l'image",
+            size: {
+              width: "960",
+              height: "560"
+            }
+          },
+          {
+            src: asset("build/images/home/slider-text-spa.jpg"),
+            alt: "alt de l'image",
+            size: {
+              width: "960",
+              height: "560"
+            }
+          },
+          {
+            src: asset("build/images/home/slider-text-spa.jpg"),
+            alt: "alt de l'image",
+            size: {
+              width: "960",
+              height: "560"
+            }
+          },
+        ]
+      },
+      {
+        icon: "seminar",
+        label: "Séminaires <strong>& banquets</strong>",
+        id: "seminar",
+        images: [
+          {
+            src: asset("build/images/home/slider-text-spa.jpg"),
+            alt: "alt de l'image",
+            size: {
+              width: "960",
+              height: "560"
+            }
+          },
+          {
+            src: asset("build/images/home/slider-text-spa.jpg"),
+            alt: "alt de l'image",
+            size: {
+              width: "960",
+              height: "560"
+            }
+          },
+          {
+            src: asset("build/images/home/slider-text-spa.jpg"),
+            alt: "alt de l'image",
+            size: {
+              width: "960",
+              height: "560"
+            }
+          },
+        ]
+      }
+    ]   
+  }
+%}
+
+{% block content %}
+	<div
+		class="u-bgGrey">
+
+		{# Hero #}
+		{% include 'component/page_hero.html.twig' with {
+    props: {
+      size: heroSize,
+      content_over: true,
+      title: "Galerie photos",
+      image: {
+       	src: asset('build/images/gallery/hero-gallery.jpg'),
+        alt: '',
+        size: {
+          width: "1440",
+          height: "800"
+        }
+      }
+    }
+  } %}
+
+		{# nav #}
+		{% include 'component/gallery_nav.html.twig' with {
+        props: {
+          items: data.items
+        }
+    } %}
+
+
+		<div class="u-wrapperSmall">
+
+			<div class="Gallery-sliders">
+
+				{% for item in data.items %}
+					<div
+						class="Gallery-slider {%- if loop.index == 1 %} active{% endif %}" data-id="{{ item.id }}" ref="sliderItem">
+
+						{# sliders #}
+						{% include 'component/slider_image.html.twig' with {
+            props: {
+              slides: item.images
+            }
+        } %}
+					</div>
+
+				{% endfor %}
+			</div>
+
+		</div>
+
+
+	{% endblock %}

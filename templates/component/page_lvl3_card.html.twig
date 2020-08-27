@@ -1,0 +1,89 @@
+{# 
+	component: page_lvl3_card
+
+  description {string}: Description (juste avec des strong)
+  slides {array}: Slider d'images {base_image}
+  tabs {array}: Onglets
+    - label {string}: label 
+    - content {array}: tableau de contenu (max 2 entrées = 2 colonnes) {base_cms_text}
+		- actions {horizontal_card_actions} : actions
+      
+
+#}
+
+{% set props = {
+  description: null,
+  slides: null,
+  tabs: null,
+}|merge(props|default({}))  %}
+
+<div class="PageLvl3Card">
+	<div
+		class="PageLvl3Card-wrapper u-wrapperLarge">
+
+		{# Slider #}
+		<div class="PageLvl3Card-slider">
+			<div class="PageLvl3Card-sliderInner">
+				<div class="PageLvl3Card-slides u-posFit">
+
+					{% for item in props.slides %}
+						<div class="PageLvl3Card-slideItem u-posFit">
+							{% include 'component/base_image.html.twig' with {
+								props: item
+							} %}
+						</div>
+					{% endfor %}
+				</div>
+				<div class="PageLvl3Card-description u-posFit u-alignVerticalCenter">
+					{{ props.description|raw }}
+				</div>
+				<div class="PageLvl3Card-sliderBullets u-alignCenter">
+					{% include 'component/base_slider_bullets.html.twig' with {
+						props: {
+							count: props.slides|length
+						}
+					} %}
+				</div>
+			</div>
+		</div>
+
+		<div
+			class="PageLvl3Card-container">
+
+			{# Tabs #}
+			<div class="PageLvl3Card-tabs">
+				{% for item in props.tabs %}
+					<div class="PageLvl3Card-tabsItem {%- if loop.index == 1 %} active{% endif %}" data-id=" {{loop.index}} ">{{ item.label }}</div>
+				{% endfor %}
+			</div>
+
+			<div
+				class="PageLvl3Card-content">
+
+				{# Content items #}
+				{% for item in props.tabs %}
+					<div
+						class="PageLvl3Card-contentItem {%- if loop.index == 1 %} active{% endif %}" data-id="{{loop.index}}">
+
+						{# Cols #}
+						<div class="PageLvl3Card-cols">
+							{% for content in item.content %}
+								<div class="PageLvl3Card-colsItem">
+									{% include 'component/base_cms_text.html.twig' with {
+                    props: {
+                      content: content
+                    }
+                  } %}
+								</div>
+							{% endfor %}
+						</div>
+
+						{% include 'component/horizontal_card_actions.html.twig' with {
+							props: item.actions
+						} %}
+					</div>
+				{% endfor %}
+			</div>
+		</div>
+	</div>
+</div>

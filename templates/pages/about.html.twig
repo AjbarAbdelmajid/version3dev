@@ -1,0 +1,189 @@
+{# 
+	page: list_lvl1
+#}
+
+{% extends "layouts/base.html.twig" %}
+
+{% set jsPageId = 'about' %}
+{% set pageClass = 'About' %}
+{% set heroSize = 'small' %}
+
+{% block content %}
+
+	{# Hero #}
+	{% include 'component/page_hero.html.twig' with {
+    props: {
+      size: heroSize,
+      content_over: false,
+      has_icon: true,
+      title: "Qui sommes nous ?",
+      image: {
+       	src: asset('build/images/about/hero-about.jpg'),
+        alt: '',
+        size: {
+          width: "1440",
+          height: "800"
+        }
+      }
+    }
+  } %}
+
+
+	{# Filter bar #}
+	{% include 'component/filter_bar.html.twig' %}
+
+
+	{# Presentation #}
+	{% include 'component/page_intro_media_text.html.twig' with {
+    props: {
+      wrapper: "large",
+      title: "<strong>Alliance Pornic</strong><br>un centre de thalasso historique",
+      subtitle: "Une équipe de 175 professionnels à votre service",
+      video: {
+        id: "",
+        cover: {
+          src: asset('build/images/about/bg-presentation-video.jpg'),
+          alt: '',
+          size: {
+            width: "1440",
+            height: "800"
+          }
+        }
+      },
+      content: {
+        title: "ALLIANCE PORNIC RESORT <br>HÔTEL THALASSO & SPA",
+        text: "<p>Implanté dans l’édifice qui fut le casino de Pornic à la fin du XIXe siècle, à l’époque des bains de mer, notre hôtel s’est métamorphosé au fil des décennies.</p>
+        <p>Ouvert en juin 1990, la Thalasso de Pornic est un magnifique <br>vaisseau dédié à la forme et au bien-être.</p>",
+        items:[
+          {
+            icon: "bed",
+            title: "Un resort hotel d’un hectare",
+            text: "Face à l’Océan de 112 chambres et 8 suites  ",
+          },
+          {
+            icon: "napkins",
+            title: "4 univers de soins",
+            text: "Reliés directement à l’hôtel : le centre de Thalassothérapie, l’Espace Forme, complet et spacieux. L’espace Beauté Spa, avec ses 14 cabines, et le nouvel Espace Capital Santé.",
+          },
+          {
+            icon: "cutlery",
+            title: "La restauration",
+            text: "Le choix dans la restauration : 2 restaurants et 2 bars face à l’Océan.",
+          }
+        ]
+      }
+    }
+  } %}
+
+	{# Separator #}
+	<div class="u-wrapperMedium">
+		{% include 'component/base_separator.html.twig' %}
+	</div>
+
+	{% include 'component/about_founder.html.twig' with {
+    props: {
+        image: {
+          src: asset('build/images/about/founder.jpg'),
+          alt: '',
+          size: {
+            width: "480",
+            height: "712"
+          }
+        },
+        text:"<p>En Juin 1989, j’assistais à la pose de la première pierre de ce complexe qui allait devenir au fil des métamorphoses, un magnifique établissement de 120 chambres, 4 000m² dédiés à la Thalassothérapie, aux activités aquatiques et sportives, 14 cabines SPA, et un professionnalisme plébiscité par la fidélité de notre clientèle.</p>
+        <p>Aujourd’hui, toujours à l’écoute des avancées en matière de prévention-santé et de bien-être, notre ambition première est l’efficacité et la qualité de nos soins.</p>
+        <p>Mon équipe et moi-même sommes toujours ravis de vous accueillir, de vous conseiller, et de vous chouchouter lors de votre séjour…</p>"
+      }
+  } %}
+
+	{% include 'component/about_team.html.twig' with {
+    props: {
+        title: 'Notre objectif<br> <strong>la reussite de vos sejours</strong>',
+        text:"Sous la responsabilité de <span class='u-cGold'>Marie-Noëlle VEILLET BERRY</span>, une équipe de 175 professionnels œuvre au bien-être de tous les curistes passant par Pornic",
+        items: [
+          {
+            title:"Thérapeutes",
+            image: {
+              src: asset('build/images/about/bg-team-coach.jpg'),
+              alt: '',
+              size: {
+                width: "560",
+                height: "800"
+              }
+            },
+          },
+          {
+            title:"Esthéticiennes",
+            image: {
+              src: asset('build/images/about/bg-team-coach.jpg'),
+              alt: '',
+              size: {
+                width: "560",
+                height: "800"
+              }
+            },
+          },
+          {
+            title:"Coachs sportifs",
+            image: {
+              src: asset('build/images/about/bg-team-coach.jpg'),
+              alt: '',
+              size: {
+                width: "560",
+                height: "800"
+              }
+            },
+          },
+          {
+            title:"Kinésithérapeutes",
+            image: {
+              src: asset('build/images/about/bg-team-coach.jpg'),
+              alt: '',
+              size: {
+                width: "560",
+                height: "800"
+              }
+            },
+          },
+          {
+            title:"Médecins",
+            image: {
+              src: asset('build/images/about/bg-team-coach.jpg'),
+              alt: '',
+              size: {
+                width: "560",
+                height: "800"
+              }
+            },
+          },
+          {
+            title:"Diététiciennes",
+            image: {
+              src: asset('build/images/about/bg-team-coach.jpg'),
+              alt: '',
+              size: {
+                width: "560",
+                height: "800"
+              }
+            },
+          },
+          {
+            title:"Cuisiniers",
+            image: {
+              src: asset('build/images/about/bg-team-coach.jpg'),
+              alt: '',
+              size: {
+                width: "560",
+                height: "800"
+              }
+            },
+          } 
+        ],
+        all_link: {
+          title: "Découvrez <br>tous nos experts",
+          url: "#"
+        }
+      }
+  } %}
+
+{% endblock %}

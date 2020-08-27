@@ -1,0 +1,41 @@
+{# 
+	component: page_hero 
+
+	has_icon {boolean}: afficher l'icon ou non
+	content_over {boolean}: contenu de la page qui dépasse au dessus
+	size {string}: taille
+	page {string}: page
+	title {string}: titre
+	image {base_image}: image
+	
+#}
+
+{% set props = {
+	has_icon: false,
+	content_over: false,
+	size: 'default',
+  title: null, 
+	image: null
+}|merge(props|default({}))  %}
+
+<section class="PageHero {{ props.size }} {%- if props.content_over %} content-over{% endif %}">
+	<div class="PageHero-inner u-posFit u-alignVerticalCenter">
+		<div class="PageHero-bg u-posFit">
+			{% include 'component/base_image.html.twig' with {
+        props: props.image
+      } %}
+		</div>
+		<div class="PageHero-content u-wrapperLarge ">
+			{% if props.has_icon == true %}
+				{% include 'component/base_icon.html.twig' with {
+          props:{
+            name: "logo-min"
+          }
+      } %}
+			{% endif %}
+			<h1 class="PageHero-title u-textCenter u-cWhite">
+				{{ props.title|raw }}
+			</h1>
+		</div>
+	</div>
+</section>

@@ -1,0 +1,84 @@
+{#
+  component: about_presentation
+
+  wrapper {string}: taille du wrapper (large|medium)
+  title {string}: titre
+  subtitle {string}: sous-titre
+  video {base_video}: video
+    - id {string}: video id
+    - cover {base_image}
+  content {object}: contenu
+    - title {string}: titre
+    - text {string}: text
+    - items {array} (optional): tableau d'items
+        - icon {string}: icon
+        - title {string}: titre
+        - text {base_cms_text}: texte
+#}
+
+{% set props = {
+  wrapper: "medium",
+  title: null,
+  subtitle: null,
+  video: null,
+  content: null
+}|merge(props|default({}))  %}
+
+<section class="PageIntroMediaText">
+
+	<div class="{% if props.wrapper == "large" %}u-wrapperLarge{% else %}u-wrapperMedium{% endif %}">
+		<div class="PageIntroMediaText-wrapTitle u-textCenter">
+			{% include 'component/base_icon.html.twig' with {
+          props: {
+            name: 'logo-min'
+          }
+        } %}
+			<h2 class="PageIntroMediaText-title u-wrapper u-titleMedium">{{ props.title|raw }}</h2>
+			<div class="u-titleXSmall u-cGold">{{ props.subtitle }}</div>
+		</div>
+
+
+		{% if props.video %}
+			<div class="PageIntroMediaText-video">
+				{% include 'component/base_video.html.twig' with {
+        props: props.video
+      } %}
+			</div>
+		{% elseif props.image %}
+			<div class="PageIntroMediaText-image">
+				{% include 'component/base_image.html.twig' with {
+        props: props.image
+      } %}
+			</div>
+		{% endif %}
+
+		<div class="PageIntroMediaText-content u-textCenter">
+
+			<div class="PageIntroMediaText-contentTop">
+				{% include 'component/base_icon.html.twig' with {
+          props: {
+            name: 'logo-min'
+          }
+        } %}
+				<div class="PageIntroMediaText-contentTitle u-titleXSmall u-cGold">{{ props.content.title|raw }}</div>
+				<div class="PageIntroMediaText-contentText u-titleXSmall">{{props.content.text|raw}}</div>
+
+			</div>
+
+			{% if props.content.items is defined %}
+				<div class="PageIntroMediaText-items u-alignCenter">
+
+					{% for item in props.content.items %}
+						<div class="PageIntroMediaText-item">
+							{% include 'component/block_icon_title_text.html.twig' with {
+              props: item|merge({theme:"icon-circle"})
+            } %}
+						</div>
+					{% endfor %}
+
+				</div>
+			{% endif %}
+		</div>
+	</div>
+
+</section>

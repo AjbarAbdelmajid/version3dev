@@ -1,0 +1,94 @@
+.SliderCard {
+  width: 100%;
+  position: relative;
+  padding: 120px 0;
+
+  &::before {
+    @include pseudo();
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 724px;
+    background: $greyBg;
+    z-index: -1;
+  }
+
+  &.reverse {
+    padding: 200px 0 120px 0;
+
+    &::before {
+      height: 700px;
+    }
+
+    .SliderCard-images {
+      right: auto;
+      left: 0;
+    }
+
+    .SliderCard-title {
+      padding-left: calc(600 / 1440 * 100%);
+    }
+
+    .SliderCard-content {
+      flex-direction: row-reverse;
+    }
+
+    .SliderCard-slidesItem {
+      margin-right: 0;
+      margin-left: 80px;
+    }
+
+    .SliderCard-allLink {
+      display: flex;
+      justify-content: flex-end;
+      padding-right: 80px;
+    }
+    .SliderCard-nav {
+      right: -80px;
+      left: auto;
+      top: 180px;
+    }
+  }
+}
+
+.SliderCard-slides {
+  display: flex;
+  padding: 60px 0 0 0;
+}
+
+.SliderCard-slidesItem {
+  margin-right: 80px;
+}
+
+.SliderCard-images {
+  width: calc(480 / 1440 * 100%);
+  height: 800px;
+  background: $darkBlue;
+  position: absolute;
+  right: 0;
+  bottom: 120px;
+
+  .BaseImage {
+    @include posFit();
+  }
+}
+
+.SliderCard-nav {
+  position: relative;
+  left: -80px;
+  top: 115px;
+
+  .BaseSliderNavButton {
+    margin-bottom: 20px;
+  }
+}
+
+.SliderCard-content {
+  display: flex;
+}
+
+.SliderCard-allLink {
+  margin-top: 35px;
+  padding-left: 80px;
+}

@@ -1,0 +1,145 @@
+.HorizontalCard {
+  background: $white;
+  width: 100%;
+  border: 1px solid #e8e8e8;
+  position: relative;
+
+  &.good-deal {
+    width: 100%;
+    margin-left: 40px;
+
+    .HorizontalCard-image {
+      top: 40px;
+      margin-left: -80px;
+      margin-bottom: 80px;
+    }
+
+    .HorizontalCardSelection-itemPrice {
+      display: none;
+    }
+    .HorizontalCardActions-left {
+      width: 55%;
+    }
+    .HorizontalCardActions-right {
+      width: 45%;
+    }
+  }
+}
+
+.HorizontalCard-inner {
+  display: flex;
+}
+
+.HorizontalCard-image {
+  flex: none;
+  width: calc(400 / 1120 * 100%);
+  position: relative;
+
+  .BaseImage {
+    position: absolute;
+  }
+}
+
+.HorizontalCard-content {
+  width: 100%;
+  position: relative;
+  flex-direction: column;
+  display: flex;
+  justify-content: space-between;
+
+  .BaseCMSText {
+    p {
+      line-height: 28px;
+    }
+  }
+}
+.HorizontalCard-contentInner {
+  padding: 80px 80px 40px 80px;
+  position: relative;
+  min-height: 400px;
+  width: 100%;
+}
+
+.HorizontalCard-title {
+  margin-bottom: 20px;
+}
+
+.HorizontalCard-intro {
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 19px;
+  font-style: italic;
+  padding-bottom: 15px;
+  display: block;
+}
+
+// Details
+
+.HorizontalCard-details {
+  margin-bottom: 20px;
+}
+
+.HorizontalCard-detailsItem {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 20px 0;
+
+  .BaseIconCircle {
+    margin-right: 45px;
+
+    .highlight-text,
+    .h4 {
+      margin-bottom: 0;
+    }
+  }
+}
+
+// offers
+
+.HorizontalCard-offers {
+  display: flex;
+  align-items: stretch;
+  margin: 20px 0;
+}
+
+.HorizontalCard-offersItem {
+  width: 180px;
+  height: 220px;
+  text-align: center;
+  padding: 20px;
+  border: 1px solid $greyLight;
+  margin-right: 40px;
+
+  &:last-child {
+    margin-right: 0;
+  }
+
+  .value {
+    font-size: 36px;
+    line-height: 43px;
+    color: $gold;
+    font-weight: 500;
+    margin-bottom: 8px;
+    margin-top: -15px;
+  }
+
+  .for {
+    line-height: 17px;
+  }
+
+  .duration {
+    color: $darkBlue;
+    margin-top: 22px;
+    font-size: 12px;
+    line-height: 14px;
+
+    strong {
+      font-family: $title-font;
+      font-weight: 600;
+      font-size: 16px;
+      line-height: 19px;
+      display: block;
+    }
+  }
+}

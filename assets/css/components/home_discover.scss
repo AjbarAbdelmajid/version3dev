@@ -1,0 +1,186 @@
+.HomeDiscover {
+  padding: 120px 0;
+}
+
+.HomeDiscover-content {
+  width: 100%;
+  position: relative;
+  margin-top: 50px;
+  padding-bottom: calc((680 / 1440) * 100%);
+
+  &.is-active {
+    .HomeDiscover-item {
+      opacity: 0.6;
+
+      &.active {
+        opacity: 1;
+      }
+    }
+  }
+}
+
+.HomeDiscover-items {
+  position: relative;
+  z-index: 20;
+  height: 100%;
+  position: absolute;
+  width: 100%;
+}
+
+.HomeDiscover-item {
+  padding: 0px 40px;
+  height: 100%;
+  width: calc(100% / 4);
+  flex: none;
+  transition: background 0.5s $ease-quart-out;
+
+  &:hover {
+    background: rgba(0, 0, 0, 0.4);
+
+    .HomeDiscover-itemTitle {
+      transform: translateY(-60px);
+      &::after {
+        transform: scaleX(1);
+      }
+    }
+    .HomeDiscover-itemDescription {
+      transform: translateY(0px);
+      opacity: 1;
+    }
+  }
+}
+
+.HomeDiscover-itemTitle {
+  position: relative;
+
+  &::after {
+    @include pseudo();
+    width: 15px;
+    height: 1px;
+    background: $gold;
+    position: absolute;
+    left: 50%;
+    margin-left: -7px;
+    bottom: -25px;
+    transform: scaleX(0);
+  }
+}
+
+.HomeDiscover-itemDescription {
+  height: 0;
+  opacity: 0;
+  max-width: 280px;
+}
+
+.HomeDiscover-images {
+  z-index: 10;
+  position: relative;
+}
+
+.HomeDiscover-wrapImage {
+  overflow: hidden;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+
+  &.move {
+    // transition: transform 0.5s $ease-quart-out;
+    // .BaseImage {
+    //   transition: transform 0.5s $ease-quart-out;
+    // }
+    // img {
+    //   transition: opacity 0.4s $ease-quad-in-out, transform 0.5s $ease-quart-out;
+    // }
+  }
+
+  .BaseImage {
+    overflow: hidden;
+
+    &::after {
+      @include pseudo();
+      @include posFit();
+      background: $black;
+      opacity: 0.2;
+    }
+  }
+
+  &:nth-child(1) {
+    transform: translateX(calc(-100% / 4 * 3));
+
+    .BaseImage {
+      transform: translateX(calc(100% / 4 * 3));
+    }
+  }
+  &:nth-child(2) {
+    transform: translateX(calc(100% / 4 * 1));
+
+    .BaseImage {
+      transform: translateX(calc(-100% / 4 * 3));
+    }
+
+    img {
+      transform: translateX(calc(100% / 4 * 2));
+    }
+  }
+  &:nth-child(3) {
+    transform: translateX(calc(100% / 4 * 2));
+
+    .BaseImage {
+      transform: translateX(calc(-100% / 4 * 3));
+    }
+    img {
+      transform: translateX(calc(100% / 4 * 1));
+    }
+  }
+  &:nth-child(4) {
+    transform: translateX(calc(100% / 4 * 3));
+
+    .BaseImage {
+      transform: translateX(calc(-100% / 4 * 3));
+    }
+  }
+}
+
+.HomeDiscover-itemButton {
+  flex: none;
+  width: 80px;
+  height: 80px;
+  position: relative;
+  margin: 40px auto 0 auto;
+
+  &::after {
+    @include pseudo();
+    @include posFit();
+    border: 2px solid $gold;
+    border-radius: 100%;
+  }
+}
+
+.HomeDiscover-itemButtonIcon {
+  width: 14px;
+  height: 14px;
+  position: relative;
+
+  &::after,
+  &::before {
+    @include pseudo();
+    background: $white;
+    position: absolute;
+  }
+
+  &::after {
+    width: 100%;
+    height: 1px;
+    left: 0;
+    top: 50%;
+  }
+
+  &::before {
+    height: 100%;
+    width: 1px;
+    left: 50%;
+    top: 0;
+  }
+}

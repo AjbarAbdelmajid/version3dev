@@ -1,0 +1,54 @@
+.PageFormContent {
+  .SliderImage-slider {
+    &:nth-child(1),
+    &:nth-child(3) {
+      .SliderImage-images {
+        height: calc(100% - 80px);
+        top: auto;
+        bottom: 0;
+      }
+    }
+  }
+}
+
+.PageFormContent-wrapper {
+  padding: 80px;
+  position: relative;
+  z-index: 2;
+
+  &::before {
+    @include pseudo();
+    position: absolute;
+    background: $white;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 580px;
+  }
+}
+
+.PageFormContent-content {
+  max-width: 780px;
+  margin: -160px auto 0 auto;
+  background: $white;
+  z-index: 50;
+  position: relative;
+}
+
+.PageFormContent-contentInner {
+  padding: 80px;
+}
+
+.PageFormContent-title {
+  margin-bottom: 20px;
+}
+
+.PageFormContent-items {
+  display: flex;
+  justify-content: space-between;
+}
+
+.PageFormContent-item {
+  width: calc(50% - 40px);
+  margin-top: 40px;
+}

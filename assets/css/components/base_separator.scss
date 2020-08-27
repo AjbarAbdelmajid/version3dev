@@ -1,0 +1,19 @@
+.BaseSeparator {
+  width: 100%;
+
+  &::after,
+  &::before {
+    @include pseudo();
+    width: 50%;
+    height: 1px;
+    background: #e8e8e8;
+  }
+
+  .BaseIcon {
+    flex: none;
+    width: 20px;
+    height: 16px;
+    margin: 0 45px;
+    fill: $gold;
+  }
+}

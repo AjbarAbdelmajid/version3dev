@@ -1,0 +1,29 @@
+.BaseIconCircle {
+  width: 100px;
+  height: 100px;
+  position: relative;
+  flex: none;
+
+  .BaseIcon {
+    width: 36px;
+    height: 36px;
+    fill: $gold;
+  }
+
+  &.small {
+    width: 80px;
+    height: 80px;
+  }
+}
+
+.BaseIconCircle-circle {
+  @include posFit();
+
+  svg {
+    position: absolute;
+    left: 0;
+    top: 0;
+    stroke: $gold;
+    stroke-width: 2px;
+  }
+}

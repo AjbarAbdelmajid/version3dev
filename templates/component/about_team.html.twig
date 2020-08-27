@@ -1,0 +1,55 @@
+{#
+  component: about_team
+
+  title {string}: titre,
+  text: {base_cms_text}: texte (seulement <strong></strong>)
+  items {array}: tableau d'items
+    - title {titre}: titre
+    - image {base_image}: image
+  all_link {base_link}: lien vers tous les experts
+
+#}
+
+{% set props = {
+  title: null,
+  text: null,
+  items: [],
+  all_link: null
+}|merge(props|default({}))  %}
+
+<section data-component="about_team" class="AboutTeam">
+
+	<div class="AboutTeam-wrapper u-wrapperMedium">
+		<div class="AboutTeam-images">
+			{% for item in props.items %}
+				<div class="AboutTeam-image u-posFit" data-id="{{ loop.index }}">
+					{% include 'component/base_image.html.twig' with {
+            props: item.image
+          } %}
+				</div>
+			{% endfor %}
+		</div>
+
+		<div class="AboutTeam-content">
+			<h2 class="AboutTeam-contentTitle u-titleSmall">{{ props.title|raw }}</h2>
+			<div class="AboutTeam-contentText u-titleXSmall">{{ props.text|raw }}</div>
+
+			<div class="AboutTeam-blockWhite">
+				<div class="AboutTeam-items">
+					{% for item in props.items %}
+						<div class="AboutTeam-item" data-id="{{ loop.index }}">
+							{{ item.title }}
+						</div>
+					{% endfor %}
+				</div>
+
+				<div class="AboutTeam-link">
+					{% include 'component/base_link.html.twig' with {
+            props: props.all_link
+          } %}
+				</div>
+			</div>
+		</div>
+	</div>
+
+</section>

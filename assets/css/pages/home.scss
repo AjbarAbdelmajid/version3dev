@@ -1,0 +1,149 @@
+.Home {
+}
+
+// Hero
+
+.HomeHero {
+  width: 100%;
+  height: 100vh;
+  position: relative;
+}
+
+.HomeHero-bg {
+}
+
+.HomeHero-content {
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  color: $white;
+}
+
+.HomeHero-meteo {
+  font-size: 14px;
+  line-height: 17px;
+  margin-bottom: 20px;
+}
+
+.HomeHero-meteoSky,
+.HomeHero-meteoTemp {
+  display: flex;
+  margin: 0 10px;
+
+  .BaseIcon {
+    width: 20px;
+    height: 20px;
+    fill: $white;
+    margin-right: 7px;
+  }
+}
+
+.HomeHero-title {
+  font-size: 100px;
+  line-height: 100px;
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: center;
+  font-weight: 400;
+}
+
+.HomeHero-subtitle {
+  font-size: 24px;
+  line-height: 29px;
+  font-weight: 500;
+  margin-top: 25px;
+}
+
+.HomeHero-wrapFilterBar {
+  position: absolute;
+  bottom: 80px;
+  width: 1120px;
+  margin: 0 auto;
+  left: 50%;
+  transform: translateX(-50%);
+  max-width: calc(100% - 160px);
+  z-index: 10;
+}
+
+// Pornic
+
+.HomePornic {
+  margin: 120px 0;
+}
+
+.HomePornic-content {
+  justify-content: space-between;
+  margin-top: -125px;
+  z-index: 2;
+  position: relative;
+}
+
+.HomePornic-illu {
+  position: relative;
+  margin-left: 70px;
+  top: -10px;
+}
+
+.HomePornic-text {
+  width: 320px;
+  line-height: 28px;
+}
+
+.HomePornic-text1 {
+  margin-top: 60px;
+}
+
+.HomePornic-text2 {
+  margin-top: 201px;
+}
+
+.HomePornic-link {
+  margin-top: 80px;
+}
+
+.HomePornic-textIntro {
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 28px;
+  font-family: $title-font;
+  color: $goldDark;
+  margin-bottom: 20px;
+}
+
+.HomePornic-illu {
+  width: 500px;
+  height: 250px;
+}
+
+.HomePornic-illu {
+  width: 500px;
+  height: 250px;
+}
+
+.HomePornic-imgs {
+  width: 320px;
+  height: 480px;
+  position: relative;
+}
+
+.HomePornic-img1 {
+  width: 320px;
+  height: 400px;
+  position: absolute;
+  top: -320px;
+  right: -240px;
+  z-index: 10;
+}
+
+.HomePornic-img2 {
+  width: 320px;
+  height: 480px;
+}
+
+// Cures
+
+.Home-wrapCures {
+  position: relative;
+  // padding: 0px 0 120px 0;
+}

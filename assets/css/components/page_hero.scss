@@ -1,0 +1,52 @@
+.PageHero {
+  position: relative;
+  width: 100%;
+  height: 640px;
+  // padding-bottom: calc(640 / 1440 * 100%);
+
+  &.medium {
+    height: 800px;
+  }
+
+  &.content-over {
+    margin-bottom: -160px;
+
+    .PageHero-content {
+      margin-top: -40px;
+    }
+  }
+}
+
+.PageHero-content {
+  position: relative;
+  margin-top: 140px;
+
+  .BaseIcon--logo-min {
+    width: 20px;
+    height: 15px;
+    fill: $white;
+    margin-bottom: 25px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.PageHero-title {
+  font-family: $title-font;
+  font-weight: 500;
+  font-size: 80px;
+  line-height: 70px;
+
+  .small {
+    font-size: 30px;
+    display: block;
+  }
+}
+
+.PageHero-bg {
+  background: $black;
+
+  .BaseImage {
+    opacity: 0.85;
+  }
+}

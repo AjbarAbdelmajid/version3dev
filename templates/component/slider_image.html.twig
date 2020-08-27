@@ -1,0 +1,68 @@
+{# 
+	component: Slider text 
+
+	slides {array}: Tableau de slides (slider_card_item)
+    - image	{base_image}: Image
+    - large_title	{string}: title
+
+#}
+
+{% set props = {
+  slides: []
+}|merge(props|default({}))  %}
+
+{% set componentId = "slider_text" %}
+
+
+<section class="SliderImage" data-component="{{ componentId }}">
+	<div class="SliderImage-inner u-alignCenter">
+		{% for i in 0..2 %}
+
+			<div class="SliderImage-slider">
+
+				<div class="SliderImage-images">
+					{% for item in props.slides %}
+						<div class="SliderImage-wrapImage u-posFit u-alignVerticalCenter">
+							<div class="SliderImage-image u-posFit">
+								{% if item.image is defined %}
+									{% include 'component/base_image.html.twig' with {
+											props: {
+												src: item.image.src,
+												alt: item.image.alt
+											}
+										} %}
+								{% elseif item.src is defined %}
+									{% include 'component/base_image.html.twig' with {
+											props: {
+												src: item.src,
+												alt: item.alt
+											}
+										} %}
+								{% endif %}
+							</div>
+							{% if item.large_title is defined %}
+								<h2 class="SliderImage-imageTitle u-titleLarge">{{ item.large_title }}</h2>
+							{% endif %}
+						</div>
+					{% endfor %}
+				</div>
+			</div>
+		{% endfor %}
+
+		<div class="SliderImage-nav">
+			<div class="SliderImage-navWrapper">
+				{% include 'component/base_slider_nav_button.html.twig' with {
+                props: {
+                  sens: 'prev'
+                }
+            } %}
+				{% include 'component/base_slider_nav_button.html.twig' with {
+                  props: {
+                    sens: 'next'
+                  }
+              } %}
+			</div>
+		</div>
+
+	</div>
+</section>

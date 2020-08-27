@@ -1,0 +1,73 @@
+.Map {
+  width: 100%;
+  background: $darkBlue;
+  padding-bottom: calc(680 / 1440 * 100%);
+  position: relative;
+}
+
+.Map-marker {
+  top: 0;
+  left: 0;
+  position: absolute;
+  z-index: 12;
+  width: 10px;
+  height: 10px;
+}
+
+.Map-markerInner {
+  width: 180px;
+  height: 80px;
+  position: absolute;
+  left: 50%;
+  top: 10px;
+  margin-left: -90px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  &::after {
+    @include pseudo();
+    background: $greenBlue;
+    @include posFit();
+  }
+  &::before {
+    @include pseudo();
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-width: 0 5.5px 7px 5.5px;
+    border-color: transparent transparent $greenBlue transparent;
+    position: absolute;
+    left: 50%;
+    top: -7px;
+    margin-left: -5px;
+  }
+
+  .BaseImage {
+    width: 115px;
+    height: 52px;
+    position: relative;
+    z-index: 2;
+  }
+}
+
+.Map-container {
+  width: 100%;
+  height: 100%;
+
+  &::after,
+  &::before {
+    @include pseudo();
+    width: 100%;
+    height: 2px;
+    background: $white;
+    position: absolute;
+    z-index: 20;
+  }
+  &::after {
+    top: -1px;
+  }
+
+  &::before {
+    bottom: -1px;
+  }
+}

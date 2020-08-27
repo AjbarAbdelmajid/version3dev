@@ -1,0 +1,21 @@
+{# 
+	component: base_image 
+
+	src {string}: source de l'image
+	alt {string}: alt de l'image
+  placement {string}: placement
+  lazyload {boolean}: lazyload de l'image
+#}
+
+{% set props = {
+  src:  'http://www.pornic.test/?test=' ~ random(5),
+	alt: 'Pornic',
+  placement: "cover",
+  lazyload: false,
+}|merge(props|default({}))  %}
+
+{% set jsComponentId = "base_image" %}
+
+<div class="BaseImage BaseImage--{{ props.placement }} {%- if props.lazyload %} lazyload{% endif %}" data-component="{{ jsComponentId }}">
+	<img {% if not props.lazyload %} src="{{ props.src }}" {% endif %} class="BaseImage-image" {% if props.lazyload %} data-src="{{ props.src }}" {% endif %} alt="{{ props.alt }}"/>
+</div>

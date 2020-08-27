@@ -1,0 +1,262 @@
+{# 
+	page: page_lvl3
+#}
+
+{% extends "layouts/base.html.twig" %}
+
+{% set jsPageId = 'page' %}
+{% set pageClass = 'PageLvl3' %}
+{% set heroSize = 'medium' %}
+
+{% block content %}
+
+	{# Hero #}
+	{% include 'component/page_hero.html.twig' with {
+    props: {
+      size: heroSize,
+      content_over: true,
+      has_icon: true,
+      title: "Thalasso & <br>Secret du monde",
+      image: {
+       	src: asset('build/images/page/hero-thalasso-secret-monde.jpg'),
+        alt: '',
+        size: {
+          width: "1440",
+          height: "800"
+        }
+      }
+    }
+  } %}
+
+
+	{# Breadcrumb #}
+	{% include 'component/breadcrumb.html.twig' with {
+    props: {
+      theme: 'light',
+      items: [
+        {
+          label: "Accueil",
+          link: "./",
+          active: false
+        },
+        {
+          label: "Séjours détente en thalassothérapie",
+          link: "/page-lvl1",
+          active: false
+        },
+        {
+          label: "Cures thalasso & SPA",
+          link: "/page-lvl2",
+          active: false
+        },
+        {
+          label: "Thalasso & secret du monde",
+          link: "/page-lvl3",
+          active: true
+        }
+      ]
+    }
+  } %}
+
+	{# Intro #}
+	{% include 'component/page_lvl3_intro.html.twig' with {
+      props: {
+        title: "Voyage sensoriel <strong>entre soins marins et soins Spa</strong>",
+        introduction: "Découvrez les effets thérapeutiques de l’eau de mer, mêlés à l’exploration sensorielle de différentes techniques de massages, héritées de cultures lointaines.",
+        text: "<p>Vous repartirez ressourcé(e) physiquement et psychiquement par ce voyage en sensations venues d’ailleurs, chaque jour renouvelées.</p><p>Un massage par jour pour goûter à la découverte de ces héritages et découvrir le savoir faire de notre Spa marin.</p>"
+      }
+    }
+  %}
+
+	{# detail_card #}
+	{% include 'component/page_lvl3_card.html.twig' with {
+      props: {
+        description:"<p><strong>17 soins</strong> répartis sur <strong>4 jours</strong> en alternance le matin et l’après-midi</p>",
+        slides: [
+          {
+            src: asset('build/images/page/thalasso-secret-monde-slide-1.jpg'),
+            alt: '',
+            size: {
+              width: "400",
+              height: "720"
+            }
+          },
+          {
+            src: asset('build/images/page/thalasso-secret-monde-slide-1.jpg'),
+            alt: '',
+            size: {
+              width: "400",
+              height: "720"
+            }
+          },
+          {
+            src: asset('build/images/page/thalasso-secret-monde-slide-1.jpg'),
+            alt: '',
+            size: {
+              width: "400",
+              height: "720"
+            }
+          }
+        ],
+        tabs: [
+          {
+            label: "6 jours",
+            content: [
+              "<span class='h3'>Soin thalasso</span>
+              <ul>
+                <li><strong>2 jets pression</strong></li>
+                <li><strong>2 douches apaisantes</strong> à affusion</li>
+                <li><strong>2 bains hydromassants</strong> aux algues</li>
+                <li><strong>2 bains hydromassants</strong> aux huiles essentielles</li>
+                <li><strong>2 séances de Détox Infrarouge</strong> (30mn)</li>
+              </ul>",
+              "<span class='h3'>Soin SPA</span>
+              <ul>
+                <li><strong>1 massage à choisir</strong>parmi nos EXCLUSIFS : Vibrations japonaises, massothérapie japonaise, Massaï, Maori, Maya ou massage au Joya de 50 mn</li>
+                <li><strong>1 shiatsu de 50 mn</strong></li>
+                <li><strong>1 réflexologie chinoise</strong> de 50 mn</li>
+                <li><strong>1 massage visage et cuir chevelu</strong> (20 mn)</li>
+                <li><strong>1 massage aromatique aux huiles bio</strong> (20mn)</li>
+                <li><strong>1 massage aromatique aux huiles bio</strong> (20mn)</li>
+                <li><strong>1 enveloppement au choix</strong> dans notre sélection (20mn)</li>
+                <li><strong>1 beauté gommage corps au choix </strong>parmi notre sélection (cristal aux pétales de fleurs, cuivré aux huiles et sels de la mer morte, aux 3 sels…) – (20 mn) (20mn)</li>
+              </ul>"
+            ],
+            actions: {
+              selection: {
+                name: "lodging",
+                inputs:[
+                  {
+                    value: "with_lodging",
+                    url: "#",
+                    label: "Avec hébergement",
+                    description: "En chambre double patio",
+                    price: {
+                      start: null,
+                      value: 1962,
+                      quantity: "Par personne"
+                    }
+                  },
+                  {
+                    value: "without_lodging",
+                    url: "#",
+                    label: "Sans hébergement",
+                    price: {
+                      start: null,
+                      value: 1182,
+                      quantity: "Par personne"
+                    }
+                  }
+                ],
+              },
+              price: {
+                start: null,
+                value: 1962,
+                quantity: "Par personne"
+              },
+              button: {
+                title: "réserver cette cure",
+                url: "#",
+                external: true
+              }
+            }
+          },
+          {
+            label: "4 jours",
+            content: [
+              "<span class='h3'>Soin thalasso</span>
+              <ul>
+                <li><strong>2 jets pression</strong></li>
+                <li><strong>2 douches apaisantes</strong> à affusion</li>
+                <li><strong>2 bains hydromassants</strong> aux algues</li>
+                <li><strong>2 bains hydromassants</strong> aux huiles essentielles</li>
+                <li><strong>2 séances de Détox Infrarouge</strong> (30mn)</li>
+              </ul>",
+              "<span class='h3'>Soin SPA</span>
+              <ul>
+                <li><strong>1 massage à choisir</strong>parmi nos EXCLUSIFS : Vibrations japonaises, massothérapie japonaise, Massaï, Maori, Maya ou massage au Joya de 50 mn</li>
+                <li><strong>1 shiatsu de 50 mn</strong></li>
+                <li><strong>1 réflexologie chinoise</strong> de 50 mn</li>
+                <li><strong>1 massage visage et cuir chevelu</strong> (20 mn)</li>
+                <li><strong>1 massage aromatique aux huiles bio</strong> (20mn)</li>
+                <li><strong>1 massage aromatique aux huiles bio</strong> (20mn)</li>
+                <li><strong>1 enveloppement au choix</strong> dans notre sélection (20mn)</li>
+                <li><strong>1 beauté gommage corps au choix </strong>parmi notre sélection (cristal aux pétales de fleurs, cuivré aux huiles et sels de la mer morte, aux 3 sels…) – (20 mn) (20mn)</li>
+              </ul>"
+            ],
+            actions: {
+              selection: {
+                name: "lodging",
+                inputs:[
+                  {
+                    value: "with_lodging",
+                    url: "#",
+                    label: "Avec hébergement",
+                    description: "En chambre double patio",
+                    price: {
+                      start: null,
+                      value: 1962,
+                      quantity: "Par personne"
+                    }
+                  },
+                  {
+                    value: "without_lodging",
+                    url: "#",
+                    label: "Sans hébergement",
+                    price: {
+                      start: null,
+                      value: 1182,
+                      quantity: "Par personne"
+                    }
+                  }
+                ],
+              },
+              price: {
+                start: null,
+                value: 1962,
+                quantity: "Par personne"
+              },
+              button: {
+                title: "réserver cette cure",
+                url: "#",
+                external: true
+              }
+            }
+          }
+        ]
+      }
+    }
+  %}
+
+	{# Advantages #}
+	{% include 'component/page_advantages.html.twig' with {
+      props: {
+        title:"Nos +",
+        items: [
+          {
+            icon: "doctor",
+            title: "Visite de santé obligatoire ",
+            text: "et incluse dans le forfait",
+          },
+          {
+            icon: "sport-area",
+            title: "Accès libre de 9h à 20h ",
+            text: "tout le temps de votre séjour pour profiter pleinement de notre Espace Forme",
+          },
+          {
+            icon: "restaurant",
+            title: "Découvrir les menus Bio-ayurvédiques ou Bio-détox minceur au",
+            text: " restaurant Bio La Terrasse.",
+          },
+          {
+            icon: "heartbeat",
+            title: "Les marches toniques matinales",
+            text: "et l’occasion de renouer avec l’exercice physique à travers un choix de 60 cours collectifs par semaine, sur simple inscription"
+          },
+        ]
+      }
+    }
+  %}
+
+
+{% endblock %}

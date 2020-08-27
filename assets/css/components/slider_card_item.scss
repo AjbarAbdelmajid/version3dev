@@ -1,0 +1,94 @@
+.SliderCardItem {
+  width: 400px;
+  height: 480px;
+  background: $white;
+  padding: 35px 40px 0 40px;
+  position: relative;
+}
+
+.SliderCardItem-theme {
+  text-transform: uppercase;
+  color: $greenBlue;
+  font-size: 12px;
+  line-height: 14px;
+  font-weight: 500;
+  margin-bottom: 20px;
+}
+
+.SliderCardItem-title {
+}
+
+.SliderCardItem-details {
+  display: flex;
+  align-items: center;
+  margin: 23px 0 30px;
+  width: 100%;
+}
+
+.SliderCardItem-detailsItem {
+  width: 40%;
+}
+
+.SliderCardItem-price {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.SliderCardItem-priceStart {
+  font-weight: 500;
+  font-size: 10px;
+  line-height: 12px;
+  color: $gold;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  white-space: nowrap;
+  width: 100%;
+  margin: 20px 0 10px 0;
+
+  &::after {
+    @include pseudo();
+    width: 100%;
+    height: 1px;
+    background: #e8e8e8;
+    margin-left: 20px;
+  }
+}
+
+.SliderCardItem-pricePrevious {
+  font-size: 32px;
+  line-height: 38px;
+  color: $darkBlue;
+  margin-right: auto;
+  justify-self: flex-start;
+  text-decoration: line-through;
+}
+
+.SliderCardItem-priceCurrent {
+  font-weight: 500;
+  font-size: 42px;
+  line-height: 50px;
+  color: $gold;
+  display: flex;
+  margin-right: auto;
+  align-items: center;
+
+  small {
+    font-size: 10px;
+    line-height: 12px;
+    text-transform: uppercase;
+    max-width: 60px;
+    margin-left: 14px;
+    font-family: $text-font;
+  }
+}
+
+.SliderCardItem-button {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}

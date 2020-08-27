@@ -1,0 +1,109 @@
+/**
+ * Make an element the width of its parent.
+ */
+
+.u-sizeFull {
+  width: 100% !important;
+}
+
+/**
+ * Make an element fill the remaining space.
+ *
+ * 1. Be explicit to work around IE10 bug with shorthand flex
+ *    http://git.io/vllC7
+ * 2. IE10 ignores previous `flex-basis` value. Setting again here fixes
+ *    http://git.io/vllMt
+ */
+
+.u-sizeFill {
+  flex: 1 1 0% !important; /* 1 */
+  flex-basis: 0% !important; /* 2 */
+}
+
+.u-size1of1 {
+  flex: none !important;
+  width: 100% !important;
+}
+
+.u-size1of2 {
+  flex: none !important;
+  width: 50% !important;
+}
+
+.u-size1of3 {
+  flex: none !important;
+  width: (100% / 3) !important;
+}
+
+.u-size2of3 {
+  flex: none !important;
+  width: (100% / 3) * 2 !important;
+}
+
+.u-size1of4 {
+  flex: none !important;
+  width: (100% / 4) !important;
+}
+
+.u-size1of5 {
+  flex: none !important;
+  width: (100% / 5) !important;
+}
+
+.u-size1of6 {
+  flex: none !important;
+  width: (100% / 6) !important;
+}
+
+.u-size2of10 {
+  flex: none !important;
+  width: 20% !important;
+}
+
+.u-size3of10 {
+  flex: none !important;
+  width: 33.33% !important;
+}
+
+.u-size2of12 {
+  flex: none !important;
+  width: 16.66% !important;
+}
+
+.u-size3of12 {
+  flex: none !important;
+  width: 25% !important;
+}
+
+.u-size5of12 {
+  flex: none !important;
+  width: 41.66% !important;
+}
+
+.u-size3of20 {
+  flex: none !important;
+  width: 15% !important;
+}
+
+// md
+@include media(">medium") {
+  .u-md-size1of2 {
+    flex: none !important;
+    width: 50% !important;
+  }
+
+  .u-md-size2of12 {
+    flex: none !important;
+    width: 16.66% !important;
+  }
+
+  .u-md-size3of12 {
+    flex: none !important;
+    width: 25% !important;
+  }
+
+  .u-md-size5of12 {
+    flex: none !important;
+    width: 41.66% !important;
+  }
+}

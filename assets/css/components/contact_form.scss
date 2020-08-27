@@ -1,0 +1,40 @@
+.ContactForm {
+  padding-bottom: 80px;
+}
+
+.ContactForm-wrapper {
+  background: $white;
+  // margin-top: -160px;
+  position: relative;
+}
+
+.ContactForm-form {
+  padding-top: 40px;
+}
+
+.ContactForm-intro {
+  text-align: center;
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 50px 0 35px 0;
+}
+
+.ContactForm-inputs {
+  display: flex;
+  flex-wrap: wrap;
+  padding: 40px 40px 0 40px;
+}
+
+.ContactForm-content {
+}
+
+.ContactForm-input {
+  padding: 0 40px;
+  margin-bottom: 42px;
+}
+
+.ContactForm-mandatoryFieldsInfo {
+  position: absolute;
+  bottom: -30px;
+  right: 0;
+}

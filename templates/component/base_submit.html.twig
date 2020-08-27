@@ -1,0 +1,18 @@
+{#
+	component: base_submit
+
+	title {string}: titre
+#}
+
+
+{% set props = {
+    title: null
+}|merge(props|default({})) %}
+
+<div
+	data-component="submit" class="BaseSubmit">
+
+	{# Submit #}
+	<input class="BaseSubmit-input" type="submit" value="{{ props.title }}">
+
+</div>

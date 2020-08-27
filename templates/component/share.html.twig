@@ -1,0 +1,29 @@
+{#
+  component: share
+
+  text {string}: texte
+  items {array}: tableau d'items
+    - url {string}: url
+    - icon {string}: icon
+#}
+
+{% set props = {
+  text: "",
+  items: []
+}|merge(props|default({}))  %}
+
+<article class="Share u-alignCenter">
+	<div class="Share-text">{{ props.text }}</div>
+	<div class="Share-items u-alignCenter">
+		{% for item in props.items %}
+			<a href="{{ item.url }}" target="_blank" class="Share-item">
+				{% include 'component/base_icon.html.twig' with {
+          props: {
+            name: item.icon
+          }
+        } 
+      %}
+			</a>
+		</div>
+	{% endfor %}
+</article>

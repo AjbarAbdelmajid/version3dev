@@ -1,0 +1,17 @@
+{#
+  component: base_slider_bullets
+
+	count {number}: nombre de bullets
+#}
+
+{% set props = {
+	count: 0
+}|merge(props|default({}))  %}
+
+<div class="BaseSliderBullets">
+	<ul class="BaseSliderBullets-list">
+		{% for i in 0..props.count %}
+			<li data-id="{{ loop.index }}" class="BaseSliderBullets-item {%- if loop.index == 0 %} active{% endif %}"></li>
+		{% endfor  %}
+	</ul>
+</div>

@@ -1,0 +1,32 @@
+.BlockIconTitleText {
+  .BaseCMSText {
+    ul {
+      padding-left: 30px;
+    }
+  }
+
+  &.default {
+    .BlockIconTitleText-title {
+      display: flex;
+      margin-bottom: 30px;
+
+      .BaseIcon {
+        width: 20px;
+        height: 18px;
+        fill: $gold;
+        margin-right: 15px;
+      }
+    }
+  }
+
+  &.icon-circle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    .BlockIconTitleText-title {
+      margin: 30px 0 20px 0;
+    }
+  }
+}

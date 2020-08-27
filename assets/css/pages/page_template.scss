@@ -1,0 +1,20 @@
+.PageTemplate {
+  .Footer-firstSeparator {
+    display: none;
+  }
+}
+
+.PageTemplate-wrapper {
+  position: relative;
+  z-index: 40;
+  padding-top: 40px;
+}
+
+.PageTemplate-contentSection {
+  padding: 40px 80px;
+  text-align: left;
+}
+
+.PageTemplate-mainCont {
+  padding-bottom: 80px;
+}

@@ -1,0 +1,42 @@
+{#
+  component: block_icon_title_text
+
+  theme {string}: theme (default|icon-circle)
+  icon {string}: icon
+  title {string}: title
+  text {base_cms_text}: text
+#}
+
+{% set props = {
+  theme: "default",
+  icon: null,
+  title: null,
+  text: null
+}|merge(props|default({}))  %}
+
+<article class="BlockIconTitleText {{ props.theme }}">
+
+	{% if props.theme == 'icon-circle' %}
+		{% include 'component/base_icon_circle.html.twig' with {
+      props: {
+        icon: item.icon
+      }
+    } %}
+		<div class="BlockIconTitleText-title u-textHighlight u-cGold">{{ item.title|raw }}</div>
+	{% else %}
+		<div class="BlockIconTitleText-title u-textHighlight">
+			{% include 'component/base_icon.html.twig' with {
+        props: {
+            name: item.icon
+          }
+        } %}
+			{{ item.title|raw }}
+		</div>
+	{% endif %}
+
+
+	{% include 'component/base_cms_text.html.twig' with {
+    props: {
+      content: item.text
+    }
+  } %}</article>

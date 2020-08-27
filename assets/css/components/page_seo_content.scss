@@ -1,0 +1,83 @@
+.PageSeoContent {
+  padding: 270px 0 120px 0;
+  position: relative;
+
+  &::before {
+    @include pseudo();
+    position: absolute;
+    background: $white;
+    width: 100%;
+    top: 430px;
+    left: 0;
+    height: calc(100% - 430px);
+  }
+}
+
+.PageSeoContent-illu {
+  width: 500px;
+  height: 250px;
+  margin: 20px auto;
+  position: relative;
+
+  .BaseImage {
+    position: absolute;
+  }
+}
+
+.PageSeoContent-intro {
+  font-size: 24px;
+  line-height: 29px;
+  font-family: $title-font;
+  color: $gold;
+  max-width: 680px;
+  margin: 0 auto;
+  font-weight: 500;
+}
+
+.PageSeoContent-wrapper {
+  position: relative;
+  z-index: 2;
+
+  &::before {
+    @include pseudo();
+    position: absolute;
+    background: $white;
+    width: 100%;
+    height: 100%;
+    top: -90px;
+    left: 0;
+    z-index: -1;
+  }
+}
+
+.PageSeoContent-content {
+  display: flex;
+  text-align: left;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 0 70px;
+  margin-top: 60px;
+}
+
+.PageSeoContent-contentText {
+  width: calc(50% - 80px);
+
+  &,
+  p {
+    line-height: 28px;
+  }
+}
+
+.PageSeoContent-contentImage {
+  width: calc(50% - 80px);
+
+  .BaseImage {
+    width: 100%;
+    height: 0;
+    padding-bottom: calc(568 / 400 * 100%);
+
+    img {
+      position: absolute;
+    }
+  }
+}
