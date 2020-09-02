@@ -7,5 +7,29 @@ sonata_admin:
     dashboard:
         blocks:
             - { type: sonata.admin.block.admin_list, position: left }
+            
+        groups:
+            chambre:
+                label: 'Chambre'
+                label_catalogue: App
+                items:
+                    - app.admin.Chambre
+            typeLit:
+                label: 'Type Lit'
+                label_catalogue: App
+                items:
+                    - app.admin.TypeLit
+
+            typechambre:
+                label: 'Type Chambre'
+                label_catalogue: App
+                items:
+                    - app.admin.TypeChambre
+            chambrephotos:
+                label: 'Image de  Chambre'
+                label_catalogue: App
+                items:
+                    - app.admin.chambrephotos
+            
     options:
         legacy_twig_text_extension: false

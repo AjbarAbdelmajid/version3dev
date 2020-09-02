@@ -11,8 +11,8 @@ file that was distributed with this source code.
 
 {% extends '@SonataAdmin/CRUD/base_show_field.html.twig' %}
 
-{% block field %}sdkljfsdklfjsd
-    {% if value %}sdkljfsdklfjsd
+{% block field %}
+    {% if value %}
         {% set route_name = field_description.options.route.name %}
         {% if field_description.hasAssociationAdmin
         and field_description.associationadmin.hasRoute(route_name)

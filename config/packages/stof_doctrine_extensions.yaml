@@ -6,6 +6,7 @@ stof_doctrine_extensions:
     persist_default_translation: true
     orm:
         default:
+            timestampable: true
             tree: true
             translatable: true
             sluggable: true

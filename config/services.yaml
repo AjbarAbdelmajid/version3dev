@@ -6,6 +6,7 @@
 parameters:
 
 services:
+    Sonata\MediaBundle\Entity\MediaManager: '@sonata.media.manager.media'
     # default configuration for services in *this* file
     _defaults:
         autowire: true      # Automatically injects dependencies in your services.
@@ -25,3 +26,27 @@ services:
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
+
+    app.admin.Chambre:
+        class: App\Admin\ChambreAdmin
+        arguments: [~, App\Entity\Chambre, ~ ]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: 'chambre', label: 'Chambre', keep_open: true,on_top: true, icon: '<i class="fa fa-angle-double-right"></i>'}
+    
+    app.admin.TypeChambre:
+        class: App\Admin\TypeChambreAdmin
+        arguments: [~, App\Entity\TypeChambre, ~ ]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: 'typechambre', label: 'Type Chambre', keep_open: true,on_top: true, icon: '<i class="fa fa-angle-double-right"></i>'}
+
+    app.admin.TypeLit:
+        class: App\Admin\TypeLitAdmin
+        arguments: [~, App\Entity\TypeLit, ~ ]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: 'typeLit', label: 'Type Lit', keep_open: true,on_top: true, icon: '<i class="fa fa-angle-double-right"></i>'}
+
+    app.admin.chambrephotos:
+        class: App\Admin\ChambrePhotosAdmin
+        arguments: [~, App\Entity\ChambrePhotos, ~ ]
+        tags:
+            - { name: sonata.admin, manager_type: orm, group: 'chambrephotos', label: 'Chambre media', icon: '<i class="fa fa-angle-double-right"></i>', keep_open: true,on_top: true, show_in_dashboard: false}
